@@ -62,7 +62,8 @@
             "u": '<img src="images/mana/manau.png" width="40" alt="blue">',
             "b": '<img src="images/mana/manab.png" width="40" alt="black">',
             "r": '<img src="images/mana/manar.png" width="40" alt="red">',
-            "g": '<img src="images/mana/manag.png" width="40" alt="green">'
+            "g": '<img src="images/mana/manag.png" width="40" alt="green">',
+            "c": '<img src="images/mana/manac.png" width="40" alt="colorless">'
         };
 
         return colors.map(function (color) {
