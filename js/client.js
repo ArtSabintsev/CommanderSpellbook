@@ -25,7 +25,7 @@
             for (let c in combos) {
                 const combo = [];
                 combo.cardLinks = replaceCardNamesWithLinks(combos[c].slice(0, 10));
-                combo.nicknames = filterNicknames(combos[c][11].split('.'));
+                combo.nicknames = filterNicknames(combos[c][11]);
                 combo.tutorial = replaceTutorialWithLink(combos[c][12]);
                 combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][15]);
                 combo.boardState = splitText(combos[c][10]);
@@ -49,8 +49,8 @@
     }
 
     function filterNicknames(nicknames) {
-        if (nicknames.length > 0) {
-            return nicknames;
+        if (nicknames != "") {
+            return nicknames.split('.');
         } else {
             return "N/A";
         }
@@ -71,11 +71,11 @@
     function replaceColorIdentityWithImageSources(identity) {
         const colors = identity.split(",");
         const imagePaths = {
-            "white": '<img src="images/mana/manaw.png" width="40" alt="white">',
-            "blue": '<img src="images/mana/manau.png" width="40" alt="blue">',
-            "black": '<img src="images/mana/manab.png" width="40" alt="black">',
-            "red": '<img src="images/mana/manar.png" width="40" alt="red">',
-            "green": '<img src="images/mana/manag.png" width="40" alt="green">'
+            "w": '<img src="images/mana/manaw.png" width="40" alt="white">',
+            "u": '<img src="images/mana/manau.png" width="40" alt="blue">',
+            "b": '<img src="images/mana/manab.png" width="40" alt="black">',
+            "r": '<img src="images/mana/manar.png" width="40" alt="red">',
+            "g": '<img src="images/mana/manag.png" width="40" alt="green">'
         };
 
         return colors.map(function (color) {
