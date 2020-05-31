@@ -23,10 +23,9 @@
             const combo = [];
             combo.cardLinks = replaceCardNamesWithLinks(combos[c].slice(0, 10));
             combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][10]);
-            combo.tutorial = replaceTutorialWithLink(combos[c][11]);
-            combo.boardState = splitText(combos[c][12]);
-            combo.description = splitText(combos[c][13]);
-            combo.result = splitText(combos[c][14]);
+            combo.boardState = splitText(combos[c][11]);
+            combo.description = splitText(combos[c][12]);
+            combo.result = splitText(combos[c][13]);
             data.push(combo);
         }
 
@@ -91,21 +90,18 @@
             const tr = document.createElement('tr');
             const tdCardLinks = document.createElement('td');
             const tdColorIdentity = document.createElement('td');
-            const tdTutorial = document.createElement('td');
             const tdBoardState = document.createElement('td');
             const tdDescription = document.createElement('td');
             const tdResult = document.createElement('td');
 
             tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
-            tdTutorial.innerHTML = `${combo.tutorial}`;
             tdBoardState.innerHTML = `<ul>${combo.boardState.map(e => `<li>${e}</li>`).join('')}<ul>`;
             tdDescription.innerHTML = `<ol>${combo.description.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
 
             tr.appendChild(tdCardLinks);
             tr.appendChild(tdColorIdentity);
-            tr.appendChild(tdTutorial);
             tr.appendChild(tdBoardState);
             tr.appendChild(tdDescription);
             tr.appendChild(tdResult);
