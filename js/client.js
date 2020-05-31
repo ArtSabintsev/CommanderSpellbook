@@ -45,7 +45,7 @@
 
     function replaceTutorialWithLink(tutorial) {
         if (tutorial != "") {
-            return `<a href="${tutorial}">Tutorial</a>`;
+            return `<object data="${tutorial}"></object>`;
         } else {
             return "N/A";
         }
