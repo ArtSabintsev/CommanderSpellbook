@@ -43,7 +43,7 @@
         });
 
         return cards.map(function (e) {
-            return `<a href="https://deckbox.org/mtg/" + e>${e}</a>`;
+            return `<a href="https://deckbox.org/mtg/${e}">${e}</a>`;
         });
     }
 
