@@ -80,6 +80,8 @@
             desc = desc.replace(/:mana16:/g, `<img src="images/mana/mana3.png" width="${width}" alt="16 mana">`);
             desc = desc.replace(/:mana20:/g, `<img src="images/mana/mana3.png" width="${width}" alt="20 mana">`);
 
+            desc = desc.trim();
+            
             return desc.split(replacementChar).filter(t => t.length > 0);
         }
     }
@@ -116,9 +118,9 @@
 
             tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
-            tdBoardState.innerHTML = `<ul>${combo.boardState.map(e => `<li>${e.trim()}</li>`).join('')}<ul>`;
-            tdDescription.innerHTML = `<ol>${combo.description.map(e => `<li>${e.trim()}</li>`).join('')}<ol>`;
-            tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e.trim()}</li>`).join('')}<ul>`;
+            tdBoardState.innerHTML = `<ul>${combo.boardState.map(e => `<li>${e}</li>`).join('')}<ul>`;
+            tdDescription.innerHTML = `<ol>${combo.description.map(e => `<li>${e}</li>`).join('')}<ol>`;
+            tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
 
             tr.appendChild(tdCardLinks);
             tr.appendChild(tdColorIdentity);
