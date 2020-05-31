@@ -39,51 +39,59 @@
     }
 
     function splitText(description) {
-        const replacementChar = "|||";
-        var desc = description.replace(/\./g, replacementChar);
+        if (isBlank(description)) {
+            return description;
+        } else {
+            const replacementChar = "|||";
+            var desc = description.replace(/\./g, replacementChar);
 
-        const width = 20;
-        desc = desc.replace(/:manaw:/g, `<img src="images/mana/manaw.png" width="${width}" alt="white">`);
-        desc = desc.replace(/:manau:/g, `<img src="images/mana/manau.png" width="${width}" alt="blue">`);
-        desc = desc.replace(/:manab:/g, `<img src="images/mana/manab.png" width="${width}" alt="black">`);
-        desc = desc.replace(/:manar:/g, `<img src="images/mana/manar.png" width="${width}" alt="red">`);
-        desc = desc.replace(/:manag:/g, `<img src="images/mana/manag.png" width="${width}" alt="green">`);
-        desc = desc.replace(/:manac:/g, `<img src="images/mana/manac.png" width="${width}" alt="colorless">`);
-        desc = desc.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana">`);
-        desc = desc.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana">`);
-        desc = desc.replace(/:mana3:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana4:/g, `<img src="images/mana/mana3.png" width="${width}" alt="4 mana">`);
-        desc = desc.replace(/:mana5:/g, `<img src="images/mana/mana3.png" width="${width}" alt="5 mana">`);
-        desc = desc.replace(/:mana6:/g, `<img src="images/mana/mana3.png" width="${width}" alt="6 mana">`);
-        desc = desc.replace(/:mana7:/g, `<img src="images/mana/mana3.png" width="${width}" alt="7 mana">`);
-        desc = desc.replace(/:mana8:/g, `<img src="images/mana/mana3.png" width="${width}" alt="8 mana">`);
-        desc = desc.replace(/:mana9:/g, `<img src="images/mana/mana3.png" width="${width}" alt="9 mana">`);
-        desc = desc.replace(/:mana10:/g, `<img src="images/mana/mana3.png" width="${width}" alt="10 mana">`);
-        desc = desc.replace(/:mana11:/g, `<img src="images/mana/mana3.png" width="${width}" alt="11 mana">`);
-        desc = desc.replace(/:mana12:/g, `<img src="images/mana/mana3.png" width="${width}" alt="12 mana">`);
-        desc = desc.replace(/:mana13:/g, `<img src="images/mana/mana3.png" width="${width}" alt="13 mana">`);
-        desc = desc.replace(/:mana14:/g, `<img src="images/mana/mana3.png" width="${width}" alt="14 mana">`);
-        desc = desc.replace(/:mana15:/g, `<img src="images/mana/mana3.png" width="${width}" alt="15 mana">`);
-        desc = desc.replace(/:mana16:/g, `<img src="images/mana/mana3.png" width="${width}" alt="16 mana">`);
-        desc = desc.replace(/:mana20:/g, `<img src="images/mana/mana3.png" width="${width}" alt="20 mana">`);
+            const width = 20;
+            desc = desc.replace(/:manaw:/g, `<img src="images/mana/manaw.png" width="${width}" alt="white">`);
+            desc = desc.replace(/:manau:/g, `<img src="images/mana/manau.png" width="${width}" alt="blue">`);
+            desc = desc.replace(/:manab:/g, `<img src="images/mana/manab.png" width="${width}" alt="black">`);
+            desc = desc.replace(/:manar:/g, `<img src="images/mana/manar.png" width="${width}" alt="red">`);
+            desc = desc.replace(/:manag:/g, `<img src="images/mana/manag.png" width="${width}" alt="green">`);
+            desc = desc.replace(/:manac:/g, `<img src="images/mana/manac.png" width="${width}" alt="colorless">`);
+            desc = desc.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana">`);
+            desc = desc.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana">`);
+            desc = desc.replace(/:mana3:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
+            desc = desc.replace(/:mana4:/g, `<img src="images/mana/mana3.png" width="${width}" alt="4 mana">`);
+            desc = desc.replace(/:mana5:/g, `<img src="images/mana/mana3.png" width="${width}" alt="5 mana">`);
+            desc = desc.replace(/:mana6:/g, `<img src="images/mana/mana3.png" width="${width}" alt="6 mana">`);
+            desc = desc.replace(/:mana7:/g, `<img src="images/mana/mana3.png" width="${width}" alt="7 mana">`);
+            desc = desc.replace(/:mana8:/g, `<img src="images/mana/mana3.png" width="${width}" alt="8 mana">`);
+            desc = desc.replace(/:mana9:/g, `<img src="images/mana/mana3.png" width="${width}" alt="9 mana">`);
+            desc = desc.replace(/:mana10:/g, `<img src="images/mana/mana3.png" width="${width}" alt="10 mana">`);
+            desc = desc.replace(/:mana11:/g, `<img src="images/mana/mana3.png" width="${width}" alt="11 mana">`);
+            desc = desc.replace(/:mana12:/g, `<img src="images/mana/mana3.png" width="${width}" alt="12 mana">`);
+            desc = desc.replace(/:mana13:/g, `<img src="images/mana/mana3.png" width="${width}" alt="13 mana">`);
+            desc = desc.replace(/:mana14:/g, `<img src="images/mana/mana3.png" width="${width}" alt="14 mana">`);
+            desc = desc.replace(/:mana15:/g, `<img src="images/mana/mana3.png" width="${width}" alt="15 mana">`);
+            desc = desc.replace(/:mana16:/g, `<img src="images/mana/mana3.png" width="${width}" alt="16 mana">`);
+            desc = desc.replace(/:mana20:/g, `<img src="images/mana/mana3.png" width="${width}" alt="20 mana">`);
 
-        return desc.split(replacementChar).filter(t => t.length > 0);
+            return desc.split(replacementChar).filter(t => t.length > 0);
+        }
     }
 
     function replaceColorIdentityWithImageSources(identity) {
-        const colors = identity.split(",");
-        const imagePaths = {
-            "w": '<img src="images/mana/manaw.png" width="40" alt="white">',
-            "u": '<img src="images/mana/manau.png" width="40" alt="blue">',
-            "b": '<img src="images/mana/manab.png" width="40" alt="black">',
-            "r": '<img src="images/mana/manar.png" width="40" alt="red">',
-            "g": '<img src="images/mana/manag.png" width="40" alt="green">',
-            "c": '<img src="images/mana/manac.png" width="40" alt="colorless">'
-        };
+        if (isBlank(identity)) {
+            return identity;
+        } else {
+            const colors = identity.split(",");
+            const imagePaths = {
+                "w": '<img src="images/mana/manaw.png" width="40" alt="white">',
+                "u": '<img src="images/mana/manau.png" width="40" alt="blue">',
+                "b": '<img src="images/mana/manab.png" width="40" alt="black">',
+                "r": '<img src="images/mana/manar.png" width="40" alt="red">',
+                "g": '<img src="images/mana/manag.png" width="40" alt="green">',
+                "c": '<img src="images/mana/manac.png" width="40" alt="colorless">'
+            };
 
-        return colors.map(function (color) {
-            return imagePaths[color];
-        });
+            return colors.map(function (color) {
+                return imagePaths[color];
+            });
+        }
     }
 
     function storeData(data) {
@@ -110,6 +118,10 @@
 
             tableBody.appendChild(tr);
         });
+    }
+
+    function isBlank(str) {
+        return (!str || /^\s*$/.test(str));
     }
 
 })();
