@@ -53,7 +53,7 @@
 
     function splitText(description) {
         const replacementChar = "|||";
-        var desc = description.replace(/\./g, "|||");
+        var desc = description.replace(/\./g, replacementChar);
 
         const width = 20;
         desc = desc.replace(/:manaw:/g, `<img src="images/mana/manaw.png" width="${width}" alt="white">`);
