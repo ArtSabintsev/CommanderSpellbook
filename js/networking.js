@@ -73,7 +73,7 @@
             const td3 = document.createElement('td');
             const td4 = document.createElement('td');
             td1.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
-            td2.innerHTML = combo.colorIdentityImages.join('');
+            td2.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
             td3.innerHTML = `<ol>${combo.boardState.map(e => `<li>${e}</li>`).join('')}<ol>`;
             td4.innerHTML = `<ol>${combo.description.map(e => `<li>${e}</li>`).join('')}<ol>`;
 
