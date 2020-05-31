@@ -6,8 +6,6 @@
     const SULTAI = "&ranges=sultai!A2:P";
     const KEY = "&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
-    let database;
-
     window.addEventListener("load", fetchDataFromGoogleSheets);
 
     function fetchDataFromGoogleSheets() {
@@ -62,6 +60,7 @@
         };
 
         return colors.map(function (color) {
+            console.log(imagePaths[color])
             return imagePaths[color];
         });
     }
@@ -74,10 +73,10 @@
             const td2 = document.createElement('td');
             const td3 = document.createElement('td');
             const td4 = document.createElement('td');
-            td1.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`)}<ol>`;
-            td2.innerHTML = combo.colorIdentityImages;
-            td3.innerHTML = `<ol>${combo.boardState.map(e => `<li>${e}</li>`)}<ol>`;
-            td4.innerHTML = `<ol>${combo.description.map(e => `<li>${e}</li>`)}<ol>`;
+            td1.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
+            td2.innerHTML = combo.colorIdentityImages.join('');
+            td3.innerHTML = `<ol>${combo.boardState.map(e => `<li>${e}</li>`).join('')}<ol>`;
+            td4.innerHTML = `<ol>${combo.description.map(e => `<li>${e}</li>`).join('')}<ol>`;
 
             tr.appendChild(td1);
             tr.appendChild(td2);
