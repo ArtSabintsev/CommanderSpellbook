@@ -46,7 +46,7 @@
     }
 
     function splitDescription(desc) {
-        return desc.split(".");
+        return desc.split(".").filter(t => t.length > 0);
     }
 
     function replaceColorIdentityWithImageSources(identity) {
@@ -60,7 +60,6 @@
         };
 
         return colors.map(function (color) {
-            console.log(imagePaths[color])
             return imagePaths[color];
         });
     }
