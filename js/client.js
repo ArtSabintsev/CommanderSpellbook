@@ -25,12 +25,12 @@
             for (let c in combos) {
                 const combo = [];
                 combo.cardLinks = replaceCardNamesWithLinks(combos[c].slice(0, 10));
-                combo.nicknames = combos[c][11].split(',');
+                combo.nicknames = filterNicknames(combos[c][11].split('.'));
                 combo.tutorial = replaceTutorialWithLink(combos[c][12]);
                 combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][15]);
-                combo.boardState = splitDescription(combos[c][10]);
-                combo.description = splitDescription(combos[c][14]);
-                combo.result = splitDescription(combos[c][13]);
+                combo.boardState = splitText(combos[c][10]);
+                combo.description = splitText(combos[c][14]);
+                combo.result = splitText(combos[c][13]);
                 data.push(combo);
             }
         }
@@ -38,14 +38,22 @@
         storeData(data);
     }
 
-    function replaceCardNamesWithLinks(names) {
-        var cards = names.filter(function (e) {
+    function replaceCardNamesWithLinks(cardNames) {
+        var names = cardNames.filter(function (e) {
             return e != "";
         });
 
-        return cards.map(function (e) {
+        return names.map(function (e) {
             return `<a href="https://deckbox.org/mtg/${e}">${e}</a>`;
         });
+    }
+
+    function filterNicknames(nicknames) {
+        if (nicknames.length > 0) {
+            return nicknames;
+        } else {
+            return "N/A";
+        }
     }
 
     function replaceTutorialWithLink(tutorial) {
@@ -56,7 +64,7 @@
         }
     }
 
-    function splitDescription(desc) {
+    function splitText(desc) {
         return desc.split(".").filter(t => t.length > 0);
     }
 
