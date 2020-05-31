@@ -51,7 +51,17 @@
             desc = desc.replace(/:manab:/g, `<img src="images/mana/manab.png" width="${width}" alt="black">`);
             desc = desc.replace(/:manar:/g, `<img src="images/mana/manar.png" width="${width}" alt="red">`);
             desc = desc.replace(/:manag:/g, `<img src="images/mana/manag.png" width="${width}" alt="green">`);
-            desc = desc.replace(/:manac:/g, `<img src="images/mana/manac.png" width="${width}" alt="colorless">`);
+            desc = desc.replace(/:manac:/g, `<img src="images/mana/manac.png" width="${width}" alt="colorless mana">`);
+            desc = desc.replace(/:manabg:/g, `<img src="images/mana/manabg.png" width="${width}" alt="golgarai mana">`);
+            desc = desc.replace(/:manabr:/g, `<img src="images/mana/manabr.png" width="${width}" alt="rakdos mana">`);
+            desc = desc.replace(/:managu:/g, `<img src="images/mana/managu.png" width="${width}" alt="simic mana">`);
+            desc = desc.replace(/:managw:/g, `<img src="images/mana/managw.png" width="${width}" alt="selesnya mana">`);
+            desc = desc.replace(/:manarg:/g, `<img src="images/mana/manarg.png" width="${width}" alt="gruul mana">`);
+            desc = desc.replace(/:manarw:/g, `<img src="images/mana/manarw.png" width="${width}" alt="boros mana">`);
+            desc = desc.replace(/:manaub:/g, `<img src="images/mana/manaub.png" width="${width}" alt="dimir mana">`);
+            desc = desc.replace(/:manaur:/g, `<img src="images/mana/manaur.png" width="${width}" alt="izzet mana">`);
+            desc = desc.replace(/:manawb:/g, `<img src="images/mana/manawb.png" width="${width}" alt="orzhov mana">`);
+            desc = desc.replace(/:manawu:/g, `<img src="images/mana/manawu.png" width="${width}" alt="azorius mana">`);
             desc = desc.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana">`);
             desc = desc.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana">`);
             desc = desc.replace(/:mana3:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
