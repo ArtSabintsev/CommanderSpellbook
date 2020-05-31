@@ -64,20 +64,20 @@
         desc = desc.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana">`);
         desc = desc.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana">`);
         desc = desc.replace(/:mana3:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana4:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana5:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana6:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana7:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana8:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana9:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana10:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana11:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana12:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana13:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana14:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana15:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana16:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-        desc = desc.replace(/:mana20:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
+        desc = desc.replace(/:mana4:/g, `<img src="images/mana/mana3.png" width="${width}" alt="4 mana">`);
+        desc = desc.replace(/:mana5:/g, `<img src="images/mana/mana3.png" width="${width}" alt="5 mana">`);
+        desc = desc.replace(/:mana6:/g, `<img src="images/mana/mana3.png" width="${width}" alt="6 mana">`);
+        desc = desc.replace(/:mana7:/g, `<img src="images/mana/mana3.png" width="${width}" alt="7 mana">`);
+        desc = desc.replace(/:mana8:/g, `<img src="images/mana/mana3.png" width="${width}" alt="8 mana">`);
+        desc = desc.replace(/:mana9:/g, `<img src="images/mana/mana3.png" width="${width}" alt="9 mana">`);
+        desc = desc.replace(/:mana10:/g, `<img src="images/mana/mana3.png" width="${width}" alt="10 mana">`);
+        desc = desc.replace(/:mana11:/g, `<img src="images/mana/mana3.png" width="${width}" alt="11 mana">`);
+        desc = desc.replace(/:mana12:/g, `<img src="images/mana/mana3.png" width="${width}" alt="12 mana">`);
+        desc = desc.replace(/:mana13:/g, `<img src="images/mana/mana3.png" width="${width}" alt="13 mana">`);
+        desc = desc.replace(/:mana14:/g, `<img src="images/mana/mana3.png" width="${width}" alt="14 mana">`);
+        desc = desc.replace(/:mana15:/g, `<img src="images/mana/mana3.png" width="${width}" alt="15 mana">`);
+        desc = desc.replace(/:mana16:/g, `<img src="images/mana/mana3.png" width="${width}" alt="16 mana">`);
+        desc = desc.replace(/:mana20:/g, `<img src="images/mana/mana3.png" width="${width}" alt="20 mana">`);
 
         return desc.split(replacementChar).filter(t => t.length > 0);
     }
