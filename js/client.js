@@ -2,14 +2,13 @@
     "use strict";
 
     const BASE_URL = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet";
-    const BLUE = "?ranges=blue!A2:P";
-    const SULTAI = "&ranges=sultai!A2:P";
+    const COMBOS = "?ranges=combos!A2:P";
     const KEY = "&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
     window.addEventListener("load", fetchDataFromGoogleSheets);
 
     function fetchDataFromGoogleSheets() {
-        const url = BASE_URL + BLUE + SULTAI + KEY;
+        const url = BASE_URL + COMBOS + KEY;
 
         var request = new XMLHttpRequest();
         request.open("GET", url, false);
@@ -19,19 +18,16 @@
         const parsed_response = JSON.parse(response);
 
         var data = [];
-        const sheets = parsed_response.valueRanges;
-        for (let s in sheets) {
-            const combos = sheets[s].values;
-            for (let c in combos) {
-                const combo = [];
-                combo.cardLinks = replaceCardNamesWithLinks(combos[c].slice(0, 10));
-                combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][10]);
-                combo.tutorial = replaceTutorialWithLink(combos[c][11]);
-                combo.boardState = splitText(combos[c][12]);
-                combo.description = splitText(combos[c][13]);
-                combo.result = splitText(combos[c][14]);
-                data.push(combo);
-            }
+        const combos = parsed_response.valueRanges[0].values;
+        for (let c in combos) {
+            const combo = [];
+            combo.cardLinks = replaceCardNamesWithLinks(combos[c].slice(0, 10));
+            combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][10]);
+            combo.tutorial = replaceTutorialWithLink(combos[c][11]);
+            combo.boardState = splitText(combos[c][12]);
+            combo.description = splitText(combos[c][13]);
+            combo.result = splitText(combos[c][14]);
+            data.push(combo);
         }
 
         storeData(data);
@@ -49,7 +45,7 @@
 
     function replaceTutorialWithLink(tutorial) {
         if (tutorial != "") {
-         return `<a href="${tutorial}">Tutorial</a>`;
+            return `<a href="${tutorial}">Tutorial</a>`;
         } else {
             return "N/A";
         }
