@@ -38,54 +38,6 @@
         });
     }
 
-    function splitText(description) {
-        if (isBlank(description)) {
-            return description;
-        } else {
-            const replacementChar = "|||";
-            var desc = description.replace(/\./g, replacementChar);
-
-            const width = 20;
-            desc = desc.replace(/:manaw:/g, `<img src="images/mana/manaw.png" width="${width}" alt="white">`);
-            desc = desc.replace(/:manau:/g, `<img src="images/mana/manau.png" width="${width}" alt="blue">`);
-            desc = desc.replace(/:manab:/g, `<img src="images/mana/manab.png" width="${width}" alt="black">`);
-            desc = desc.replace(/:manar:/g, `<img src="images/mana/manar.png" width="${width}" alt="red">`);
-            desc = desc.replace(/:manag:/g, `<img src="images/mana/manag.png" width="${width}" alt="green">`);
-            desc = desc.replace(/:manac:/g, `<img src="images/mana/manac.png" width="${width}" alt="colorless mana">`);
-            desc = desc.replace(/:manabg:/g, `<img src="images/mana/manabg.png" width="${width}" alt="golgarai mana">`);
-            desc = desc.replace(/:manabr:/g, `<img src="images/mana/manabr.png" width="${width}" alt="rakdos mana">`);
-            desc = desc.replace(/:managu:/g, `<img src="images/mana/managu.png" width="${width}" alt="simic mana">`);
-            desc = desc.replace(/:managw:/g, `<img src="images/mana/managw.png" width="${width}" alt="selesnya mana">`);
-            desc = desc.replace(/:manarg:/g, `<img src="images/mana/manarg.png" width="${width}" alt="gruul mana">`);
-            desc = desc.replace(/:manarw:/g, `<img src="images/mana/manarw.png" width="${width}" alt="boros mana">`);
-            desc = desc.replace(/:manaub:/g, `<img src="images/mana/manaub.png" width="${width}" alt="dimir mana">`);
-            desc = desc.replace(/:manaur:/g, `<img src="images/mana/manaur.png" width="${width}" alt="izzet mana">`);
-            desc = desc.replace(/:manawb:/g, `<img src="images/mana/manawb.png" width="${width}" alt="orzhov mana">`);
-            desc = desc.replace(/:manawu:/g, `<img src="images/mana/manawu.png" width="${width}" alt="azorius mana">`);
-            desc = desc.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana">`);
-            desc = desc.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana">`);
-            desc = desc.replace(/:mana3:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
-            desc = desc.replace(/:mana4:/g, `<img src="images/mana/mana3.png" width="${width}" alt="4 mana">`);
-            desc = desc.replace(/:mana5:/g, `<img src="images/mana/mana3.png" width="${width}" alt="5 mana">`);
-            desc = desc.replace(/:mana6:/g, `<img src="images/mana/mana3.png" width="${width}" alt="6 mana">`);
-            desc = desc.replace(/:mana7:/g, `<img src="images/mana/mana3.png" width="${width}" alt="7 mana">`);
-            desc = desc.replace(/:mana8:/g, `<img src="images/mana/mana3.png" width="${width}" alt="8 mana">`);
-            desc = desc.replace(/:mana9:/g, `<img src="images/mana/mana3.png" width="${width}" alt="9 mana">`);
-            desc = desc.replace(/:mana10:/g, `<img src="images/mana/mana3.png" width="${width}" alt="10 mana">`);
-            desc = desc.replace(/:mana11:/g, `<img src="images/mana/mana3.png" width="${width}" alt="11 mana">`);
-            desc = desc.replace(/:mana12:/g, `<img src="images/mana/mana3.png" width="${width}" alt="12 mana">`);
-            desc = desc.replace(/:mana13:/g, `<img src="images/mana/mana3.png" width="${width}" alt="13 mana">`);
-            desc = desc.replace(/:mana14:/g, `<img src="images/mana/mana3.png" width="${width}" alt="14 mana">`);
-            desc = desc.replace(/:mana15:/g, `<img src="images/mana/mana3.png" width="${width}" alt="15 mana">`);
-            desc = desc.replace(/:mana16:/g, `<img src="images/mana/mana3.png" width="${width}" alt="16 mana">`);
-            desc = desc.replace(/:mana20:/g, `<img src="images/mana/mana3.png" width="${width}" alt="20 mana">`);
-
-            desc = desc.trim();
-            
-            return desc.split(replacementChar).filter(t => t.length > 0);
-        }
-    }
-
     function replaceColorIdentityWithImageSources(identity) {
         if (isBlank(identity)) {
             return identity;
@@ -103,6 +55,20 @@
             return colors.map(function (color) {
                 return imagePaths[color];
             });
+        }
+    }
+
+    function splitText(description) {
+        if (isBlank(description)) {
+            return description;
+        } else {
+            const replacementChar = "|||";
+            var desc = description.replace(/\./g, replacementChar);
+
+            desc = replaceTextWithManaImages(desc);
+            desc = desc.trim();
+
+            return desc.split(replacementChar).filter(t => t.length > 0);
         }
     }
 
@@ -132,8 +98,49 @@
         });
     }
 
+    /* Helper Functions */
+
     function isBlank(str) {
         return (!str || /^\s*$/.test(str));
+    }
+
+    function replaceTextWithManaImages(text) {
+        const width = 20;
+        text = text.replace(/:manaw:/g, `<img src="images/mana/manaw.png" width="${width}" alt="white">`);
+        text = text.replace(/:manau:/g, `<img src="images/mana/manau.png" width="${width}" alt="blue">`);
+        text = text.replace(/:manab:/g, `<img src="images/mana/manab.png" width="${width}" alt="black">`);
+        text = text.replace(/:manar:/g, `<img src="images/mana/manar.png" width="${width}" alt="red">`);
+        text = text.replace(/:manag:/g, `<img src="images/mana/manag.png" width="${width}" alt="green">`);
+        text = text.replace(/:manac:/g, `<img src="images/mana/manac.png" width="${width}" alt="colorless mana">`);
+        text = text.replace(/:manabg:/g, `<img src="images/mana/manabg.png" width="${width}" alt="golgarai mana">`);
+        text = text.replace(/:manabr:/g, `<img src="images/mana/manabr.png" width="${width}" alt="rakdos mana">`);
+        text = text.replace(/:managu:/g, `<img src="images/mana/managu.png" width="${width}" alt="simic mana">`);
+        text = text.replace(/:managw:/g, `<img src="images/mana/managw.png" width="${width}" alt="selesnya mana">`);
+        text = text.replace(/:manarg:/g, `<img src="images/mana/manarg.png" width="${width}" alt="gruul mana">`);
+        text = text.replace(/:manarw:/g, `<img src="images/mana/manarw.png" width="${width}" alt="boros mana">`);
+        text = text.replace(/:manaub:/g, `<img src="images/mana/manaub.png" width="${width}" alt="dimir mana">`);
+        text = text.replace(/:manaur:/g, `<img src="images/mana/manaur.png" width="${width}" alt="izzet mana">`);
+        text = text.replace(/:manawb:/g, `<img src="images/mana/manawb.png" width="${width}" alt="orzhov mana">`);
+        text = text.replace(/:manawu:/g, `<img src="images/mana/manawu.png" width="${width}" alt="azorius mana">`);
+        text = text.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana">`);
+        text = text.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana">`);
+        text = text.replace(/:mana3:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
+        text = text.replace(/:mana4:/g, `<img src="images/mana/mana3.png" width="${width}" alt="4 mana">`);
+        text = text.replace(/:mana5:/g, `<img src="images/mana/mana3.png" width="${width}" alt="5 mana">`);
+        text = text.replace(/:mana6:/g, `<img src="images/mana/mana3.png" width="${width}" alt="6 mana">`);
+        text = text.replace(/:mana7:/g, `<img src="images/mana/mana3.png" width="${width}" alt="7 mana">`);
+        text = text.replace(/:mana8:/g, `<img src="images/mana/mana3.png" width="${width}" alt="8 mana">`);
+        text = text.replace(/:mana9:/g, `<img src="images/mana/mana3.png" width="${width}" alt="9 mana">`);
+        text = text.replace(/:mana10:/g, `<img src="images/mana/mana3.png" width="${width}" alt="10 mana">`);
+        text = text.replace(/:mana11:/g, `<img src="images/mana/mana3.png" width="${width}" alt="11 mana">`);
+        text = text.replace(/:mana12:/g, `<img src="images/mana/mana3.png" width="${width}" alt="12 mana">`);
+        text = text.replace(/:mana13:/g, `<img src="images/mana/mana3.png" width="${width}" alt="13 mana">`);
+        text = text.replace(/:mana14:/g, `<img src="images/mana/mana3.png" width="${width}" alt="14 mana">`);
+        text = text.replace(/:mana15:/g, `<img src="images/mana/mana3.png" width="${width}" alt="15 mana">`);
+        text = text.replace(/:mana16:/g, `<img src="images/mana/mana3.png" width="${width}" alt="16 mana">`);
+        text = text.replace(/:mana20:/g, `<img src="images/mana/mana3.png" width="${width}" alt="20 mana">`);
+
+        return text;
     }
 
 })();
