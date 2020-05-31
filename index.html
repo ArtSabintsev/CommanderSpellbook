@@ -1,103 +1,126 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <!--Meta-->
-        <title>Commander Spellbook - A Commander/EDH Combo Database</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<head>
+  <!--Meta-->
+  <title>Commander Spellbook - A Commander/EDH Combo Database</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- jQuery -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 
-         <!-- Cards from Deckbox -->
-         <script src="https://deckbox.org/assets/external/tooltip.js"></script>
-    </head>
-    <body>
-        <div class="container">
-            <h2>Commander Spellbook</h2>
-            <p>Type in the name of the card for which you would like to find combos.</p>  
-            <input class="form-control" id="card-input" type="text" placeholder="Search..">
-            <br>
-            <table class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th width="280px"><center>Cards</center></th>
-                  <th width="150px"><center>Color Identity</center></th>
-                  <th width="200px"><center>Board State</center></th>
-                  <th width="300px"><center>Description</center></th>
-                </tr>
-              </thead>
-              <tbody id="myTable">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-                <tr>
-                  <td>
-                      <ol>
-                        <span class="align-top">
-                         <li><a href="https://deckbox.org/mtg/Dramatic%20Reversal">Dramatic Reversal</a></li>
-                         <li><a href="https://deckbox.org/mtg/Isochron%20Scepter">Isochron Scepter</a></li>
-                         </span>
-                      </ol>
-                  </td>
-                  <td>
-                      <center><img src="images/mana/manau.png" width="50" alt="blue"></center>
-                  </td>
-                  <td>One or more non-land permanents must be on the controller's side of the battlefield and be able to produce at least 2 generic mana.</td>
-                  <td>
-                      <ol>
-                        <li>Cast Isochron Scepter imprinting Dramatic Reversal on it.</li>  
-                        <li>Pay two generic mana to activate Isochron Scepter's imprinted ability, Dramatic Reversal.</li> 
-                        <li>Dramatic Reversal causes you to untap all of the your non-land permanents, which can be done infinitely.</li>
-                      </ol>
-                  </td>
-                </tr>
+  <!-- Deckbox -->
+  <script src="https://deckbox.org/assets/external/tooltip.js"></script>
 
-                <tr>
-                    <td>
-                        <ol>
-                          <span class="align-top">
-                           <li><a href="https://deckbox.org/mtg/Teferi,%20Temporal%20Archmage">Teferi, Temporal Archmage</a></li>
-                           <li><a href="https://deckbox.org/mtg/The%20Chain%20Veil">The Chain Veil</a></li>
-                           </span>
-                        </ol>
-                    </td>
-                    <td>
-                        <center><img src="images/mana/manau.png" width="50" alt="blue"></center>
-                    </td>
-                    <td>At least 3 permanents on your board with the ability to produce at least 5 generic mana </td>
-                    <td>
-                        <ol>
-                          <li>Cast Teferi and The Chain Veil.</li> 
-                          <li>Pay 4 generic mana and tap Chain Veil to activate its ability, giving 1 additional activation of all your planeswalker's abilities.</li>
-                          <li>Activate Teferi's -1 ability to untap Chain Veil and 3 other permanents capable of generating at least 5 colorless mana.</li> 
-                          <li>Repeat until you remove the last loyalty counter from Teferi, killing him and putting him back in the command zone.</li> 
-                          <li>Recast Teferi and repeat previous steps to generate infinite mana and infinite activations of planeswalkers' abilities.</li> 
-                          <li>Activate Teferi's +1 ability infinitely to put your deck into your hand.</li>
-                          <li>Cast your win condition of choice.</li>
-                        </ol>
-                    </td>
-                  </tr>
+  <!-- Internal JS -->
+  <script src="js/networking.js"></script>
+</head>
 
-              </tbody>
-            </table>
-          </div>
-          
-          <script>
-          $(document).ready(function(){
-            $("#card-input").on("keyup", function() {
-              var value = $(this).val().toLowerCase();
-              $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-              });
-            });
-          });
-          </script>
-        </div>
-    </body>
-    <footer>
-    </footer>
+<body>
+  <div class="container">
+    <h2>Commander Spellbook</h2>
+    <p>Type in the name of the card for which you would like to find combos.</p>
+    <input class="form-control" id="card-input" type="text" placeholder="Search..">
+    <br>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th width="280px">
+            <center>Cards</center>
+          </th>
+          <th width="150px">
+            <center>Color Identity</center>
+          </th>
+          <th width="200px">
+            <center>Board State</center>
+          </th>
+          <th width="300px">
+            <center>Description</center>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="myTable">
+
+        <tr>
+          <td>
+            <ol>
+              <span class="align-top">
+                <li><a href="https://deckbox.org/mtg/Dramatic%20Reversal">Dramatic Reversal</a></li>
+                <li><a href="https://deckbox.org/mtg/Isochron%20Scepter">Isochron Scepter</a></li>
+              </span>
+            </ol>
+          </td>
+          <td>
+            <center><img src="images/mana/manau.png" width="50" alt="blue"></center>
+          </td>
+          <td>One or more non-land permanents must be on the controller's side of the battlefield and be able to produce
+            at least 2 generic mana.</td>
+          <td>
+            <ol>
+              <li>Cast Isochron Scepter imprinting Dramatic Reversal on it.</li>
+              <li>Pay two generic mana to activate Isochron Scepter's imprinted ability, Dramatic Reversal.</li>
+              <li>Dramatic Reversal causes you to untap all of the your non-land permanents, which can be done
+                infinitely.</li>
+            </ol>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ol>
+              <span class="align-top">
+                <li><a href="https://deckbox.org/mtg/Teferi,%20Temporal%20Archmage">Teferi, Temporal Archmage</a></li>
+                <li><a href="https://deckbox.org/mtg/The%20Chain%20Veil">The Chain Veil</a></li>
+              </span>
+            </ol>
+          </td>
+          <td>
+            <center><img src="images/mana/manau.png" width="50" alt="blue"></center>
+          </td>
+          <td>At least 3 permanents on your board with the ability to produce at least 5 generic mana </td>
+          <td>
+            <ol>
+              <li>Cast Teferi and The Chain Veil.</li>
+              <li>Pay 4 generic mana and tap Chain Veil to activate its ability, giving 1 additional activation of all
+                your planeswalker's abilities.</li>
+              <li>Activate Teferi's -1 ability to untap Chain Veil and 3 other permanents capable of generating at least
+                5 colorless mana.</li>
+              <li>Repeat until you remove the last loyalty counter from Teferi, killing him and putting him back in the
+                command zone.</li>
+              <li>Recast Teferi and repeat previous steps to generate infinite mana and infinite activations of
+                planeswalkers' abilities.</li>
+              <li>Activate Teferi's +1 ability infinitely to put your deck into your hand.</li>
+              <li>Cast your win condition of choice.</li>
+            </ol>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#card-input").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
+  </div>
+</body>
+<footer>
+</footer>
+
 </html>
