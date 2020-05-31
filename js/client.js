@@ -38,14 +38,6 @@
         });
     }
 
-    function replaceTutorialWithLink(tutorial) {
-        if (tutorial != "") {
-            return `<object data="${tutorial}"></object>`;
-        } else {
-            return "N/A";
-        }
-    }
-
     function splitText(description) {
         const replacementChar = "|||";
         var desc = description.replace(/\./g, replacementChar);
