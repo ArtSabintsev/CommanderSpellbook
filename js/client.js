@@ -106,9 +106,9 @@
 
             tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
-            tdBoardState.innerHTML = `<ul>${combo.boardState.map(e => `<li>${e}</li>`).join('')}<ul>`;
-            tdDescription.innerHTML = `<ol>${combo.description.map(e => `<li>${e}</li>`).join('')}<ol>`;
-            tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
+            tdBoardState.innerHTML = `<ul>${combo.boardState.map(e => `<li>${e.trim()}</li>`).join('')}<ul>`;
+            tdDescription.innerHTML = `<ol>${combo.description.map(e => `<li>${e.trim()}</li>`).join('')}<ol>`;
+            tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e.trim()}</li>`).join('')}<ul>`;
 
             tr.appendChild(tdCardLinks);
             tr.appendChild(tdColorIdentity);
