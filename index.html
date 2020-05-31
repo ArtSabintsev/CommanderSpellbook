@@ -22,11 +22,11 @@
   <script src="https://deckbox.org/assets/external/tooltip.js"></script>
 
   <!-- Internal JS -->
-  <script src="js/networking.js"></script>
+  <script src="js/client.js"></script>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <h2>Commander Spellbook</h2>
     <p>Type in the name of the card for which you would like to find combos.</p>
     <input class="form-control" id="card-input" type="text" placeholder="Search..">
@@ -40,11 +40,20 @@
           <th width="150px">
             <center>Color Identity</center>
           </th>
+          <th width="300px">
+            <center>Nickname(s)</center>
+          </th>
+          <th width="300px">
+            <center>Tutorials</center>
+          </th>
           <th width="200px">
             <center>Board State</center>
           </th>
           <th width="300px">
             <center>Description</center>
+          </th>
+          <th width="300px">
+            <center>Result</center>
           </th>
         </tr>
       </thead>
