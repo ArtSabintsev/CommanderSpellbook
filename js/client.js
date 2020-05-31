@@ -25,6 +25,7 @@
             data.push(combo);
         }
 
+        updateSearchInputWithComboCount(data);
         storeData(data);
     }
 
@@ -63,11 +64,20 @@
             return description;
         } else {
             const replacementChar = "|||";
+
             var desc = description.replace(/\./g, replacementChar);
+
             desc = replaceTextWithManaImages(desc);
+
             return desc.trim().split(replacementChar).filter(t => t.length > 0);
         }
     }
+
+    function updateSearchInputWithComboCount(data) {
+        const searchInput =  document.getElementById('card-input');
+        searchInput.setAttribute('placeholder', `Search ${data.length} combos by typing in a Magic Card...`);
+        
+     }
 
     function storeData(data) {
         const tableBody = document.getElementById('combos');
