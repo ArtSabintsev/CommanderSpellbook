@@ -51,8 +51,22 @@
         }
     }
 
-    function splitText(desc) {
-        return desc.split(".").filter(t => t.length > 0);
+    function splitText(description) {
+        const replacementChar = "||";
+        var desc = description.replace(/\./g, ".");
+
+        const width = 20;
+        desc = desc.replace(/:manaw:/g, `<img src="images/mana/manaw.png" width="${width}" alt="white">`);
+        desc = desc.replace(/:manau:/g, `<img src="images/mana/manau.png" width="${width}" alt="blue">`);
+        desc = desc.replace(/:manab:/g, `<img src="images/mana/manab.png" width="${width}" alt="black">`);
+        desc = desc.replace(/:manar:/g, `<img src="images/mana/manar.png" width="${width}" alt="red">`);
+        desc = desc.replace(/:manag:/g, `<img src="images/mana/manag.png" width="${width}" alt="green">`);
+        desc = desc.replace(/:manac:/g, `<img src="images/mana/manac.png" width="${width}" alt="colorless">`);
+        desc = desc.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana">`);
+        desc = desc.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana">`);
+        desc = desc.replace(/:mana3:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
+
+        return desc.split(replacementChar).filter(t => t.length > 0);
     }
 
     function replaceColorIdentityWithImageSources(identity) {
