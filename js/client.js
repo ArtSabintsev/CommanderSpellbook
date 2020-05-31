@@ -64,11 +64,8 @@
         } else {
             const replacementChar = "|||";
             var desc = description.replace(/\./g, replacementChar);
-
             desc = replaceTextWithManaImages(desc);
-            desc = desc.trim();
-
-            return desc.split(replacementChar).filter(t => t.length > 0);
+            return desc.trim().split(replacementChar).filter(t => t.length > 0);
         }
     }
 
