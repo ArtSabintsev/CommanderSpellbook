@@ -1,14 +1,10 @@
 (function () {
     "use strict";
 
-    const BASE_URL = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet";
-    const COMBOS = "?ranges=combos!A2:P";
-    const KEY = "&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
-
     window.addEventListener("load", fetchDataFromGoogleSheets);
 
     function fetchDataFromGoogleSheets() {
-        const url = BASE_URL + COMBOS + KEY;
+        const url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
         var request = new XMLHttpRequest();
         request.open("GET", url, false);
