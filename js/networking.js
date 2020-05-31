@@ -27,7 +27,7 @@
             for (let c in combos) {
                 let combo = [];
                 combo.cardLinks = replaceCardNamesWithLinks(combos[c].slice(0, 10));
-                combo.colorIdentityImages = replaceColorIdentityWithImagePaths(combos[c][15]);
+                combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][15]);
                 combo.boardState = splitDescription(combos[c][10]);
                 combo.description = splitDescription(combos[c][14]);
                 data.push(combo);
@@ -43,7 +43,7 @@
         });
 
         return cards.map(function (e) {
-            return '<a href="https://deckbox.org/mtg/" + e>e</a>';
+            return `<a href="https://deckbox.org/mtg/" + e>${e}</a>`;
         });
     }
 
@@ -51,14 +51,14 @@
         return desc.split(".");
     }
 
-    function replaceColorIdentityWithImagePaths(identity) {
+    function replaceColorIdentityWithImageSources(identity) {
         var colors = identity.split(",");
         let imagePaths = {
-            "white": "images/mana/manaw.png",
-            "blue": "images/mana/manau.png",
-            "black": "images/mana/manab.png",
-            "red": "images/mana/manar.png",
-            "green": "images/mana/manag.png"
+            "white": '<img src="images/mana/manaw.png" width="40" alt="white">',
+            "blue": '<img src="images/mana/manau.png" width="40" alt="blue">',
+            "black": '<img src="images/mana/manab.png" width="40" alt="black">',
+            "red": '<img src="images/mana/manar.png" width="40" alt="red">',
+            "green": '<img src="images/mana/manag.png" width="40" alt="green">'
         };
 
         return colors.map(function (color) {
@@ -67,9 +67,24 @@
     }
 
     function storeData(data) {
-        for (i in data) {
-            let entryRow = document.createElement("tr");
-        }
+        const tableBody = document.getElementById('combos');
+        data.map(function (combo) {
+            const tr = document.createElement('tr');
+            const td1 = document.createElement('td');
+            const td2 = document.createElement('td');
+            const td3 = document.createElement('td');
+            const td4 = document.createElement('td');
+            td1.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`)}<ol>`;
+            td2.innerHTML = combo.colorIdentityImages;
+            td3.innerHTML = `<ol>${combo.boardState.map(e => `<li>${e}</li>`)}<ol>`;
+            td4.innerHTML = `<ol>${combo.description.map(e => `<li>${e}</li>`)}<ol>`;
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tableBody.appendChild(tr);
+        });
     }
 
 })();
