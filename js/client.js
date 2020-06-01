@@ -129,6 +129,7 @@
         text = text.replace(/:manaur:/g, `<img src="images/mana/manaur.png" width="${width}" alt="izzet mana">`);
         text = text.replace(/:manawb:/g, `<img src="images/mana/manawb.png" width="${width}" alt="orzhov mana">`);
         text = text.replace(/:manawu:/g, `<img src="images/mana/manawu.png" width="${width}" alt="azorius mana">`);
+        text = text.replace(/:mana0:/g, `<img src="images/mana/mana0.png" width="${width}" alt="0 mana">`);
         text = text.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana">`);
         text = text.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana">`);
         text = text.replace(/:mana3:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana">`);
