@@ -1,5 +1,11 @@
 body {
+    width: 70%;
     margin: 0 auto;
+}
+
+#global {
+  display: flex;
+  flex-direction: column;
 }
 
 #card-input {
