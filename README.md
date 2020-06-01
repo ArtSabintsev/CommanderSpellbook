@@ -1,6 +1,6 @@
 # Commander Spellbook: The Premiere EDH Combo Database
 
-The Commander Spellbook website was created to catalogue and centralize all reasonable [Magic: the Gathering combos](https://magic.wizards.com/en) (for singleton formats) and to make them easily available across all digital modern platforms. 
+The Commander Spellbook website was created to catalogue and centralize all reasonable [Magic: the Gathering combos](https://magic.wizards.com/en) for singleton formats.
 
 The idea started off as a [Discord Server](https://discord.gg/DkAyVJG) in February 2020. Once we reached 5000+ members and 1000+ combos in May 2020, we began working on a website.
 
