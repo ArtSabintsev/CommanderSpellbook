@@ -20,7 +20,7 @@
             combo.cardLinks = replaceCardNamesWithLinks(combos[c].slice(0, 10));
             combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][10]);
             combo.boardState = splitText(combos[c][11]);
-            combo.description = splitText(combos[c][12]);
+            combo.steps = splitText(combos[c][12]);
             combo.result = splitText(combos[c][13]);
             data.push(combo);
         }
@@ -92,7 +92,7 @@
             tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
             tdBoardState.innerHTML = `<ul>${combo.boardState.map(e => `<li>${e}</li>`).join('')}<ul>`;
-            tdDescription.innerHTML = `<ol>${combo.description.map(e => `<li>${e}</li>`).join('')}<ol>`;
+            tdDescription.innerHTML = `<ol>${combo.steps.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
 
             tr.appendChild(tdCardLinks);
