@@ -1,4 +1,4 @@
-# Commander Spellbook: The Premiere Commander/EDH Combo Database
+# Commander Spellbook: The Premiere Commander Combo Database
 
 The Commander Spellbook website was created to catalogue and centralize all reasonable [Magic: the Gathering combos](https://magic.wizards.com/en) (for singleton formats) and to make them easily available across all digital modern platforms. 
 
