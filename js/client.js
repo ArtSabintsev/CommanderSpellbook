@@ -25,6 +25,8 @@
             data.push(combo);
         }
 
+        // Shuffle data to show different content on each load
+        // https://stackoverflow.com/a/46545530
         let shuffledData = data
             .map((a) => ({
                 sort: Math.random(),
