@@ -25,8 +25,16 @@
             data.push(combo);
         }
 
-        updateSearchInputWithComboCount(data);
-        storeData(data);
+        let shuffledData = data
+            .map((a) => ({
+                sort: Math.random(),
+                value: a
+            }))
+            .sort((a, b) => a.sort - b.sort)
+            .map((a) => a.value);
+
+        updateSearchInputWithComboCount(shuffledData);
+        updateTableWithCombos(shuffledData);
     }
 
     function replaceCardNamesWithLinks(cardNames) {
@@ -74,12 +82,12 @@
     }
 
     function updateSearchInputWithComboCount(data) {
-        const searchInput =  document.getElementById('card-input');
+        const searchInput = document.getElementById('card-input');
         searchInput.setAttribute('placeholder', `Search ${data.length} combos by typing in a Magic Card...`);
-        
-     }
 
-    function storeData(data) {
+    }
+
+    function updateTableWithCombos(data) {
         const tableBody = document.getElementById('combos');
         data.map(function (combo) {
             const tr = document.createElement('tr');
