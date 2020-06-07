@@ -59,14 +59,18 @@
 
   <script>
     $(document).ready(function () {
+      // Filter table on search 
       $("#card-input").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $("#combos tr").filter(function () {
-          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          let matchedText = $(this).text().toLowerCase().indexOf(value)
+          $(this).toggle(matchedText > -1)
         });
+
+        // Re-apply table striping on search
         $("tr:visible").each(function (index) {
-        $(this).css("background-color", !!(index & 1)? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
-    });
+          $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
+        });
       });
     });
   </script>
