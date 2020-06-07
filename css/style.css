@@ -43,6 +43,7 @@ th {
 
 tbody tr {
     font-family: OpenSans-Regular;
+    font-size: 14px;
 }
 
 tbody tr:nth-child(odd) {
