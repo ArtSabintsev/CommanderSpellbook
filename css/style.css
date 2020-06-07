@@ -1,11 +1,25 @@
+@font-face {
+    font-family: OpenSans-Regular;
+    src: url('../fonts/OpenSans/OpenSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: OpenSans-Bold;
+    src: url('../fonts/OpenSans/OpenSans-Bold.ttf');
+}
+
 body {
     width: 75%;
     margin: 0 auto;
     background-color: #FAFAFA;
 }
 
+h2 {
+    font-family: OpenSans-Bold;
+}
+
 a {
-    color: #0092e0;
+    color: #60abe8;
     margin: 0px;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
@@ -14,25 +28,25 @@ a {
 }
 
 a:focus {
-	outline: none !important;
+    outline: none !important;
 }
 
 a:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 th {
-    background-color: #333333;
-    color: #C18AFF;
-    font-family: Avenir;
+    background-color: #bab1ab;
+    color: #0D0D0F;
+    font-family: OpenSans-Bold;
 }
 
 tbody tr {
-    font-family: Avenir;
+    font-family: OpenSans-Regular;
 }
 
 tbody tr:nth-child(odd) {
-    background-color: #FFFFFF;
+    background-color: #EAEAEA;
 }
 
 tbody tr:nth-child(even) {
@@ -56,5 +70,6 @@ tbody tr:nth-child(even) {
 #card-input {
     margin-top: 2px;
     margin-bottom: 2px;
+    font-family: OpenSans-Regular;
     height: 60px;
 }
