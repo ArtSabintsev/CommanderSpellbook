@@ -74,9 +74,8 @@ tbody tr:nth-child(even) {
 }
 
 @media only screen and (max-width: 800px) {
-    
     #card-input {
-        font-size: 16px;
+        font-size: 12px;
     }
 
 	/* Force table to not be like tables anymore */
