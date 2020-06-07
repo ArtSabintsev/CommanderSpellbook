@@ -74,7 +74,11 @@ tbody tr:nth-child(even) {
 }
 
 @media only screen and (max-width: 800px) {
-	
+    
+    #card-input {
+        font-size: 16px;
+    }
+
 	/* Force table to not be like tables anymore */
 	#no-more-tables table, 
 	#no-more-tables thead, 
@@ -94,13 +98,13 @@ tbody tr:nth-child(even) {
  
 	#no-more-tables tr { 
         border: 1px 
-        solid #FAFAFA; 
+        solid #bab1ab; 
     }
  
 	#no-more-tables td { 
 		/* Behave  like a "row" */
 		border: none;
-		border-bottom: 1px solid #eee; 
+		border-bottom: 1px solid #bab1ab; 
 		position: relative;
 		padding-left: 50%; 
 		white-space: normal;
@@ -116,8 +120,9 @@ tbody tr:nth-child(even) {
 		width: 45%; 
 		padding-right: 10px; 
 		white-space: nowrap;
-		text-align:left;
-		font-weight: bold;
+		text-align: left;
+        font-weight: bold;
+        font-family: OpenSans-Regular;
 	}
  
 	/*
@@ -129,3 +134,9 @@ tbody tr:nth-child(even) {
 	td:nth-of-type(4):before { content: "STEPS"; }
 	td:nth-of-type(5):before { content: "RESULTS"; }
 }
+
+@media screen and (min-width: 801px) {
+    #card-input {
+      font-size: 20px;
+    }
+  }
