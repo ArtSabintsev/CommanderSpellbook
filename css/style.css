@@ -56,10 +56,6 @@ tbody tr:nth-child(even) {
 
 #global {
     background: #FAFAFA;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
     display: flex;
     align-items: center;
     justify-content: center;
