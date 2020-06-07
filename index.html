@@ -29,9 +29,9 @@
 </head>
 
 <body>
-  <div id="global">
+  <div class="container-fluid" id="global">
     <h2>Commander Spellbook</h2>
-    <input class="form-control" id="card-input" type="text" width="100%">
+    <input class="form-control w-100" id="card-input" ftype="text">
     <br>
     <table class="table table-striped">
       <thead>
@@ -64,6 +64,9 @@
         $("#combos tr").filter(function () {
           $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
+        $("tr:visible").each(function (index) {
+        $(this).css("background-color", !!(index & 1)? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
+    });
       });
     });
   </script>

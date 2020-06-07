@@ -10,7 +10,7 @@
 
 body {
     background-color: #FAFAFA;
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
 }
 
@@ -68,4 +68,5 @@ tbody tr:nth-child(even) {
     margin-bottom: 2px;
     font-family: OpenSans-Regular;
     height: 60px;
+    width: 100%;
 }
