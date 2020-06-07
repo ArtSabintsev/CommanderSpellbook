@@ -9,9 +9,9 @@
 }
 
 body {
-    width: 75%;
-    margin: 0 auto;
     background-color: #FAFAFA;
+    width: 70%;
+    margin: 0 auto;
 }
 
 h2 {
@@ -64,7 +64,6 @@ tbody tr:nth-child(even) {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 33px 30px;
 }
 
 
