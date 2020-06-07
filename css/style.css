@@ -96,8 +96,7 @@ tbody tr:nth-child(even) {
 	}
  
 	#no-more-tables tr { 
-        border: 1px 
-        solid #bab1ab; 
+        border: 2px solid #0D0D0F;
     }
  
 	#no-more-tables td { 
