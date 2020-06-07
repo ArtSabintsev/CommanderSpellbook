@@ -11,7 +11,10 @@
 body {
     background-color: #FAFAFA;
     width: 75%;
-    margin: 0 auto;
+    margin: auto;
+}
+div {
+    margin: auto;
 }
 
 h2 {
