@@ -1,13 +1,57 @@
 body {
-    width: 70%;
+    width: 75%;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #FAFAFA;
+}
+
+a {
+    color: #0092e0;
+    margin: 0px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+th {
+    background-color: #333333;
+    color: #C18AFF;
+    font-family: Avenir;
+}
+
+tbody tr {
+    font-family: Avenir;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #F5F5F5;
 }
 
 #global {
+    background: #FAFAFA;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 33px 30px;
 }
+
 
 #card-input {
     margin-top: 2px;
