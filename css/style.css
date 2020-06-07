@@ -39,8 +39,8 @@ a:hover {
 }
 
 th {
-    background-color: #bab1ab;
-    color: #0D0D0F;
+    background-color: #EEEEEE;
+    color: #232323;
     font-family: OpenSans-Bold;
 }
 
@@ -50,11 +50,11 @@ tbody tr {
 }
 
 tbody tr:nth-child(odd) {
-    background-color: #EAEAEA;
+    background-color: #FFF7F0;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #F5F5F5;
+    background-color: #F6F2FF;
 }
 
 #global {
@@ -102,7 +102,7 @@ tbody tr:nth-child(even) {
 	#no-more-tables td { 
 		/* Behave  like a "row" */
 		border: none;
-		border-bottom: 1px solid #bab1ab; 
+		border-bottom: 1px solid #0D0D0F; 
 		position: relative;
 		padding-left: 50%; 
 		white-space: normal;
