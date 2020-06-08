@@ -64,6 +64,11 @@ tbody tr:nth-child(even) {
     background-color: #FAFAFA;
 }
 
+footer {
+    font-family: OpenSans-Regular;
+    font-size: 12px;
+}
+
 #global {
     background: #FAFAFA;
     display: flex;
