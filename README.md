@@ -1,17 +1,11 @@
 # Commander Spellbook
 
 ## Background 
-The Commander Spellbook website was created to catalogue and centralize all reasonable [Magic: the Gathering combos](https://magic.wizards.com/en) for singleton formats.
+The Commander Spellbook website was created to catalogue and centralize all reasonable [Magic: the Gathering combos](https://magic.wizards.com/en) for singleton formats. For this reason, the [Official Commander Banlist](https://mtgcommander.net/index.php/banned-list/) is ignored.
 
-The idea to catalogue combos started off as a [Discord Server](https://discord.gg/DkAyVJG) in February 2020. Once we reached 5000+ members and 1000+ combos (mix of real combos and jank combos) in May 2020, we began working on a website.
+The idea to catalogue combos started off as a [Discord Server](https://discord.gg/DkAyVJG) in February 2020. Once the Discord reached ~5000 members and ~1000 combos in May 2020, I began working on a website.
 
-At present, this repository is the OSS version of the website, which itself is a GitHub page. 
-
-- The URL for the site is: http://www.CommanderSpellbook.com
-- The database is hosted on [Google Sheets](https://docs.google.com/spreadsheets/d/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/edit#gid=0). 
-- The Google Sheets API for all the combos can be found [here](https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E). 
-
-## Goal
+## Process
 **TL;DR: I optimzied for community and made everything Open Source.**
 
 Many individuals have tried to build a combo database over the last decade, but they've all failed due to the headache involved in finding those combos and keeping a Forum Post or Blog up to date. Therefore, I've opted to solve for that problem by enlisting the community to catalogue combos via Discord (which is how we got to hundreds of combos in a manner of months). I also opted to host the website and the database for free, forever, so people can take over this project by cloning this repository, or the Google Sheet, respectively, if I ever step away.
@@ -25,3 +19,8 @@ I also decided that I wanted to make the financial upkeep for this project as ch
 - Domain Name: $20/year
 - GitHub: $0/year
 - Google Sheets: $0/year
+
+## Links
+- The website is hosted off this repository for free using Github Pages: http://www.CommanderSpellbook.com
+- The database is hosted for free on [Google Sheets](https://docs.google.com/spreadsheets/d/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/edit#gid=0). 
+- The Google Sheets API for all the combos can be found [here](https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E). 
