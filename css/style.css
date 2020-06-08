@@ -31,15 +31,17 @@ a {
 }
 
 a:focus {
+    color: #e1997a;
     outline: none !important;
 }
 
 a:hover {
+    color: #e1997a;
     text-decoration: none;
 }
 
 th {
-    background-color: #EEEEEE;
+    background-color: #FAFAFA;
     color: #232323;
     font-family: OpenSans-Bold;
 }
@@ -54,7 +56,7 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #F6F2FF;
+    background-color: #FAFAFA;
 }
 
 #global {
@@ -130,7 +132,15 @@ tbody tr:nth-child(even) {
 	td:nth-of-type(2):before { content: "IDENTITY"; }
 	td:nth-of-type(3):before { content: "INITIAL STATE"; }
 	td:nth-of-type(4):before { content: "STEPS"; }
-	td:nth-of-type(5):before { content: "RESULTS"; }
+    td:nth-of-type(5):before { content: "RESULTS"; }
+    
+    h2 {
+        font-size: 24px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
 }
 
 @media screen and (min-width: 801px) {
