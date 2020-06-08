@@ -113,7 +113,6 @@ footer {
     #no-more-tables td {
         /* Behave  like a "row" */
         border: none;
-        border-bottom: 1px solid #EEEEEE;
         position: relative;
         padding-left: 50%;
         white-space: normal;
