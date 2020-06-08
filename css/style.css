@@ -26,21 +26,24 @@ h2 {
     font-family: OpenSans-Bold;
 }
 
-a {
+a,
+a:not([href]) {
     color: #0269A4;
     margin: 0px;
-    transition: all 0.4s;
+    transition: all 0.2s;
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
 }
 
-a:focus {
+a:focus,
+a:not([href]):focus {
     color: #FE7C00;
     outline: none !important;
 }
 
-a:hover {
+a:hover,
+a:not([href]):hover {
     color: #FE7C00;
     text-decoration: none;
 }
