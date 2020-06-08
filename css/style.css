@@ -56,7 +56,7 @@ tbody tr {
 }
 
 tbody tr:nth-child(odd) {
-    background-color: #EDEDED;
+    background-color: #EEEEEE;
 }
 
 tbody tr:nth-child(even) {
@@ -107,13 +107,13 @@ footer {
     }
 
     #no-more-tables tr {
-        border: 2px solid #0D0D0F;
+        border: 1px solid #EEEEEE;
     }
 
     #no-more-tables td {
         /* Behave  like a "row" */
         border: none;
-        border-bottom: 1px solid #0D0D0F;
+        border-bottom: 1px solid #EEEEEE;
         position: relative;
         padding-left: 50%;
         white-space: normal;
