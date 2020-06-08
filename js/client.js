@@ -91,7 +91,7 @@
 
     function updateSearchInputWithComboCount(data) {
         const searchInput = document.getElementById('card-input');
-        searchInput.setAttribute('placeholder', `Search ${data.length} combos by typing in a Magic Card...`);
+        searchInput.setAttribute('placeholder', `Search ${data.length} combos by typing in a Magic Card`);
 
     }
 
