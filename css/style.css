@@ -27,7 +27,7 @@ h2 {
 }
 
 a {
-    color: #60abe8;
+    color: #0269A4;
     margin: 0px;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
@@ -36,12 +36,12 @@ a {
 }
 
 a:focus {
-    color: #e1997a;
+    color: #FE7C00;
     outline: none !important;
 }
 
 a:hover {
-    color: #e1997a;
+    color: #FE7C00;
     text-decoration: none;
 }
 
