@@ -19,6 +19,7 @@
             const combo = [];
             combo.cardLinks = replaceCardNamesWithLinks(combos[c].slice(0, 10));
             combo.colorIdentity = combos[c][10];
+            combo.colorIdentityName = replaceColorIdentityWithName(combos[c][10]);
             combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][10]);
             combo.boardState = splitText(combos[c][11]);
             combo.steps = splitText(combos[c][12]);
@@ -31,7 +32,7 @@
             'w', 'u', 'b', 'r', 'g', 'c',
             'w,u', 'w,b', 'w,r', 'w,g', 'u,b', 'u,r', 'u, g', 'b,r', 'b,g','r,g', 
             'w,u,b', 'w,u,r', 'w,u,g', 'w,b,r', 'w,b,g', 'w,r,g', 'u,b,r', 'u,b,g', 'u,r,g', 'b,r,g',
-            'w,u,b,r', 'w,u,b,g', 'w,b,r,g', 'w,u,b,g', 'w,u,r,g', 'w,u,b,r,g'
+            'w,u,b,r', 'w,u,b,g', 'w,b,r,g', 'w,u,b,g', 'w,u,r,g', 'u,b,r,g', 'w,u,b,r,g'
         ];
         for (var i = 0; i < sortOrder.length; i++) {
             ordering[sortOrder[i]] = i;
@@ -55,18 +56,61 @@
         });
     }
 
+    function replaceColorIdentityWithName(identity) {
+        if (isBlank(identity)) {
+            return identity;
+        } else {
+            const colorMapper = {
+                'w': 'white',
+                'u': 'blue',
+                'b': 'black',
+                'r': 'red',
+                'g': 'green',
+                'c': 'colorless',
+                'w,u': 'azorius',
+                'w,b': 'orzhov',
+                'w,r': 'boros', 
+                'w,g': 'selesnya', 
+                'u,b': 'dimir', 
+                'u,r': 'izzet', 
+                'u,g': 'simic', 
+                'b,r': 'rakdos', 
+                'b,g': 'golgari',
+                'r,g': 'gruul',
+                'w,u,b': 'esper', 
+                'w,u,r': 'jeskai', 
+                'w,u,g': 'bant', 
+                'w,b,r': 'mardu', 
+                'w,b,g': 'abzan', 
+                'w,r,g': 'naya', 
+                'u,b,r': 'grixis', 
+                'u,b,g': 'sultai', 
+                'u,r,g': 'temur', 
+                'b,r,g': 'jund',
+                'w,u,b,r': 'sans-green', 
+                'w,u,b,g': 'sans-red', 
+                'w,b,r,g': 'sans-blue', 
+                'w,u,r,g': 'sans-black',
+                'u,r,b,g': 'sans-white', 
+                'w,u,b,r,g': "wubrg"
+            };
+
+            return colorMapper[identity];
+        }
+    }
+
     function replaceColorIdentityWithImageSources(identity) {
         if (isBlank(identity)) {
             return identity;
         } else {
             const colors = identity.split(",");
             const imagePaths = {
-                "w": '<img src="images/mana/manaw.png" width="40" alt="white">',
-                "u": '<img src="images/mana/manau.png" width="40" alt="blue">',
-                "b": '<img src="images/mana/manab.png" width="40" alt="black">',
-                "r": '<img src="images/mana/manar.png" width="40" alt="red">',
-                "g": '<img src="images/mana/manag.png" width="40" alt="green">',
-                "c": '<img src="images/mana/manac.png" width="40" alt="colorless">'
+                'w': '<img src="images/mana/manaw.png" width="40" alt="white">',
+                'u': '<img src="images/mana/manau.png" width="40" alt="blue">',
+                'b': '<img src="images/mana/manab.png" width="40" alt="black">',
+                'r': '<img src="images/mana/manar.png" width="40" alt="red">',
+                'g': '<img src="images/mana/manag.png" width="40" alt="green">',
+                'c': '<img src="images/mana/manac.png" width="40" alt="colorless">'
             };
 
             return colors.map(function (color) {
@@ -111,6 +155,7 @@
             tdDescription.innerHTML = `<ol>${combo.steps.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
 
+            tr.setAttribute("color", combo.colorIdentityName);
             tr.appendChild(tdCardLinks);
             tr.appendChild(tdColorIdentity);
             tr.appendChild(tdBoardState);
