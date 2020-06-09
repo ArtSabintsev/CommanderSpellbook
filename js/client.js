@@ -6,7 +6,7 @@
     // API Request
 
     function fetchDataFromGoogleSheets() {
-        const url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&ranges=metrics!A2:B&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
+        const url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&ranges=metrics!A2:C&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
         var request = new XMLHttpRequest();
         request.open("GET", url, false);
@@ -70,12 +70,15 @@
         metrics.map(function (metric) {
             const tr = document.createElement('tr');
             const tdMetric = document.createElement('td');
+            const tdIdentity = document.createElement('td');
             const tdCount = document.createElement('td');
-            
+
             tdMetric.innerHTML = `<strong>${metric[0]}</strong>`;
-            tdCount.innerHTML = `<center>${metric[1]}</center>`;
+            tdIdentity.innerHTML = `<center>${replaceColorIdentityWithImageSources(metric[1]).join('')}</center>`;
+            tdCount.innerHTML = `<center>${metric[2]}</center>`;
             
             tr.appendChild(tdMetric);
+            tr.appendChild(tdIdentity);
             tr.appendChild(tdCount);
             tableBody.appendChild(tr);
         });
@@ -170,7 +173,7 @@
 
     function replaceColorIdentityWithImageSources(identity) {
         if (isBlank(identity)) {
-            return identity;
+            return "";
         } else {
             const colors = identity.split(",");
             const imagePaths = {
