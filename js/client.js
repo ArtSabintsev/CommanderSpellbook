@@ -6,7 +6,7 @@
     // API Request
 
     function fetchDataFromGoogleSheets() {
-        const url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&ranges=metrics!A2:C&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
+        const url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&ranges=metrics!A2:C&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
         var request = new XMLHttpRequest();
         request.open("GET", url, false);
@@ -27,9 +27,7 @@
     function updateSearchInputWithComboCount(data) {
         const searchInput = document.getElementById('card-input');
         searchInput.setAttribute('placeholder', `Search ${data.length} combos by typing in a Magic Card`);
-
     }
-
 
     // Update Combos Tables
     function updateTableWithCombos(combos) {
@@ -76,7 +74,7 @@
             tdMetric.innerHTML = `<strong>${metric[0]}</strong>`;
             tdIdentity.innerHTML = `<center>${replaceColorIdentityWithImageSources(metric[1]).join('')}</center>`;
             tdCount.innerHTML = `<center>${metric[2]}</center>`;
-            
+
             tr.appendChild(tdMetric);
             tr.appendChild(tdIdentity);
             tr.appendChild(tdCount);
@@ -84,7 +82,8 @@
         });
     }
 
-    // Parsing Functions
+    /** Parsing Functions **/
+
     function parseCombos(combos) {
         var comboData = [];
         for (let c in combos) {
@@ -96,6 +95,7 @@
             combo.boardState = splitText(combos[c][11]);
             combo.steps = splitText(combos[c][12]);
             combo.result = splitText(combos[c][13]);
+            combo.id = combos[c][14];
             comboData.push(combo);
         }
 
@@ -247,6 +247,18 @@
         text = text.replace(/:mana20:/g, `<img src="images/mana/mana3.png" width="${width}" alt="20 mana">`);
 
         return text;
+    }
+
+    function copyCombo(comboId) {
+        let input = document.createElement('textarea');
+        input.innerHTML = comboId;
+        document.body.appendChild(input);
+        input.select();
+
+        let result = document.execCommand('copy');
+        document.body.removeChild(input);
+
+        alert("Copied Combo ID: " + comboId);
     }
 
 })();

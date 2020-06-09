@@ -24,3 +24,6 @@ I also decided that I wanted to make the financial upkeep for this project as ch
 - The website is hosted off this repository for free using Github Pages: http://www.CommanderSpellbook.com
 - The database is hosted for free on [Google Sheets](https://docs.google.com/spreadsheets/d/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/edit#gid=0). 
 - The Google Sheets API for all the combos can be found [here](https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E). 
+
+## Special Thanks
+Massive thanks to @harryfino, creator of the [Moxfield](https://www.moxfield.com) project, for helping me solve my CSS headaches.
