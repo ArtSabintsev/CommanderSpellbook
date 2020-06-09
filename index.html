@@ -214,9 +214,9 @@
       // Filter table on search 
       $("#card-input").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $("#combos tr").filter(function () {
+        $("#combos tr #tdCardLinks").filter(function () {
           let matchedText = $(this).text().toLowerCase().indexOf(value)
-          $(this).toggle(matchedText > -1)
+          $(this).parent().toggle(matchedText > -1)
         });
 
         // Re-apply table striping on search
