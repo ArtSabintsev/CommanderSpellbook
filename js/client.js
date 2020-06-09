@@ -3,8 +3,10 @@
 
     window.addEventListener("load", fetchDataFromGoogleSheets);
 
+    // API Request
+
     function fetchDataFromGoogleSheets() {
-        const url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
+        const url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&ranges=metrics!A2:B&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
         var request = new XMLHttpRequest();
         request.open("GET", url, false);
@@ -13,8 +15,70 @@
         const response = request.responseText;
         const parsed_response = JSON.parse(response);
 
-        var data = [];
-        const combos = parsed_response.valueRanges[0].values;
+        var combos = parseCombos(parsed_response.valueRanges[0].values);
+        updateSearchInputWithComboCount(combos);
+        updateTableWithCombos(combos);
+
+        let metrics = parsed_response.valueRanges[1].values;
+        updateModalWithMetrics(metrics);
+    }
+
+    // Update Search Bar
+    function updateSearchInputWithComboCount(data) {
+        const searchInput = document.getElementById('card-input');
+        searchInput.setAttribute('placeholder', `Search ${data.length} combos by typing in a Magic Card`);
+
+    }
+
+
+    // Update Combos Tables
+    function updateTableWithCombos(combos) {
+        const tableBody = document.getElementById('combos');
+        combos.map(function (combo) {
+            const tr = document.createElement('tr');
+            const tdCardLinks = document.createElement('td');
+            const tdColorIdentity = document.createElement('td');
+            const tdBoardState = document.createElement('td');
+            const tdDescription = document.createElement('td');
+            const tdResult = document.createElement('td');
+
+            tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
+            tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
+            tdBoardState.innerHTML = `<ul>${combo.boardState.map(e => `<li>${e}</li>`).join('')}<ul>`;
+            tdDescription.innerHTML = `<ol>${combo.steps.map(e => `<li>${e}</li>`).join('')}<ol>`;
+            tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
+
+            tr.setAttribute("color", combo.colorIdentityName);
+            tr.appendChild(tdCardLinks);
+            tr.appendChild(tdColorIdentity);
+            tr.appendChild(tdBoardState);
+            tr.appendChild(tdDescription);
+            tr.appendChild(tdResult);
+
+            tableBody.appendChild(tr);
+        });
+    }
+
+    // Update Metrics Modal
+    function updateModalWithMetrics(metrics) {
+        const tableBody = document.getElementById('metrics');
+        metrics.map(function (metric) {
+            const tr = document.createElement('tr');
+            const tdMetric = document.createElement('td');
+            const tdCount = document.createElement('td');
+            
+            tdMetric.innerHTML = `<strong>${metric[0]}</strong>`;
+            tdCount.innerHTML = `<center>${metric[1]}</center>`;
+            
+            tr.appendChild(tdMetric);
+            tr.appendChild(tdCount);
+            tableBody.appendChild(tr);
+        });
+    }
+
+    // Parsing Functions
+    function parseCombos(combos) {
+        var comboData = [];
         for (let c in combos) {
             const combo = [];
             combo.cardLinks = replaceCardNamesWithLinks(combos[c].slice(0, 10));
@@ -24,13 +88,13 @@
             combo.boardState = splitText(combos[c][11]);
             combo.steps = splitText(combos[c][12]);
             combo.result = splitText(combos[c][13]);
-            data.push(combo);
+            comboData.push(combo);
         }
 
         var ordering = {};
         var sortOrder = [
             'w', 'u', 'b', 'r', 'g', 'c',
-            'w,u', 'w,b', 'w,r', 'w,g', 'u,b', 'u,r', 'u, g', 'b,r', 'b,g','r,g', 
+            'w,u', 'w,b', 'w,r', 'w,g', 'u,b', 'u,r', 'u, g', 'b,r', 'b,g', 'r,g',
             'w,u,b', 'w,u,r', 'w,u,g', 'w,b,r', 'w,b,g', 'w,r,g', 'u,b,r', 'u,b,g', 'u,r,g', 'b,r,g',
             'w,u,b,r', 'w,u,b,g', 'w,b,r,g', 'w,u,b,g', 'w,u,r,g', 'u,b,r,g', 'w,u,b,r,g'
         ];
@@ -38,13 +102,13 @@
             ordering[sortOrder[i]] = i;
         }
 
-        data.sort(function (a, b) {
+        comboData.sort(function (a, b) {
             return (ordering[a.colorIdentity] - ordering[b.colorIdentity]);
         });
 
-        updateSearchInputWithComboCount(data);
-        updateTableWithCombos(data);
+        return comboData;
     }
+
 
     function replaceCardNamesWithLinks(cardNames) {
         var names = cardNames.filter(function (e) {
@@ -69,29 +133,29 @@
                 'c': 'colorless',
                 'w,u': 'azorius',
                 'w,b': 'orzhov',
-                'w,r': 'boros', 
-                'w,g': 'selesnya', 
-                'u,b': 'dimir', 
-                'u,r': 'izzet', 
-                'u,g': 'simic', 
-                'b,r': 'rakdos', 
+                'w,r': 'boros',
+                'w,g': 'selesnya',
+                'u,b': 'dimir',
+                'u,r': 'izzet',
+                'u,g': 'simic',
+                'b,r': 'rakdos',
                 'b,g': 'golgari',
                 'r,g': 'gruul',
-                'w,u,b': 'esper', 
-                'w,u,r': 'jeskai', 
-                'w,u,g': 'bant', 
-                'w,b,r': 'mardu', 
-                'w,b,g': 'abzan', 
-                'w,r,g': 'naya', 
-                'u,b,r': 'grixis', 
-                'u,b,g': 'sultai', 
-                'u,r,g': 'temur', 
+                'w,u,b': 'esper',
+                'w,u,r': 'jeskai',
+                'w,u,g': 'bant',
+                'w,b,r': 'mardu',
+                'w,b,g': 'abzan',
+                'w,r,g': 'naya',
+                'u,b,r': 'grixis',
+                'u,b,g': 'sultai',
+                'u,r,g': 'temur',
                 'b,r,g': 'jund',
-                'w,u,b,r': 'sans-green', 
-                'w,u,b,g': 'sans-red', 
-                'w,b,r,g': 'sans-blue', 
+                'w,u,b,r': 'sans-green',
+                'w,u,b,g': 'sans-red',
+                'w,b,r,g': 'sans-blue',
                 'w,u,r,g': 'sans-black',
-                'u,r,b,g': 'sans-white', 
+                'u,r,b,g': 'sans-white',
                 'w,u,b,r,g': "wubrg"
             };
 
@@ -132,41 +196,6 @@
             return desc.trim().split(replacementChar).filter(t => t.length > 0);
         }
     }
-
-    function updateSearchInputWithComboCount(data) {
-        const searchInput = document.getElementById('card-input');
-        searchInput.setAttribute('placeholder', `Search ${data.length} combos by typing in a Magic Card`);
-
-    }
-
-    function updateTableWithCombos(data) {
-        const tableBody = document.getElementById('combos');
-        data.map(function (combo) {
-            const tr = document.createElement('tr');
-            const tdCardLinks = document.createElement('td');
-            const tdColorIdentity = document.createElement('td');
-            const tdBoardState = document.createElement('td');
-            const tdDescription = document.createElement('td');
-            const tdResult = document.createElement('td');
-
-            tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
-            tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
-            tdBoardState.innerHTML = `<ul>${combo.boardState.map(e => `<li>${e}</li>`).join('')}<ul>`;
-            tdDescription.innerHTML = `<ol>${combo.steps.map(e => `<li>${e}</li>`).join('')}<ol>`;
-            tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
-
-            tr.setAttribute("color", combo.colorIdentityName);
-            tr.appendChild(tdCardLinks);
-            tr.appendChild(tdColorIdentity);
-            tr.appendChild(tdBoardState);
-            tr.appendChild(tdDescription);
-            tr.appendChild(tdResult);
-
-            tableBody.appendChild(tr);
-        });
-    }
-
-    /* Helper Functions */
 
     function isBlank(str) {
         return (!str || /^\s*$/.test(str));
