@@ -80,6 +80,11 @@
             Combo</a>
         </li>
         <li class="nav-item">
+          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
+            data-target="#metricsModal">Metrics</button>
+          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#metricsModal">Combo Metrics</a>
+        </li>
+        <li class="nav-item">
           <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
             href="https://discord.com/invite/DkAyVJG">Discord</a>
           <a class="d-inline d-lg-none" role="button" target="_blank"
@@ -91,11 +96,6 @@
           <a class="d-inline d-lg-none" role="button" target="_blank"
             href="https://github.com/ArtSabintsev/CommanderSpellbook">GitHub</a>
         </li>
-        <!-- <li class="nav-item">
-          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
-            data-target="#metricsModal">Metrics</button>
-          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#metricsModal">Combo Metrics</a>
-        </li> -->
         <li class="nav-item">
           <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
             href="https://docs.google.com/spreadsheets/d/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/">Database</a>
@@ -171,8 +171,8 @@
   </div>
 
   <!-- Metrics Modal -->
-  <div class="modal fade container-fluid" id="metricsModal" tabindex="-1" role="dialog" aria-labelledby="metricsModalLabel"
-    aria-hidden="true">
+  <div class="modal fade" id="metricsModal" tabindex="-1" role="dialog"
+    aria-labelledby="metricsModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -182,7 +182,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <table class="table table-striped" id="metrics">
+          <table class="table">
             <thead>
               <tr>
                 <th width="80%">

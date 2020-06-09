@@ -42,13 +42,18 @@
             const tdDescription = document.createElement('td');
             const tdResult = document.createElement('td');
 
+            tdCardLinks.id = "tdCardLinks";
+            tdColorIdentity.id = "tdColorIdentity";
+            tdBoardState.id = "tdBoardState";
+            tdDescription.id = "tdDescription";
+            tdResult.id = "tdResult";
+
             tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
             tdBoardState.innerHTML = `<ul>${combo.boardState.map(e => `<li>${e}</li>`).join('')}<ul>`;
             tdDescription.innerHTML = `<ol>${combo.steps.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
 
-            tr.setAttribute("color", combo.colorIdentityName);
             tr.appendChild(tdCardLinks);
             tr.appendChild(tdColorIdentity);
             tr.appendChild(tdBoardState);

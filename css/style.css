@@ -136,23 +136,23 @@ footer {
     /*
 	Label the data
 	*/
-    td:nth-of-type(1):before {
+    #tdCardLinks:nth-of-type(1):before {
         content: "CARDS";
     }
 
-    td:nth-of-type(2):before {
+    #tdColorIdentity:nth-of-type(2):before {
         content: "IDENTITY";
     }
 
-    td:nth-of-type(3):before {
+    #tdBoardState:nth-of-type(3):before {
         content: "INITIAL STATE";
     }
 
-    td:nth-of-type(4):before {
+    #tdDescription:nth-of-type(4):before {
         content: "STEPS";
     }
 
-    td:nth-of-type(5):before {
+    #tdResult:nth-of-type(5):before {
         content: "RESULTS";
     }
 }
