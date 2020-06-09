@@ -114,7 +114,8 @@ footer {
         /* Behave  like a "row" */
         border: none;
         position: relative;
-        padding-left: 50%;
+        padding-top: 10%;
+        padding-left: 0%;
         white-space: normal;
         text-align: left;
     }
