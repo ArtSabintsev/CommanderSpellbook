@@ -25,7 +25,6 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
 
-
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -205,9 +204,11 @@
       // Filter table on search 
       $("#card-input").on("keyup", function () {
         var value = $(this).val().toLowerCase();
-        $("#combos tr #tdCardLinks").filter(function () {
+        // $("#combos tr #tdCardLinks").filter(function () { // Search only Cards
+        $("#combos tr").filter(function () {
           let matchedText = $(this).text().toLowerCase().indexOf(value)
-          $(this).parent().toggle(matchedText > -1)
+          // $(this).parent().toggle(matchedText > -1) // Toggle to use if searching only cards
+          $(this).toggle(matchedText > -1)
         });
 
         // Re-apply table striping on search
