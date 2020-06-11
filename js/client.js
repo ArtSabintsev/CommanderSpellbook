@@ -102,7 +102,7 @@
         var ordering = {};
         var sortOrder = [
             'w', 'u', 'b', 'r', 'g', 'c',
-            'w,u', 'w,b', 'w,r', 'w,g', 'u,b', 'u,r', 'u, g', 'b,r', 'b,g', 'r,g',
+            'w,u', 'w,b', 'w,r', 'w,g', 'u,b', 'u,r', 'u,g', 'b,r', 'b,g', 'r,g',
             'w,u,b', 'w,u,r', 'w,u,g', 'w,b,r', 'w,b,g', 'w,r,g', 'u,b,r', 'u,b,g', 'u,r,g', 'b,r,g',
             'w,u,b,r', 'w,u,b,g', 'w,b,r,g', 'w,u,b,g', 'w,u,r,g', 'u,b,r,g', 'w,u,b,r,g'
         ];
