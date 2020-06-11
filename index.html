@@ -87,26 +87,10 @@
             href="https://discord.com/invite/DkAyVJG">Discord</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
-            href="https://github.com/ArtSabintsev/CommanderSpellbook">GitHub</a>
-          <a class="d-inline d-lg-none" role="button" target="_blank"
-            href="https://github.com/ArtSabintsev/CommanderSpellbook">GitHub</a>
+          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
+            data-target="#dataModal">Database</button>
+          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#metricsModal">Data</a>
         </li>
-        <li class="nav-item">
-          <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
-            href="https://docs.google.com/spreadsheets/d/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/">Database</a>
-          <a class="d-inline d-lg-none" role="button" target="_blank"
-            href="https://docs.google.com/spreadsheets/d/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/">Database</a>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
-            href="https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E">
-            API
-          </a>
-          <a class="d-inline d-lg-none" target="_blank"
-            href="https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E">
-            API
-          </a> </li>
       </ul>
     </div>
   </nav>
@@ -195,8 +179,38 @@
             <tbody id="metrics"></tbody>
           </table>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
+  <!-- Data Modal -->
+  <div class="modal fade" id="dataModal" tabindex="-1" role="dialog" aria-labelledby="dataLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="dataLabel">Database & API</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          The data powering the website, and the source code for the website itself, are completely free and open
+          source. 
+          <p>We encourage you copy and clone this data!</p>
+          <ul>
+            <li><a target="_blank" href="https://github.com/ArtSabintsev/CommanderSpellbook">Website Source Code on
+                GitHub</a></li>
+            <li><a target="_blank"
+                href="https://docs.google.com/spreadsheets/d/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/">Combo
+                Database Backend on Google Sheets</a></li>
+            <li><a target="_blank"
+                href="https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E">Combo
+                Database GET API on Google Sheets</a></li>
+          </ul>
+        </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
