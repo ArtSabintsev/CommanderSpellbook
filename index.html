@@ -49,9 +49,6 @@
   <!-- Deckbox -->
   <script src="https://deckbox.org/assets/external/tooltip.js"></script>
 
-  <!-- Internal JS -->
-  <script src="js/client.js"></script>
-
   <!-- Internal CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -96,8 +93,9 @@
   </nav>
 
   <!--Combos Table-->
+  <script src="js/client.js"></script>
   <div class="container-fluid" id="global">
-    <input class="form-control w-100" id="card-input" ftype="text">
+    <input class="form-control w-100" id="card-input" ftype="text" placeholder="Loading Combos...">
     <div class="table-responive-sm">
       <table class="table" id="no-more-tables">
         <thead>
