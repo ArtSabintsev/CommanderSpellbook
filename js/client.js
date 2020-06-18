@@ -211,13 +211,13 @@
 
     function replaceTextWithManaImages(text) {
         const width = 20;
-        text = text.replace(/:manaw:/g, `<img src="images/mana/manaw.png" width="${width}" alt="white">`);
-        text = text.replace(/:manau:/g, `<img src="images/mana/manau.png" width="${width}" alt="blue">`);
-        text = text.replace(/:manab:/g, `<img src="images/mana/manab.png" width="${width}" alt="black">`);
-        text = text.replace(/:manar:/g, `<img src="images/mana/manar.png" width="${width}" alt="red">`);
-        text = text.replace(/:manag:/g, `<img src="images/mana/manag.png" width="${width}" alt="green">`);
+        text = text.replace(/:manaw:/g, `<img src="images/mana/manaw.png" width="${width}" alt="white mana">`);
+        text = text.replace(/:manau:/g, `<img src="images/mana/manau.png" width="${width}" alt="blue mana">`);
+        text = text.replace(/:manab:/g, `<img src="images/mana/manab.png" width="${width}" alt="black mana">`);
+        text = text.replace(/:manar:/g, `<img src="images/mana/manar.png" width="${width}" alt="red mana">`);
+        text = text.replace(/:manag:/g, `<img src="images/mana/manag.png" width="${width}" alt="green mana">`);
         text = text.replace(/:manac:/g, `<img src="images/mana/manac.png" width="${width}" alt="colorless mana">`);
-        text = text.replace(/:manabg:/g, `<img src="images/mana/manabg.png" width="${width}" alt="golgarai mana">`);
+        text = text.replace(/:manabg:/g, `<img src="images/mana/manabg.png" width="${width}" alt="golgari mana">`);
         text = text.replace(/:manabr:/g, `<img src="images/mana/manabr.png" width="${width}" alt="rakdos mana">`);
         text = text.replace(/:managu:/g, `<img src="images/mana/managu.png" width="${width}" alt="simic mana">`);
         text = text.replace(/:managw:/g, `<img src="images/mana/managw.png" width="${width}" alt="selesnya mana">`);
@@ -227,6 +227,7 @@
         text = text.replace(/:manaur:/g, `<img src="images/mana/manaur.png" width="${width}" alt="izzet mana">`);
         text = text.replace(/:manawb:/g, `<img src="images/mana/manawb.png" width="${width}" alt="orzhov mana">`);
         text = text.replace(/:manawu:/g, `<img src="images/mana/manawu.png" width="${width}" alt="azorius mana">`);
+        text = text.replace(/:manas:/g, `<img src="images/mana/manas.png" width="${width}" alt="snow mana">`);
         text = text.replace(/:mana0:/g, `<img src="images/mana/mana0.png" width="${width}" alt="0 mana">`);
         text = text.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana">`);
         text = text.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana">`);
