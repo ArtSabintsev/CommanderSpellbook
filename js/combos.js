@@ -223,6 +223,11 @@
         text = text.replace(/:mana15:/g, `<img src="images/mana/mana3.png" width="${width}" alt="15 mana" loading="lazy">`);
         text = text.replace(/:mana16:/g, `<img src="images/mana/mana3.png" width="${width}" alt="16 mana" loading="lazy">`);
         text = text.replace(/:mana20:/g, `<img src="images/mana/mana3.png" width="${width}" alt="20 mana" loading="lazy">`);
+        text = text.replace(/:mana20:/g, `<img src="images/mana/manawp.png" width="${width}" alt="White Phyrexian mana" loading="lazy">`);
+        text = text.replace(/:mana20:/g, `<img src="images/mana/manaup.png" width="${width}" alt="Blue Phyrexian manaa" loading="lazy">`);
+        text = text.replace(/:mana20:/g, `<img src="images/mana/manabp.png" width="${width}" alt="Black Phyrexian mana" loading="lazy">`);
+        text = text.replace(/:mana20:/g, `<img src="images/mana/manarp.png" width="${width}" alt="Red Phyrexian mana" loading="lazy">`);
+        text = text.replace(/:mana20:/g, `<img src="images/mana/managp.png" width="${width}" alt="Green Phyrexian mana" loading="lazy">`);
 
         return text;
     }
