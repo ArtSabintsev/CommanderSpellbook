@@ -101,7 +101,7 @@
         });
 
         return names.map(function (e) {
-            return `<a href="https://scryfall.com/search?q=${e}">${e}</a>`;
+            return `<a href="https://deckbox.org/mtg/${e}">${e}</a>`;
         });
     }
 
