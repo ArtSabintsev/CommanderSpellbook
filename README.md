@@ -15,12 +15,12 @@ First and foremost, I am an iOS developer, and _not_ a web developer. I am also 
 
 I also decided that I wanted to make the financial upkeep for this project as cheap as possible. At the moment, here is what I pay for with respect to this project:
 
-- Discord Nitro: $99/year (for the expanded emoji support that comes with the 2 boosts that are needed for cataloguing combos)
-- Domain Name: $20/year
-- GitHub: Free
-- Google Sheets: Free
-- Cloudflare CDN: Free
-- LetsEncrypt SSL Certificate: Free
+- Discord Nitro: **$99/year**
+- Domain Name: **$20/year**
+- GitHub: **Free**
+- Google Sheets: **Free**
+- Cloudflare DNS + CDN: **Free (for now)**
+- LetsEncrypt SSL Certificate: **Free**
 
 ## Links
 - The website is hosted off this repository for free using Github Pages: http://www.CommanderSpellbook.com
