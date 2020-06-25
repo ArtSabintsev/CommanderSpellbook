@@ -95,7 +95,7 @@
 
   <!--Combos Table-->
   <div class="container-fluid" id="global">
-    <input class="form-control w-100" id="card-input" ftype="text" placeholder="Loading Combos...">
+    <input class="form-control w-100" id="card-input" ftype="text" placeholder="Loading Combos..." onkeyup="filterCombos()">
 
     <!-- Load metrics.js -->
     <script src="js/metrics.js"></script>
@@ -222,23 +222,22 @@
 
   <!-- Filter Combo Table -->
   <script>
-    $(document).ready(function () {
-      // Filter table on search 
-      $("#card-input").on("keyup", function () {
-        var value = $(this).val().toLowerCase();
-        // $("#combos tr #tdCardLinks").filter(function () { // Search only Cards
-        $("#combos tr").filter(function () {
-          let matchedText = $(this).text().toLowerCase().indexOf(value)
-          // $(this).parent().toggle(matchedText > -1) // Toggle to use if searching only cards
-          $(this).toggle(matchedText > -1)
-        });
-
+    function tableStriping() {
         // Re-apply table striping on search
         $("tr:visible").each(function (index) {
           $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
         });
-      });
-    });
+    }
+    function filterCombos() {
+      filter = $("#card-input").val().toLowerCase();
+        // $("#combos tr #tdCardLinks").filter(function () { // Search only Cards
+        $("#combos tr").filter(function () {
+          let matchedText = $(this).text().toLowerCase().indexOf(filter)
+          // $(this).parent().toggle(matchedText > -1) // Toggle to use if searching only cards
+          $(this).toggle(matchedText > -1)
+        });
+        tableStriping();
+    };
   </script>
   </div>
 </body>
