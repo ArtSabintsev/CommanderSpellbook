@@ -209,26 +209,25 @@
         text = text.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana" loading="lazy">`);
         text = text.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana" loading="lazy">`);
         text = text.replace(/:mana3:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana" loading="lazy">`);
-        text = text.replace(/:mana4:/g, `<img src="images/mana/mana3.png" width="${width}" alt="4 mana" loading="lazy">`);
-        text = text.replace(/:mana5:/g, `<img src="images/mana/mana3.png" width="${width}" alt="5 mana" loading="lazy">`);
-        text = text.replace(/:mana6:/g, `<img src="images/mana/mana3.png" width="${width}" alt="6 mana" loading="lazy">`);
-        text = text.replace(/:mana7:/g, `<img src="images/mana/mana3.png" width="${width}" alt="7 mana" loading="lazy">`);
-        text = text.replace(/:mana8:/g, `<img src="images/mana/mana3.png" width="${width}" alt="8 mana" loading="lazy">`);
-        text = text.replace(/:mana9:/g, `<img src="images/mana/mana3.png" width="${width}" alt="9 mana" loading="lazy">`);
-        text = text.replace(/:mana10:/g, `<img src="images/mana/mana3.png" width="${width}" alt="10 mana" loading="lazy">`);
-        text = text.replace(/:mana11:/g, `<img src="images/mana/mana3.png" width="${width}" alt="11 mana" loading="lazy">`);
-        text = text.replace(/:mana12:/g, `<img src="images/mana/mana3.png" width="${width}" alt="12 mana" loading="lazy">`);
-        text = text.replace(/:mana13:/g, `<img src="images/mana/mana3.png" width="${width}" alt="13 mana" loading="lazy">`);
-        text = text.replace(/:mana14:/g, `<img src="images/mana/mana3.png" width="${width}" alt="14 mana" loading="lazy">`);
-        text = text.replace(/:mana15:/g, `<img src="images/mana/mana3.png" width="${width}" alt="15 mana" loading="lazy">`);
-        text = text.replace(/:mana16:/g, `<img src="images/mana/mana3.png" width="${width}" alt="16 mana" loading="lazy">`);
-        text = text.replace(/:mana20:/g, `<img src="images/mana/mana3.png" width="${width}" alt="20 mana" loading="lazy">`);
+        text = text.replace(/:mana4:/g, `<img src="images/mana/mana4.png" width="${width}" alt="4 mana" loading="lazy">`);
+        text = text.replace(/:mana5:/g, `<img src="images/mana/mana5.png" width="${width}" alt="5 mana" loading="lazy">`);
+        text = text.replace(/:mana6:/g, `<img src="images/mana/mana6.png" width="${width}" alt="6 mana" loading="lazy">`);
+        text = text.replace(/:mana7:/g, `<img src="images/mana/mana7.png" width="${width}" alt="7 mana" loading="lazy">`);
+        text = text.replace(/:mana8:/g, `<img src="images/mana/mana8.png" width="${width}" alt="8 mana" loading="lazy">`);
+        text = text.replace(/:mana9:/g, `<img src="images/mana/mana9.png" width="${width}" alt="9 mana" loading="lazy">`);
+        text = text.replace(/:mana10:/g, `<img src="images/mana/mana10.png" width="${width}" alt="10 mana" loading="lazy">`);
+        text = text.replace(/:mana11:/g, `<img src="images/mana/mana11.png" width="${width}" alt="11 mana" loading="lazy">`);
+        text = text.replace(/:mana12:/g, `<img src="images/mana/mana12.png" width="${width}" alt="12 mana" loading="lazy">`);
+        text = text.replace(/:mana13:/g, `<img src="images/mana/mana13.png" width="${width}" alt="13 mana" loading="lazy">`);
+        text = text.replace(/:mana14:/g, `<img src="images/mana/mana14.png" width="${width}" alt="14 mana" loading="lazy">`);
+        text = text.replace(/:mana15:/g, `<img src="images/mana/mana15.png" width="${width}" alt="15 mana" loading="lazy">`);
+        text = text.replace(/:mana16:/g, `<img src="images/mana/mana16.png" width="${width}" alt="16 mana" loading="lazy">`);
+        text = text.replace(/:mana20:/g, `<img src="images/mana/mana20.png" width="${width}" alt="20 mana" loading="lazy">`);
         text = text.replace(/:manawp:/g, `<img src="images/mana/manawp.png" width="${width}" alt="White Phyrexian mana" loading="lazy">`);
         text = text.replace(/:manaup:/g, `<img src="images/mana/manaup.png" width="${width}" alt="Blue Phyrexian manaa" loading="lazy">`);
         text = text.replace(/:manabp:/g, `<img src="images/mana/manabp.png" width="${width}" alt="Black Phyrexian mana" loading="lazy">`);
         text = text.replace(/:manarp:/g, `<img src="images/mana/manarp.png" width="${width}" alt="Red Phyrexian mana" loading="lazy">`);
         text = text.replace(/:managp:/g, `<img src="images/mana/managp.png" width="${width}" alt="Green Phyrexian mana" loading="lazy">`);
-
         return text;
     }
 
