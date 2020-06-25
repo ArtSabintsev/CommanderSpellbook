@@ -33,25 +33,26 @@
             const tr = document.createElement('tr');
             const tdCardLinks = document.createElement('td');
             const tdColorIdentity = document.createElement('td');
-            const tdBoardState = document.createElement('td');
+            const tdPrerequisites = document.createElement('td');
             const tdDescription = document.createElement('td');
             const tdResult = document.createElement('td');
 
+            tr.id = combo.id;
             tdCardLinks.id = "tdCardLinks";
             tdColorIdentity.id = "tdColorIdentity";
-            tdBoardState.id = "tdBoardState";
+            tdPrerequisites.id = "tdPrerequisites";
             tdDescription.id = "tdDescription";
             tdResult.id = "tdResult";
 
             tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
-            tdBoardState.innerHTML = `<ul>${combo.boardState.map(e => `<li>${e}</li>`).join('')}<ul>`;
+            tdPrerequisites.innerHTML = `<ul>${combo.prerequisites.map(e => `<li>${e}</li>`).join('')}<ul>`;
             tdDescription.innerHTML = `<ol>${combo.steps.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
 
             tr.appendChild(tdCardLinks);
             tr.appendChild(tdColorIdentity);
-            tr.appendChild(tdBoardState);
+            tr.appendChild(tdPrerequisites);
             tr.appendChild(tdDescription);
             tr.appendChild(tdResult);
 
@@ -69,7 +70,7 @@
             combo.colorIdentity = combos[c][10];
             combo.colorIdentityName = replaceColorIdentityWithName(combos[c][10]);
             combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][10]);
-            combo.boardState = splitText(combos[c][11]);
+            combo.prerequisites = splitText(combos[c][11]);
             combo.steps = splitText(combos[c][12]);
             combo.result = splitText(combos[c][13]);
             combo.id = combos[c][14];
