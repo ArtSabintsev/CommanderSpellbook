@@ -38,7 +38,6 @@
             const tdResult = document.createElement('td');
             const tdComboID = document.createElement('td');
 
-            tr.id = combo.id;
             tdCardLinks.id = "tdCardLinks";
             tdColorIdentity.id = "tdColorIdentity";
             tdPrerequisites.id = "tdPrerequisites";

@@ -17,23 +17,25 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
   <link rel="manifest" href="favicon/site.webmanifest">
 
-   <!-- Global site tag (gtag.js) - Google Analytics -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LPW4VGE0F"></script>
-   <script>
-     window.dataLayer = window.dataLayer || [];
- 
-     function gtag() {
-       dataLayer.push(arguments);
-     }
-     gtag('js', new Date());
- 
-     gtag('config', 'G-0LPW4VGE0F');
-   </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LPW4VGE0F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-0LPW4VGE0F');
+  </script>
 
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
   </script>
@@ -43,9 +45,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
-
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- Deckbox -->
   <script src="https://deckbox.org/assets/external/tooltip.js"></script>
@@ -93,9 +92,14 @@
     </div>
   </nav>
 
-  <!--Combos Table-->
+  <!--Main Div-->
   <div class="container-fluid" id="global">
-    <input class="form-control w-100" id="card-input" ftype="text" placeholder="Loading Combos..." onkeyup="filterCombos()">
+
+    <!-- Input Form -->
+    <input class="form-control w-100" id="card-input" ftype="text" placeholder="Loading Combos..."
+      onkeyup="filterCombos()">
+
+    <!-- Color Identity Selector -->
     <div id="identitySelector" style="display:flex; width:75%; justify-content: space-evenly; margin: 10px;">
       <div id="manaW">
         <img src="images/mana/manaw.png" width="40" alt="white">
@@ -118,13 +122,15 @@
         <input type="checkbox" id="checkboxG" checked onclick="filterCombos()">
       </div>
       <div id="manaC">
-          <img src="images/mana/manac.png" width="40" alt="colorless">
-          <input type="checkbox" id="checkboxC" checked onclick="filterCombos()">
-        </div>
+        <img src="images/mana/manac.png" width="40" alt="colorless">
+        <input type="checkbox" id="checkboxC" checked onclick="filterCombos()">
+      </div>
     </div>
+
     <!-- Load metrics.js -->
     <script src="js/metrics.js"></script>
 
+    <!-- Combos Table -->
     <div class="table-responive-sm">
       <table class="table" id="no-more-tables">
         <thead>
@@ -248,24 +254,27 @@
     </div>
   </div>
 
-  <!-- Filter Combo Table -->
+  <!-- UI Updating Methods -->
   <script>
+    // Re-apply table striping on search
     function tableStriping() {
-        // Re-apply table striping on search
-        $("tr:visible").each(function (index) {
-          $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
-        });
+      $("tr:visible").each(function (index) {
+        $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
+      });
     }
+
+
+    // Re-apply table striping on search
     function filterCombos() {
       filter = $("#card-input").val().toLowerCase();
-        // $("#combos tr #tdCardLinks").filter(function () { // Search only Cards
-        $("#combos tr").filter(function () {
-          let matchedText = $(this).text().toLowerCase().indexOf(filter)
-          // $(this).parent().toggle(matchedText > -1) // Toggle to use if searching only cards
-          $(this).toggle(matchedText > -1 && inIdentity( $(this) ));
-        });
-        tableStriping();
+      $("#combos tr").filter(function () {
+        let matchedText = $(this).text().toLowerCase().indexOf(filter)
+        $(this).toggle(matchedText > -1 && inIdentity($(this)));
+      });
+      tableStriping();
     };
+
+    // Filter by Color Identity
     function inIdentity(context) {
       white = $("#checkboxW").prop("checked");
       blue = $("#checkboxU").prop("checked");
@@ -273,34 +282,41 @@
       red = $("#checkboxR").prop("checked");
       green = $("#checkboxG").prop("checked");
       colorless = $("#checkboxC").prop("checked");
+
       tdWhite = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("white") > -1;
-      if(!white && tdWhite) {
+      if (!white && tdWhite) {
         return false;
       }
+
       tdBlue = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("blue") > -1;
-      if(!blue && tdBlue) {
+      if (!blue && tdBlue) {
         return false;
       }
+
       tdBlack = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("black") > -1;
-      if(!black && tdBlack) {
+      if (!black && tdBlack) {
         return false;
       }
+
       tdRed = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("red") > -1;
-      if(!red && tdRed) {
+      if (!red && tdRed) {
         return false;
       }
+
       tdGreen = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("green") > -1;
-      if(!green && tdGreen) {
+      if (!green && tdGreen) {
         return false;
       }
+
       tdColorless = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("colorless") > -1;
-      if(!colorless && tdColorless) {
+      if (!colorless && tdColorless) {
         return false;
       }
+
       return true;
     }
   </script>
-  
+
   </div>
 </body>
 <footer>
