@@ -160,10 +160,18 @@ footer {
     #tdComboID:nth-of-type(6):before {
         content: "COMBO ID";
     }
+
+    #identitySelector {
+        margin: 40px;
+    }
 }
 
 @media screen and (min-width: 801px) {
     #card-input {
         font-size: 20px;
+    }
+
+    #identitySelector {
+        margin: 10px;
     }
 }
