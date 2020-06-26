@@ -33,6 +33,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
   </script>
@@ -242,12 +243,6 @@
           </p>
           <input class="form-control" id="identity" onkeyup="colorIdentity()" style="flex-shrink: 1">
           </div>
-          <div id="resultsContainer" style="display: flex">
-            <p style="white-space: nowrap">
-            Combo Results <a id="identityColorsDisplay"></a>: 
-          </p>
-          <input class="form-control" id="results" style="flex-shrink: 1">
-          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="advancedSearch()">Search</button>
@@ -292,7 +287,7 @@
     }
     function advancedSearch() {
       let identityName = $("#identity").val();
-      let results = $("#results").val();
+      console.log(replaceColorIdentityWithImageSources(replaceNameWithColorIdentity(identityName)).join(""));
       if(!isBlank(identityName)) {
         $("#combos tr").filter(function () {
           let match = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf(
@@ -300,12 +295,7 @@
                           replaceNameWithColorIdentity(identityName)
                         ).join("")
                       );
-          $(this).toggle(match > -1)
-        });
-      }
-      if(!results.length == 0) {
-        $("#combos tr").filter(function () {
-          let match = $("#tdResult", this).children().prop("innerText").indexOf(results);
+          console.log($(this).children("#tdColorIdentity").children().prop("outerHTML"));
           $(this).toggle(match > -1)
         });
       }
