@@ -96,7 +96,32 @@
   <!--Combos Table-->
   <div class="container-fluid" id="global">
     <input class="form-control w-100" id="card-input" ftype="text" placeholder="Loading Combos..." onkeyup="filterCombos()">
-
+    <div id="identitySelector" style="display:flex; width:75%; justify-content: space-evenly; margin: 10px;">
+      <div id="manaW">
+        <img src="images/mana/manaw.png" width="40" alt="white">
+        <input type="checkbox" id="checkboxW" checked onclick="recalcIdentity()">
+      </div>
+      <div id="manaU">
+        <img src="images/mana/manau.png" width="40" alt="blue">
+        <input type="checkbox" id="checkboxU" checked onclick="recalcIdentity()">
+      </div>
+      <div id="manaB">
+        <img src="images/mana/manab.png" width="40" alt="black">
+        <input type="checkbox" id="checkboxB" checked onclick="recalcIdentity()">
+      </div>
+      <div id="manaR">
+        <img src="images/mana/manar.png" width="40" alt="red">
+        <input type="checkbox" id="checkboxR" checked onclick="recalcIdentity()">
+      </div>
+      <div id="manaG">
+        <img src="images/mana/manag.png" width="40" alt="green">
+        <input type="checkbox" id="checkboxG" checked onclick="recalcIdentity()">
+      </div>
+      <div id="manaC">
+          <img src="images/mana/manac.png" width="40" alt="colorless">
+          <input type="checkbox" id="checkboxC" checked onclick="recalcIdentity()">
+        </div>
+    </div>
     <!-- Load metrics.js -->
     <script src="js/metrics.js"></script>
 
@@ -241,6 +266,47 @@
         });
         tableStriping();
     };
+    function recalcIdentity() {
+      white = $("#checkboxW").prop("checked");
+      blue = $("#checkboxU").prop("checked");
+      black = $("#checkboxB").prop("checked");
+      red = $("#checkboxR").prop("checked");
+      green = $("#checkboxG").prop("checked");
+      colorless = $("#checkboxC").prop("checked");
+      $("#combos tr").filter(function() {
+        $(this).show();
+        tdWhite = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("white") > -1;
+        if(!white && tdWhite) {
+          $(this).hide();
+          return;
+        }
+        tdBlue = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("blue") > -1;
+        if(!blue && tdBlue) {
+          $(this).hide();
+          return;
+        }
+        tdBlack = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("black") > -1;
+        if(!black && tdBlack) {
+          $(this).hide();
+          return;
+        }
+        tdRed = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("red") > -1;
+        if(!red && tdRed) {
+          $(this).hide();
+          return;
+        }
+        tdGreen = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("green") > -1;
+        if(!green && tdGreen) {
+          $(this).hide();
+          return;
+        }
+        tdColorless = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("colorless") > -1;
+        if(!colorless && tdColorless) {
+          $(this).hide();
+          return;
+        }
+      });
+    }
   </script>
   
   </div>
