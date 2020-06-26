@@ -99,27 +99,27 @@
     <div id="identitySelector" style="display:flex; width:75%; justify-content: space-evenly; margin: 10px;">
       <div id="manaW">
         <img src="images/mana/manaw.png" width="40" alt="white">
-        <input type="checkbox" id="checkboxW" checked onclick="recalcIdentity()">
+        <input type="checkbox" id="checkboxW" checked onclick="filterCombos()">
       </div>
       <div id="manaU">
         <img src="images/mana/manau.png" width="40" alt="blue">
-        <input type="checkbox" id="checkboxU" checked onclick="recalcIdentity()">
+        <input type="checkbox" id="checkboxU" checked onclick="filterCombos()">
       </div>
       <div id="manaB">
         <img src="images/mana/manab.png" width="40" alt="black">
-        <input type="checkbox" id="checkboxB" checked onclick="recalcIdentity()">
+        <input type="checkbox" id="checkboxB" checked onclick="filterCombos()">
       </div>
       <div id="manaR">
         <img src="images/mana/manar.png" width="40" alt="red">
-        <input type="checkbox" id="checkboxR" checked onclick="recalcIdentity()">
+        <input type="checkbox" id="checkboxR" checked onclick="filterCombos()">
       </div>
       <div id="manaG">
         <img src="images/mana/manag.png" width="40" alt="green">
-        <input type="checkbox" id="checkboxG" checked onclick="recalcIdentity()">
+        <input type="checkbox" id="checkboxG" checked onclick="filterCombos()">
       </div>
       <div id="manaC">
           <img src="images/mana/manac.png" width="40" alt="colorless">
-          <input type="checkbox" id="checkboxC" checked onclick="recalcIdentity()">
+          <input type="checkbox" id="checkboxC" checked onclick="filterCombos()">
         </div>
     </div>
     <!-- Load metrics.js -->
@@ -262,50 +262,42 @@
         $("#combos tr").filter(function () {
           let matchedText = $(this).text().toLowerCase().indexOf(filter)
           // $(this).parent().toggle(matchedText > -1) // Toggle to use if searching only cards
-          $(this).toggle(matchedText > -1)
+          $(this).toggle(matchedText > -1 && inIdentity( $(this) ));
         });
         tableStriping();
     };
-    function recalcIdentity() {
+    function inIdentity(context) {
       white = $("#checkboxW").prop("checked");
       blue = $("#checkboxU").prop("checked");
       black = $("#checkboxB").prop("checked");
       red = $("#checkboxR").prop("checked");
       green = $("#checkboxG").prop("checked");
       colorless = $("#checkboxC").prop("checked");
-      $("#combos tr").filter(function() {
-        $(this).show();
-        tdWhite = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("white") > -1;
-        if(!white && tdWhite) {
-          $(this).hide();
-          return;
-        }
-        tdBlue = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("blue") > -1;
-        if(!blue && tdBlue) {
-          $(this).hide();
-          return;
-        }
-        tdBlack = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("black") > -1;
-        if(!black && tdBlack) {
-          $(this).hide();
-          return;
-        }
-        tdRed = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("red") > -1;
-        if(!red && tdRed) {
-          $(this).hide();
-          return;
-        }
-        tdGreen = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("green") > -1;
-        if(!green && tdGreen) {
-          $(this).hide();
-          return;
-        }
-        tdColorless = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf("colorless") > -1;
-        if(!colorless && tdColorless) {
-          $(this).hide();
-          return;
-        }
-      });
+      tdWhite = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("white") > -1;
+      if(!white && tdWhite) {
+        return false;
+      }
+      tdBlue = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("blue") > -1;
+      if(!blue && tdBlue) {
+        return false;
+      }
+      tdBlack = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("black") > -1;
+      if(!black && tdBlack) {
+        return false;
+      }
+      tdRed = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("red") > -1;
+      if(!red && tdRed) {
+        return false;
+      }
+      tdGreen = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("green") > -1;
+      if(!green && tdGreen) {
+        return false;
+      }
+      tdColorless = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("colorless") > -1;
+      if(!colorless && tdColorless) {
+        return false;
+      }
+      return true;
     }
   </script>
   
