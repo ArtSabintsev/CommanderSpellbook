@@ -33,6 +33,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -102,28 +103,46 @@
     <!-- Color Identity Selector -->
     <div id="identitySelector" style="display:flex; width:100%; justify-content: space-evenly; margin: 10px;">
       <div id="manaW">
-        <img src="images/mana/manaw.png" width="40" alt="white">
-        <input type="checkbox" id="checkboxW" checked onclick="filterCombos()">
+        <label class="image-checkbox">
+          <img src="images/mana/manaw.png" width="40" alt="white combos">
+          <input type="checkbox" id="checkboxW" checked>
+          <i class="fa fa-check hidden"></i>
+        </label>
       </div>
       <div id="manaU">
-        <img src="images/mana/manau.png" width="40" alt="blue">
-        <input type="checkbox" id="checkboxU" checked onclick="filterCombos()">
+        <label class="image-checkbox">
+          <img src="images/mana/manaU.png" width="40" alt="blue combos">
+          <input type="checkbox" id="checkboxU" checked>
+          <i class="fa fa-check hidden"></i>
+        </label>
       </div>
       <div id="manaB">
-        <img src="images/mana/manab.png" width="40" alt="black">
-        <input type="checkbox" id="checkboxB" checked onclick="filterCombos()">
+        <label class="image-checkbox">
+          <img src="images/mana/manab.png" width="40" alt="black combos">
+          <input type="checkbox" id="checkboxB" checked>
+          <i class="fa fa-check hidden"></i>
+        </label>
       </div>
       <div id="manaR">
-        <img src="images/mana/manar.png" width="40" alt="red">
-        <input type="checkbox" id="checkboxR" checked onclick="filterCombos()">
+        <label class="image-checkbox">
+          <img src="images/mana/manar.png" width="40" alt="red combos">
+          <input type="checkbox" id="checkboxR" checked>
+          <i class="fa fa-check hidden"></i>
+        </label>
       </div>
       <div id="manaG">
-        <img src="images/mana/manag.png" width="40" alt="green">
-        <input type="checkbox" id="checkboxG" checked onclick="filterCombos()">
+        <label class="image-checkbox">
+          <img src="images/mana/manag.png" width="40" alt="green combos">
+          <input type="checkbox" id="checkboxG" checked>
+          <i class="fa fa-check hidden"></i>
+        </label>
       </div>
       <div id="manaC">
-        <img src="images/mana/manac.png" width="40" alt="colorless">
-        <input type="checkbox" id="checkboxC" checked onclick="filterCombos()">
+        <label class="image-checkbox">
+          <img src="images/mana/manac.png" width="40" alt="colorless combos">
+          <input type="checkbox" id="checkboxC" checked>
+          <i class="fa fa-check hidden"></i>
+        </label>
       </div>
     </div>
 
@@ -256,6 +275,24 @@
 
   <!-- UI Updating Methods -->
   <script>
+    $(".image-checkbox").each(function () {
+      if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
+        $(this).addClass('image-checkbox-checked');
+      } else {
+        $(this).removeClass('image-checkbox-checked');
+      }
+    });
+
+    // sync the state to the input
+    $(".image-checkbox").on("click", function (e) {
+      $(this).toggleClass('image-checkbox-checked');
+      var $checkbox = $(this).find('input[type="checkbox"]');
+      $checkbox.prop("checked", !$checkbox.prop("checked"))
+
+      filterCombos();
+      e.preventDefault();
+    });
+
     // Re-apply table striping on search
     function tableStriping() {
       $("tr:visible").each(function (index) {
