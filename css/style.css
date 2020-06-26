@@ -91,6 +91,7 @@ footer {
 }
 /*image gallery*/
 .image-checkbox {
+    position: relative;
     cursor: pointer;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
