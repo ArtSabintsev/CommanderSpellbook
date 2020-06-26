@@ -94,12 +94,9 @@
   </nav>
 
   <!--Combos Table-->
-  <div style="display:flex;">
-    <input class="form-control" id="card-input" ftype="text" placeholder="Loading Combos..." onkeyup="filterCombos()" >
-    <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal" data-target="#searchModal" style="margin-bottom:10px;">Advanced Search</button>
-  </div>
   <div class="container-fluid" id="global">
-    
+    <input class="form-control w-100" id="card-input" ftype="text" placeholder="Loading Combos..." onkeyup="filterCombos()">
+
     <!-- Load metrics.js -->
     <script src="js/metrics.js"></script>
 
@@ -226,43 +223,14 @@
     </div>
   </div>
 
-  <!-- Advanced Search Modal -->
-  <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="searchLabel">Advanced Search</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div id="identityContainer" style="display: flex">
-            <p style="white-space: nowrap">
-            Color Identity <a id="identityColorsDisplay"></a>: 
-          </p>
-          <input class="form-control" id="identity" onkeyup="colorIdentity()" style="flex-shrink: 1">
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="advancedSearch()">Search</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Filter Combo Table -->
   <script>
-    function isBlank(str) {
-        return (!str || /^\s*$/.test(str));
-    }
     function tableStriping() {
         // Re-apply table striping on search
         $("tr:visible").each(function (index) {
           $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
         });
-    };
+    }
     function filterCombos() {
       filter = $("#card-input").val().toLowerCase();
         // $("#combos tr #tdCardLinks").filter(function () { // Search only Cards
@@ -273,157 +241,6 @@
         });
         tableStriping();
     };
-    function colorIdentity() {
-      aOpen = "<a id='identityColorsDisplay' style='color: red;'>";
-      aClose = "</a>"
-      $("#identityColorsDisplay").html(aOpen + 
-        replaceColorIdentityWithMiniImageSources(
-          replaceNameWithColorIdentity(
-            $("#identity").val()
-          )
-        ) + 
-        aClose
-      );
-    }
-    function advancedSearch() {
-      let identityName = $("#identity").val();
-      console.log(replaceColorIdentityWithImageSources(replaceNameWithColorIdentity(identityName)).join(""));
-      if(!isBlank(identityName)) {
-        $("#combos tr").filter(function () {
-          let match = $(this).children("#tdColorIdentity").children().prop("outerHTML").indexOf(
-                        replaceColorIdentityWithImageSources(
-                          replaceNameWithColorIdentity(identityName)
-                        ).join("")
-                      );
-          console.log($(this).children("#tdColorIdentity").children().prop("outerHTML"));
-          $(this).toggle(match > -1)
-        });
-      }
-    }
-    function replaceColorIdentityWithName(identity) {
-        if (isBlank(identity)) {
-            return identity;
-        } else {
-            const colorMapper = {
-                'w': 'white',
-                'u': 'blue',
-                'b': 'black',
-                'r': 'red',
-                'g': 'green',
-                'c': 'colorless',
-                'w,u': 'azorius',
-                'w,b': 'orzhov',
-                'w,r': 'boros',
-                'w,g': 'selesnya',
-                'u,b': 'dimir',
-                'u,r': 'izzet',
-                'u,g': 'simic',
-                'b,r': 'rakdos',
-                'b,g': 'golgari',
-                'r,g': 'gruul',
-                'w,u,b': 'esper',
-                'w,u,r': 'jeskai',
-                'w,u,g': 'bant',
-                'w,b,r': 'mardu',
-                'w,b,g': 'abzan',
-                'w,r,g': 'naya',
-                'u,b,r': 'grixis',
-                'u,b,g': 'sultai',
-                'u,r,g': 'temur',
-                'b,r,g': 'jund',
-                'w,u,b,r': 'sans-green',
-                'w,u,b,g': 'sans-red',
-                'w,b,r,g': 'sans-blue',
-                'w,u,r,g': 'sans-black',
-                'u,r,b,g': 'sans-white',
-                'w,u,b,r,g': "wubrg"
-            };
-
-            return colorMapper[identity];
-        }
-    }
-    function replaceNameWithColorIdentity(name) {
-        if (isBlank(name)) {
-            return name;
-        } else {
-            const colorMapper = {
-                'white': 'w',
-                'blue': 'u',
-                'black': 'b',
-                'red': 'r',
-                'green': 'g',
-                'colorless': 'c',
-                'azorius': 'w,u',
-                'orzhov': 'w,b',
-                'boros': 'w,r',
-                'selesnya': 'w,g',
-                'dimir': 'u,b',
-                'izzet': 'u,r',
-                'simic': 'u,g',
-                'rakdos': 'b,r',
-                'golgari': 'b,g',
-                'gruul': 'r,g',
-                'esper': 'w,u,b',
-                'jeskai': 'w,u,r',
-                'bant': 'w,u,g',
-                'mardu': 'w,b,r',
-                'abzan': 'w,b,g',
-                'naya': 'w,r,g',
-                'grixis': 'u,b,r',
-                'sultai': 'u,b,g',
-                'temur': 'u,r,g',
-                'jund': 'b,r,g',
-                'sans-green': 'w,u,b,r',
-                'sans-red': 'w,u,b,g',
-                'sans-blue': 'w,b,r,g',
-                'sans-black': 'w,u,r,g',
-                'sans-white': 'u,r,b,g',
-                "wubrg": 'w,u,b,r,g'
-            };
-
-            return colorMapper[name];
-        }
-    }
-
-    function replaceColorIdentityWithImageSources(identity) {
-        if (isBlank(identity)) {
-            return "";
-        } else {
-            const colors = identity.split(",");
-            const imagePaths = {
-                'w': '<img src="images/mana/manaw.png" width="40" alt="white">',
-                'u': '<img src="images/mana/manau.png" width="40" alt="blue">',
-                'b': '<img src="images/mana/manab.png" width="40" alt="black">',
-                'r': '<img src="images/mana/manar.png" width="40" alt="red">',
-                'g': '<img src="images/mana/manag.png" width="40" alt="green">',
-                'c': '<img src="images/mana/manac.png" width="40" alt="colorless">'
-            };
-
-            return colors.map(function (color) {
-                return imagePaths[color];
-            });
-        }
-    }
-    function replaceColorIdentityWithMiniImageSources(identity) {
-        if (isBlank(identity)) {
-            return "";
-        } else {
-            const colors = identity.split(",");
-            const imagePaths = {
-                'w': '<img src="images/mana/manaw.png" width="20" alt="white">',
-                'u': '<img src="images/mana/manau.png" width="20" alt="blue">',
-                'b': '<img src="images/mana/manab.png" width="20" alt="black">',
-                'r': '<img src="images/mana/manar.png" width="20" alt="red">',
-                'g': '<img src="images/mana/manag.png" width="20" alt="green">',
-                'c': '<img src="images/mana/manac.png" width="20" alt="colorless">'
-            };
-
-            return colors.map(function (color) {
-                return imagePaths[color];
-            });
-        }
-    }
-
   </script>
   
   </div>

@@ -152,48 +152,6 @@
             return colorMapper[identity];
         }
     }
-    function replaceNameWithColorIdentity(name) {
-        if (isBlank(name)) {
-            return name;
-        } else {
-            const colorMapper = {
-                'white': 'w',
-                'blue': 'u',
-                'black': 'b',
-                'red': 'r',
-                'green': 'g',
-                'colorless': 'c',
-                'azorius': 'w,u',
-                'orzhov': 'w,b',
-                'boros': 'w,r',
-                'selesnya': 'w,g',
-                'dimir': 'u,b',
-                'izzet': 'u,r',
-                'simic': 'u,g',
-                'rakdos': 'b,r',
-                'golgari': 'b,g',
-                'gruul': 'r,g',
-                'esper': 'w,u,b',
-                'jeskai': 'w,u,r',
-                'bant': 'w,u,g',
-                'mardu': 'w,b,r',
-                'abzan': 'w,b,g',
-                'naya': 'w,r,g',
-                'grixis': 'u,b,r',
-                'sultai': 'u,b,g',
-                'temur': 'u,r,g',
-                'jund': 'b,r,g',
-                'sans-green': 'w,u,b,r',
-                'sans-red': 'w,u,b,g',
-                'sans-blue': 'w,b,r,g',
-                'sans-black': 'w,u,r,g',
-                'sans-white': 'u,r,b,g',
-                "wubrg": 'w,u,b,r,g'
-            };
-
-            return colorMapper[name];
-        }
-    }
 
     function replaceColorIdentityWithImageSources(identity) {
         if (isBlank(identity)) {
