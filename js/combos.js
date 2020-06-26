@@ -36,6 +36,7 @@
             const tdPrerequisites = document.createElement('td');
             const tdDescription = document.createElement('td');
             const tdResult = document.createElement('td');
+            const tdComboID = document.createElement('td');
 
             tr.id = combo.id;
             tdCardLinks.id = "tdCardLinks";
@@ -43,18 +44,21 @@
             tdPrerequisites.id = "tdPrerequisites";
             tdDescription.id = "tdDescription";
             tdResult.id = "tdResult";
+            tdComboID.id = "tdComboID";
 
             tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
             tdPrerequisites.innerHTML = `<ul>${combo.prerequisites.map(e => `<li>${e}</li>`).join('')}<ul>`;
             tdDescription.innerHTML = `<ol>${combo.steps.map(e => `<li>${e}</li>`).join('')}<ol>`;
             tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
+            tdComboID.innerHTML = `<center>${combo.id}</center>`;
 
             tr.appendChild(tdCardLinks);
             tr.appendChild(tdColorIdentity);
             tr.appendChild(tdPrerequisites);
             tr.appendChild(tdDescription);
             tr.appendChild(tdResult);
+            tr.appendChild(tdComboID);
 
             tableBody.appendChild(tr);
         });

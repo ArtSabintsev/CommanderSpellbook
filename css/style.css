@@ -145,8 +145,8 @@ footer {
         content: "IDENTITY";
     }
 
-    #tdBoardState:nth-of-type(3):before {
-        content: "INITIAL STATE";
+    #tdPrerequisites:nth-of-type(3):before {
+        content: "PREREQUISITES";
     }
 
     #tdDescription:nth-of-type(4):before {
@@ -155,6 +155,10 @@ footer {
 
     #tdResult:nth-of-type(5):before {
         content: "RESULTS";
+    }
+
+    #tdComboID:nth-of-type(6):before {
+        content: "COMBO ID";
     }
 }
 
