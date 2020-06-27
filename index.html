@@ -35,7 +35,6 @@
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- jQuery -->
@@ -102,46 +101,40 @@
 
     <!-- Color Identity Selector -->
     <div id="identitySelector" style="display:flex; width:100%; justify-content: space-evenly; margin: 10px;">
-      <div class="nopad" id="manaW">
+      <div id="manaW">
         <label class="image-checkbox">
           <img class="img-responsive" src="images/mana/manaw.png" width="40" alt="white combos">
           <input type="checkbox" id="checkboxW" checked>
-          <i class="fa fa-check"></i>
         </label>
       </div>
-      <div class="img-responsive" class="nopad" id="manaU">
+      <div class="img-responsive" id="manaU">
         <label class="image-checkbox">
           <img src="images/mana/manau.png" width="40" alt="blue combos">
           <input type="checkbox" id="checkboxU" checked>
-          <i class="fa fa-check"></i>
         </label>
       </div>
-      <div class="img-responsive" class="nopad" id="manaB">
+      <div class="img-responsive" id="manaB">
         <label class="image-checkbox">
           <img src="images/mana/manab.png" width="40" alt="black combos">
           <input type="checkbox" id="checkboxB" checked>
-          <i class="fa fa-check"></i>
         </label>
       </div>
-      <div class="img-responsive" class="nopad" id="manaR">
+      <div class="img-responsive" id="manaR">
         <label class="image-checkbox">
           <img src="images/mana/manar.png" width="40" alt="red combos">
           <input type="checkbox" id="checkboxR" checked>
-          <i class="fa fa-check"></i>
         </label>
       </div>
-      <div class="img-responsive" class="nopad" id="manaG">
+      <div class="img-responsive" id="manaG">
         <label class="image-checkbox">
           <img src="images/mana/manag.png" width="40" alt="green combos">
           <input type="checkbox" id="checkboxG" checked>
-          <i class="fa fa-check"></i>
         </label>
       </div>
-      <div class="img-responsive" class="nopad" id="manaC">
+      <div class="img-responsive" id="manaC">
         <label class="image-checkbox">
           <img src="images/mana/manac.png" width="40" alt="colorless combos">
           <input type="checkbox" id="checkboxC" checked>
-          <i class="fa fa-check"></i>
         </label>
       </div>
     </div>
@@ -299,7 +292,6 @@
         $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
       });
     }
-
 
     // Re-apply table striping on search
     function filterCombos() {
