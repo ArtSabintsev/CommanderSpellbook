@@ -89,6 +89,7 @@ footer {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+
 /*image gallery*/
 .image-checkbox {
     position: relative;
@@ -96,10 +97,10 @@ footer {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    border: 4px solid transparent;
     margin-bottom: 0;
     outline: 0;
 }
+
 .image-checkbox input[type="checkbox"] {
     display: none;
 }
@@ -107,15 +108,19 @@ footer {
 .image-checkbox-checked {
     border-color: #0269A4;
 }
+
 .image-checkbox .fa {
-  position: absolute;
-  color: #0269A4;
-  padding: 10px;
-  top: 0;
-  right: 0;
+    position: absolute;
+    padding: 10px;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+    border-radius: 100%;
 }
+
 .image-checkbox-checked .fa {
-  display: block !important;
+    display: block !important;
 }
 
 /* Mobile Friendly Table Changes */
@@ -196,7 +201,13 @@ footer {
     #tdComboID:nth-of-type(6):before {
         content: "COMBO ID";
     }
-    #manaW, #manaU, #manaB, #manaR, #manaG, #manaC {
+
+    #manaW,
+    #manaU,
+    #manaB,
+    #manaR,
+    #manaG,
+    #manaC {
         width: 20;
     }
 }
@@ -206,7 +217,12 @@ footer {
         font-size: 20px;
     }
 
-    #manaW, #manaU, #manaB, #manaR, #manaG, #manaC {
+    #manaW,
+    #manaU,
+    #manaB,
+    #manaR,
+    #manaG,
+    #manaC {
         width: 40;
     }
 }
