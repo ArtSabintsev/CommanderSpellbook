@@ -62,7 +62,19 @@ a:not([href]):hover {
     width: 100%;
 }
 
-/* Image Checkbox Styling */
+/* Color Identity Selector & Image Checkbox Styling */
+#colorIdentitySelector {
+    background-color: #f3ecff;
+    border-radius: 25px;
+    display:flex; 
+    justify-content: space-evenly; 
+    margin: 10px 2px 10px 2px;
+}
+
+#filter-by-color {
+    font-family: OpenSans-Bold;
+}
+
 .image-checkbox {
 	opacity: 0.3;
 }
@@ -99,7 +111,7 @@ footer {
 
 /* Mobile Friendly Table Changes */
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 850px) {
     #card-input {
         font-size: 12px;
     }
@@ -176,17 +188,25 @@ footer {
         content: "COMBO ID";
     }
 
-    #identitySelector {
+    #colorIdentitySelector {
         width: 100%
+    }
+
+    #filter-by-color {
+        font-size: 12px;
     }
 }
 
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 851px) {
     #card-input {
         font-size: 20px;
     }
 
-    #identitySelector {
-        width: 70%
+    #colorIdentitySelector {
+        width: 80%
+    }
+
+    #filter-by-color {
+        font-size: 16px;
     }
 }
