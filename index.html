@@ -119,43 +119,6 @@
       <div class="img-responsive" id="manaU">
         <div class="image-checkbox"><img src="images/mana/manac.png" width="40" alt="colorless combos"></div>
       </div>
-
-      <!-- <div id="manaW">
-        <label class="image-checkbox">
-          <img class="img-responsive" src="images/mana/manaw.png" width="40" alt="white combos">
-          <input type="checkbox" id="checkboxW" checked>
-        </label>
-      </div>
-      <div class="img-responsive" id="manaU">
-        <label class="image-checkbox">
-          <img src="images/mana/manau.png" width="40" alt="blue combos">
-          <input type="checkbox" id="checkboxU" checked>
-        </label>
-      </div>
-      <div class="img-responsive" id="manaB">
-        <label class="image-checkbox">
-          <img src="images/mana/manab.png" width="40" alt="black combos">
-          <input type="checkbox" id="checkboxB" checked>
-        </label>
-      </div>
-      <div class="img-responsive" id="manaR">
-        <label class="image-checkbox">
-          <img src="images/mana/manar.png" width="40" alt="red combos">
-          <input type="checkbox" id="checkboxR" checked>
-        </label>
-      </div>
-      <div class="img-responsive" id="manaG">
-        <label class="image-checkbox">
-          <img src="images/mana/manag.png" width="40" alt="green combos">
-          <input type="checkbox" id="checkboxG" checked>
-        </label>
-      </div>
-      <div class="img-responsive" id="manaC">
-        <label class="image-checkbox">
-          <img src="images/mana/manac.png" width="40" alt="colorless combos">
-          <input type="checkbox" id="checkboxC" checked>
-        </label>
-      </div> -->
     </div>
 
     <!-- Load metrics.js -->
@@ -287,22 +250,12 @@
 
   <!-- UI Updating Methods -->
   <script>
-    // $(".image-checkbox").each(function () {
-    //   if ($(this).find('input[type="checkbox"]').first().attr("checked")) {
-    //     $(this).addClass('image-checkbox-checked');
-    //   } else {
-    //     $(this).removeClass('image-checkbox-checked');
-    //   }
-    // });
-
-    // sync the state to the input
     var checkboxes = document.querySelectorAll('.image-checkbox');
     checkboxes.forEach(function (checkbox) {
       checkbox.classList.add('checked');
       checkbox.addEventListener('click', function (e) {
         e.target.classList.toggle('checked');
 
-        // const isChecked = e.target.classList.contains('checked');
         filterCombos();
       });
     });
@@ -326,12 +279,12 @@
 
     // Filter by Color Identity
     function inIdentity(context) {
-      white = $("#manaW").prop("checked");
-      blue = $("#manaU").prop("checked");
-      black = $("#manaB").prop("checked");
-      red = $("#manaR").prop("checked");
-      green = $("#manaG").prop("checked");
-      colorless = $("#manaC").prop("checked");
+      white = document.querySelector('#manaW > .image-checkbox').classList.contains('checked')
+      blue = document.querySelector('#manaU > .image-checkbox').classList.contains('checked')
+      black = document.querySelector('#manaB > .image-checkbox').classList.contains('checked')
+      red = document.querySelector('#manaR > .image-checkbox').classList.contains('checked')
+      green = document.querySelector('#manaG > .image-checkbox').classList.contains('checked')
+      colorless = document.querySelector('#manaC > .image-checkbox').classList.contains('checked')
 
       tdWhite = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("white") > -1;
       if (!white && tdWhite) {
