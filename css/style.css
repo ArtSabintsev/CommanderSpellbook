@@ -1,3 +1,4 @@
+/* General Styling */
 @font-face {
     font-family: OpenSans-Regular;
     src: url('../fonts/OpenSans/OpenSans-Regular.ttf');
@@ -76,12 +77,12 @@ a:not([href]):hover {
     display: none;
 }
 
-.image-checkbox {
+.image-checkbox input[type=checkbox] + img {
     opacity: 0.3;
 }
 
-.image-checkbox[checked] {
-    opacity: 1;
+.image-checkbox input[type=checkbox]:checked + label img {
+    opacity: 1.0;
 }
 
 /* Web Combo Table */
