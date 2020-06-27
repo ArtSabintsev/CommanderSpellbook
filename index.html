@@ -254,20 +254,13 @@
     checkboxes.forEach(function (checkbox) {
       checkbox.classList.add('checked');
       checkbox.addEventListener('click', function (e) {
-        e.target.classList.toggle('checked');
+        e.currentTarget.classList.toggle('checked');
 
         filterCombos();
       });
     });
 
-    // Re-apply table striping on search
-    function tableStriping() {
-      $("tr:visible").each(function (index) {
-        $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
-      });
-    }
-
-    // Re-apply table striping on search
+    // Filter by Search Input
     function filterCombos() {
       console.log(document.querySelector('#manaW > .image-checkbox').classList.contains('checked'));
       filter = $("#card-input").val().toLowerCase();
@@ -318,6 +311,13 @@
       }
 
       return true;
+    }
+
+    // Re-apply table striping on search
+    function tableStriping() {
+      $("tr:visible").each(function (index) {
+        $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
+      });
     }
   </script>
 
