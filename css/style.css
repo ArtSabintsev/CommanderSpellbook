@@ -66,8 +66,8 @@ a:not([href]):hover {
 #colorIdentitySelector {
     background-color: #f3ecff;
     border-radius: 25px;
-    display:flex; 
-    justify-content: space-evenly; 
+    display: flex;
+    justify-content: space-evenly;
     margin: 10px 2px 10px 2px;
 }
 
@@ -76,11 +76,11 @@ a:not([href]):hover {
 }
 
 .image-checkbox {
-	opacity: 0.3;
+    opacity: 0.3;
 }
 
 .image-checkbox.checked {
-	opacity: 1.0;
+    opacity: 1.0;
 }
 
 /* Web Combo Table */
@@ -208,5 +208,11 @@ footer {
 
     #filter-by-color {
         font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #filter-by-color {
+        font-size: 12px;
     }
 }
