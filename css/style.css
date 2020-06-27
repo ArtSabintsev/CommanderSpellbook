@@ -176,13 +176,8 @@ footer {
         content: "COMBO ID";
     }
 
-    #manaW,
-    #manaU,
-    #manaB,
-    #manaR,
-    #manaG,
-    #manaC {
-        width: 20;
+    #identitySelector {
+        width: 100%
     }
 }
 
@@ -191,12 +186,7 @@ footer {
         font-size: 20px;
     }
 
-    #manaW,
-    #manaU,
-    #manaB,
-    #manaR,
-    #manaG,
-    #manaC {
-        width: 40;
+    #identitySelector {
+        width: 70%
     }
 }

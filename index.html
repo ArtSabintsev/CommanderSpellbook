@@ -100,7 +100,7 @@
       onkeyup="filterCombos()">
 
     <!-- Color Identity Selector -->
-    <div id="identitySelector" style="display:flex; width:100%; justify-content: space-evenly; margin: 10px;">
+    <div id="identitySelector" style="display:flex; justify-content: space-evenly; margin: 10px;">
       <div class="img-responsive" id="manaW">
         <div class="image-checkbox"><img src="images/mana/manaw.png" width="40" alt="white combos"></div>
       </div>
@@ -269,6 +269,7 @@
 
     // Re-apply table striping on search
     function filterCombos() {
+      console.log(document.querySelector('#manaW > .image-checkbox').classList.contains('checked'));
       filter = $("#card-input").val().toLowerCase();
       $("#combos tr").filter(function () {
         let matchedText = $(this).text().toLowerCase().indexOf(filter)
