@@ -6,16 +6,17 @@
     // API Request
 
     function fetchDataFromGoogleSheets() {
+        // Google Sheets Live JSON
         const url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
+        // GitHub Backup JSON
         // const url = "https://raw.githubusercontent.com/ArtSabintsev/CommanderSpellbook/master/js/api-backup.json";
 
+        // Fetch Combos Data
         $.getJSON(url, function(data) {
-
             var combos = parseCombos(data.valueRanges[0].values);
             updateSearchInputWithComboCount(combos);
             updateTableWithCombos(combos);
-
         });
     }
 
