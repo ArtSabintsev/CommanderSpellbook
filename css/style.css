@@ -210,9 +210,3 @@ footer {
         font-size: 16px;
     }
 }
-
-@media screen and (max-width: 750px) {
-    #filter-by-color {
-        font-size: 12px;
-    }
-}

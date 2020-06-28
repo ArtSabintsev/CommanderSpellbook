@@ -5,17 +5,13 @@
 
     // API Request
     function fetchDataFromGoogleSheets() {
-        const url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=metrics!A2:C&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
+        let url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=metrics!A2:C&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
-        var request = new XMLHttpRequest();
-        request.open("GET", url, false);
-        request.send(null);
-
-        const response = request.responseText;
-        const parsed_response = JSON.parse(response);
-
-        let metrics = parsed_response.valueRanges[0].values;
-        updateModalWithMetrics(metrics);
+        // Fetch Metrics Data
+        $.getJSON(url, function (data) {
+            let metrics = data.valueRanges[0].values;
+            updateModalWithMetrics(metrics);
+        });
     }
 
     // Update Metrics Modal
