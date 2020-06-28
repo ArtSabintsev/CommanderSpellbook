@@ -10,19 +10,13 @@
 
         // const url = "https://raw.githubusercontent.com/ArtSabintsev/CommanderSpellbook/master/js/api-backup.json";
 
-        var request = new XMLHttpRequest();
-        request.open("GET", url, true);
-        request.onreadystatechange = function () {
-            if (request.readyState === XMLHttpRequest.DONE) {
-                const response = request.responseText;
-                const parsed_response = JSON.parse(response);
+        $.getJSON(url, function(data) {
 
-                var combos = parseCombos(parsed_response.valueRanges[0].values);
-                updateSearchInputWithComboCount(combos);
-                updateTableWithCombos(combos);
-            }
-        };
-        request.send(null);
+            var combos = parseCombos(data.valueRanges[0].values);
+            updateSearchInputWithComboCount(combos);
+            updateTableWithCombos(combos);
+
+        });
     }
 
     // Update Search Bar
