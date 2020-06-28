@@ -8,16 +8,21 @@
     function fetchDataFromGoogleSheets() {
         const url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
+        // const url = "js/api-backup.json";
+
         var request = new XMLHttpRequest();
-        request.open("GET", url, false);
+        request.open("GET", url, true);
+        request.onreadystatechange = function () {
+            if (request.readyState === XMLHttpRequest.DONE) {
+                const response = request.responseText;
+                const parsed_response = JSON.parse(response);
+
+                var combos = parseCombos(parsed_response.valueRanges[0].values);
+                updateSearchInputWithComboCount(combos);
+                updateTableWithCombos(combos);
+            }
+        };
         request.send(null);
-
-        const response = request.responseText;
-        const parsed_response = JSON.parse(response);
-
-        var combos = parseCombos(parsed_response.valueRanges[0].values);
-        updateSearchInputWithComboCount(combos);
-        updateTableWithCombos(combos);
     }
 
     // Update Search Bar
