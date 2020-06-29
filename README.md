@@ -8,10 +8,10 @@ The idea to catalog combos started off as a [Discord Server](https://discord.gg/
 ## Process
 **TL;DR: I optimzied for community and made everything Open Source.**
 
-Many individuals have tried to build a combo database over the last decade, but they've all failed due to the headache involved in finding those combos and keeping a Forum Post or Blog up to date. Therefore, I've opted to solve for that problem by enlisting the community to catalog combos via Discord (which is how we obtained hundreds of combos in a matter of months). I also opted to host the website and the database for free, forever, so people can take over this project by cloning this repository, or the Google Sheet, respectively, if I ever step away.
+Many individuals have tried to build a combo database over the last decade, but they've all failed due to the headache involved in finding those combos and keeping them updated in a Forum Post or Blog up to date. Many of the issues revolved around a single individual being the gatekeeper. Therefore, I've opted to solve for that problem by enlisting the community to catalog combos via Discord (which is how we obtained over a thousand of combos in a matter of months). I also opted to host the website and the database for free, forever, so people can take over this project by cloning this repository, or the Google Sheet, respectively, if I ever step away. This mindset allowed me to find other individuals passionate about working on this project in their free time.
 
 ## Website
-First and foremost, I am an iOS developer, and _not_ a web developer. I am also not going to pretend to be one, so therefore, a good chunk of thise code is fairly ugly, due to me _frankensteining_ this website together via Bootstrap tutorials and code snippets I've found online. While I enjoy architecture patterns and implementing best practices, I did very little to none of that here, as my goal was to move the combos from out of Discord and into a better long-term solution -- this website.
+First and foremost, I am an iOS developer, and _not_ a web developer. I am also not going to pretend to be a web developer, so therefore, a good chunk of the site's code is fairly ugly, due to me _frankensteining_ this website together via Bootstrap tutorials and code snippets I've found online. While I enjoy architecture patterns and implementing best practices, I did very little to none of that here, as my goal was to move the combos from out of Discord and into a better long-term solution -- this website.
 
 I also decided that I wanted to make the financial upkeep for this project as cheap as possible. At the moment, here is what I pay for with respect to this project:
 
@@ -19,7 +19,7 @@ I also decided that I wanted to make the financial upkeep for this project as ch
 - Domain Name: **$20/year**
 - GitHub: **Free**
 - Google Sheets: **Free**
-- Cloudflare DNS + CDN: **Free (for now)**
+- Cloudflare: **Free (for now)**
 - LetsEncrypt SSL Certificate: **Free**
 
 ## Links
