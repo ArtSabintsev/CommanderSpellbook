@@ -64,15 +64,17 @@ a:not([href]):hover {
 
 /* Color Identity Selector & Image Checkbox Styling */
 #colorIdentitySelector {
-    background-color: #f3ecff;
+    background-color: #EEEEEE;
     border-radius: 25px;
     display: flex;
     justify-content: space-evenly;
     margin: 10px 2px 10px 2px;
+    width: 50%;
 }
 
 #filter-by-color {
     font-family: OpenSans-Bold;
+    font-size: 16px;
 }
 
 .image-checkbox {
@@ -189,11 +191,7 @@ footer {
     }
 
     #colorIdentitySelector {
-        width: 100%
-    }
-
-    #filter-by-color {
-        font-size: 12px;
+        width: 100%;
     }
 }
 
@@ -202,7 +200,7 @@ footer {
         font-size: 20px;
     }
 
-    #filter-by-color {
-        font-size: 8px;
+    #colorIdentitySelector {
+        width: 50%;
     }
 }
