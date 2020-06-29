@@ -199,14 +199,10 @@ footer {
 
 @media screen and (min-width: 951px) {
     #card-input {
-        font-size: 16px;
-    }
-
-    #colorIdentitySelector {
-        width: 80%
+        font-size: 20px;
     }
 
     #filter-by-color {
-        font-size: 14px;
+        font-size: 12px;
     }
 }
