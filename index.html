@@ -369,12 +369,17 @@
 
     // Filter by Color Identity
     function inIdentity(context) {
+      colorless = document.querySelector('#manaC > .image-checkbox').classList.contains('checked')
       white = document.querySelector('#manaW > .image-checkbox').classList.contains('checked')
       blue = document.querySelector('#manaU > .image-checkbox').classList.contains('checked')
       black = document.querySelector('#manaB > .image-checkbox').classList.contains('checked')
       red = document.querySelector('#manaR > .image-checkbox').classList.contains('checked')
       green = document.querySelector('#manaG > .image-checkbox').classList.contains('checked')
-      colorless = document.querySelector('#manaC > .image-checkbox').classList.contains('checked')
+
+      tdColorless = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("colorless") > -1;
+      if (!colorless && tdColorless) {
+        return false;
+      }
 
       tdWhite = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("white") > -1;
       if (!white && tdWhite) {
@@ -398,11 +403,6 @@
 
       tdGreen = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("green") > -1;
       if (!green && tdGreen) {
-        return false;
-      }
-
-      tdColorless = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("colorless") > -1;
-      if (!colorless && tdColorless) {
         return false;
       }
 
