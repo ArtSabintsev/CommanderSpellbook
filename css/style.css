@@ -111,7 +111,7 @@ footer {
 
 /* Mobile Friendly Table Changes */
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 950px) {
     #card-input {
         font-size: 12px;
     }
@@ -197,7 +197,7 @@ footer {
     }
 }
 
-@media screen and (min-width: 851px) {
+@media screen and (min-width: 951px) {
     #card-input {
         font-size: 20px;
     }
