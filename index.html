@@ -70,20 +70,26 @@
             Combo</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
-            href="https://discord.com/invite/DkAyVJG">Discord</a>
-          <a class="d-inline d-lg-none" role="button" target="_blank"
-            href="https://discord.com/invite/DkAyVJG">Discord</a>
-        </li>
-        <li class="nav-item">
           <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
             data-target="#metricsModal">Metrics</button>
           <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#metricsModal">Combo Metrics</a>
         </li>
         <li class="nav-item">
           <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
+            data-target="#searchTipsModal">Search Tips</button>
+          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#searchTipsModals">Search
+            Tips</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
             data-target="#dataModal">Database</button>
           <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#metricsModal">Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
+            href="https://discord.com/invite/DkAyVJG">Discord</a>
+          <a class="d-inline d-lg-none" role="button" target="_blank"
+            href="https://discord.com/invite/DkAyVJG">Discord</a>
         </li>
       </ul>
     </div>
@@ -216,7 +222,97 @@
     </div>
   </div>
 
-  <!-- Data Modal -->
+  <!-- Search Tips Modal -->
+  <div class="modal fade" id="searchTipsModal" tabindex="-1" role="dialog" aria-labelledby="searchTipsLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchTipsLabel">Search Tips</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>Type in the name of a single card, a Combo ID, or a Combo Result (see table below) to search the database.</li>
+            <li>Use the color filter bar to search for cards in a specific color combination.</li>
+          </ul>
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="40%">
+                  <center>Combo Result</center>
+                </th>
+                <th width="60%">
+                  <center>Definition</center>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Infinite Colored Mana</td>
+                <td>Combo has the potential of producing infinite mana of all colors.</td>
+              </tr>
+              <tr>
+                <td>Infinite Colorless Mana</td>
+                <td>Combo produces infinite colorless mana.</td>
+              </tr>
+              <tr>
+                <td>Infinite Damage</td>
+                <td>Combo results in dealing infinite damage to creatures and/or players.</td>
+              </tr>
+              <tr>
+                <td>Infinite Death Triggers</td>
+                <td>Combo results in an infinite amount of death triggers on the stack.</td>
+              </tr>
+              <tr>
+                <td>Infinite ETB</td>
+                <td>Combo results in an infinite amount of Enter the Battleground triggers on the stack.</td>
+              </tr>
+              <tr>
+                <td>Infinite Life drain</td>
+                <td>Combo results in a player drainging opponents down to 0 life.</td>
+              </tr>
+              <tr>
+                <td>Infinite Lifegain</td>
+                <td>Combo results in a player gaining infinite life.</td>
+              </tr>
+              <tr>
+                <td>Infinite Loot</td>
+                <td>Combo results in an infinite amount of draw and discard effects.</td>
+              </tr>
+              <tr>
+                <td>Infinite LTB</td>
+                <td>Combo results in an infinite amount of Leave the Battleground triggers on the stack.</td>
+              </tr>
+              <tr>
+                <td>Infinite Mill</td>
+                <td>Combo causes a player to place all of the cars in their librarary into their graveyard.</td>
+              </tr>
+              <tr>
+                <td>Infinite Sac Triggers</td>
+                <td>Combo results in an infinite amount of sacrifice triggers on the stack.</td>
+              </tr>
+              <tr>
+                <td>Infinite Storm Count</td>
+                <td>Combo results in a player casting an infinite amount of spells in a given turn.</td>
+              </tr>
+              <tr>
+                <td>Infinite Turns</td>
+                <td>Combo results in infinite turns for the player.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Database Modal -->
   <div class="modal fade" id="dataModal" tabindex="-1" role="dialog" aria-labelledby="dataLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
