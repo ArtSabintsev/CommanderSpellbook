@@ -46,8 +46,18 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
   </script>
 
-  <!-- Deckbox -->
+  <!-- Deckbox Tooltips-->
   <script src="https://deckbox.org/assets/external/tooltip.js" defer></script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-2023679209536286",
+      enable_page_level_ads: true
+    });
+  </script>
+
 </head>
 
 <body>
@@ -99,8 +109,8 @@
   <div class="container-fluid" id="global">
 
     <!-- Input Form -->
-    <input class="form-control w-100" id="card-input" ftype="text" placeholder="Loading combos may take up to 10 seconds..."
-      onkeyup="filterCombos()">
+    <input class="form-control w-100" id="card-input" ftype="text"
+      placeholder="Loading combos may take up to 10 seconds..." onkeyup="filterCombos()">
 
     <!-- Color Identity Selector -->
     <div id="colorIdentitySelector">
@@ -235,7 +245,8 @@
         </div>
         <div class="modal-body">
           <ul>
-            <li>Type in the name of a single card, a Combo ID, or a Combo Result (see table below) to search the database.</li>
+            <li>Type in the name of a single card, a Combo ID, or a Combo Result (see table below) to search the
+              database.</li>
             <li>Use the color filter bar to search for combos in a specific color combination.</li>
           </ul>
           <table class="table">
@@ -323,9 +334,15 @@
           </button>
         </div>
         <div class="modal-body">
-          The Commander Spellbook website was created to catalog and centralize all reasonable Magic: the Gathering combos for singleton formats. For this reason, the <a href="https://mtgcommander.net/index.php/banned-list/">Official Commander Banlist</a> is ignored.
-          <p><p>The data powering the website, and the source code for the website itself, are <a href="https://opensource.org/licenses/MIT" target="_blank">completely free and open
-          source under the MIT License</a>. Simply provide us credit on your app if you consume the spreadsheet and/or API.</p></p>
+          The Commander Spellbook website was created to catalog and centralize all reasonable Magic: the Gathering
+          combos for singleton formats. For this reason, the <a
+            href="https://mtgcommander.net/index.php/banned-list/">Official Commander Banlist</a> is ignored.
+          <p>
+            <p>The data powering the website, and the source code for the website itself, are <a
+                href="https://opensource.org/licenses/MIT" target="_blank">completely free and open
+                source under the MIT License</a>. Simply provide us credit on your app if you consume the spreadsheet
+              and/or API.</p>
+          </p>
           <p><strong>We encourage you copy this data so that it lives on!</strong></p>
           <ul>
             <li><a target="_blank" href="https://github.com/ArtSabintsev/CommanderSpellbook">Website Source Code on
