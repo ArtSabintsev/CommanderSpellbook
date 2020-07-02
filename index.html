@@ -49,15 +49,6 @@
   <!-- Deckbox Tooltips-->
   <script src="https://deckbox.org/assets/external/tooltip.js" defer></script>
 
-  <!-- Google AdSense -->
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-2023679209536286",
-      enable_page_level_ads: true
-    });
-  </script> -->
-
 </head>
 
 <body>
@@ -89,6 +80,11 @@
             data-target="#searchTipsModal">Search Tips</button>
           <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#searchTipsModal">Search
             Tips</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
+            data-target="#definitionModal">Definitions</button>
+          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#definitionModal">Definitions</a>
         </li>
         <li class="nav-item">
           <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
@@ -328,6 +324,51 @@
     </div>
   </div>
 
+  <!-- Definition Modal -->
+  <div class="modal fade" id="definitionModal" tabindex="-1" role="dialog" aria-labelledby="definitionLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="definitionLabel">Combo Defintions</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <strong>What is the definition of a combo?</strong>
+          <br>For the sake of this catalogue, a combo is defined as an interaction between two or more cards that result
+          in an infinite or near-infinite interaction loop, or an almost-assured win.
+
+          <br><br><strong>What is the definition of a reasonable combo?</strong>
+          <br>A reasonable combo is defined as a combo that does not require a serendipitous hand or board state to pull
+          off. It is a combo that is repeatable with high fidelity. Aside from specific combo-lines (e.g., Doomsday,
+          Birthing Pod, etc.), a combo should contain no more than 5 cards (excluding mana producers like dorks/rocks).
+
+          <br><br><strong>What does infinite mean?</strong>
+          <br>An interaction that can go on forever unless the Active Player wills it to stop.
+
+          <br><br><strong>What does near-infinite mean?</strong>
+          There is an upper-bound to how many times a loop can occur. The upper-bound is usually determined by the
+          number of cards in a specific zone, such as a player’s library, graveyard, or hand, or it is limited by a
+          resource, such as life.
+
+          <br><br><strong>What does almost-assured win mean?</strong>
+          When the combo resolves, the game is left in a state (e.g., board, hands) where only a statistically
+          improbable play will let opponents prevent you from winning the game. In other words, everybody, save for the
+          Active Player, decides to scoop.
+
+          <br><br><strong>What is considered to be a lock?</strong>
+          A lock is an interaction formed by two or more cards that result in your opponents' inability to perform
+          game actions such as casting spells. Found in #locks
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- About Modal -->
   <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -359,11 +400,9 @@
                 href="https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E">Combo
                 Database GET API on Google Sheets</a></li>
           </ul>
-          <p>
-            Thanks for visiting!
-            <p>~<a href="https://github.com/ArtSabintsev/" target="_blank">Arthur "Senior Edificer" Sabintsev</a>
-            <br>~Andrew Burger
-          </p>
+          <strong>Thanks for visiting!</strong>
+          <br><br>~<a href="https://github.com/ArtSabintsev/" target="_blank">Arthur "Senior Edificer" Sabintsev</a>
+          <br>~Andrew Burger
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
