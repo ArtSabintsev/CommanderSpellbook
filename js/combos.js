@@ -13,7 +13,7 @@
         // let url = "https://raw.githubusercontent.com/ArtSabintsev/CommanderSpellbook/master/js/api-backup.json";
 
         // Fetch Combos Data
-        $.getJSON(url, function(data) {
+        $.getJSON(url, function (data) {
             var combos = parseCombos(data.valueRanges[0].values);
             updateSearchInputWithComboCount(combos);
             updateTableWithCombos(combos);
@@ -82,10 +82,10 @@
 
         var ordering = {};
         var sortOrder = [
-            'c', 'w', 'u', 'b', 'r', 'g',
-            'w,u', 'w,b', 'w,r', 'w,g', 'u,b', 'u,r', 'u,g', 'b,r', 'b,g', 'r,g',
+            'c', 'w,u,b,r,g', 'w,u,b,r', 'w,u,b,g', 'w,b,r,g', 'w,u,r,g', 'u,b,r,g',
             'w,u,b', 'w,u,r', 'w,u,g', 'w,b,r', 'w,b,g', 'w,r,g', 'u,b,r', 'u,b,g', 'u,r,g', 'b,r,g',
-            'w,u,b,r', 'w,u,b,g', 'w,b,r,g', 'w,u,r,g', 'u,b,r,g', 'w,u,b,r,g'
+            'w,u', 'w,b', 'w,r', 'w,g', 'u,b', 'u,r', 'u,g', 'b,r', 'b,g', 'r,g',
+            'w', 'u', 'b', 'r', 'g'
         ];
         for (var i = 0; i < sortOrder.length; i++) {
             ordering[sortOrder[i]] = i;
@@ -232,6 +232,7 @@
         text = text.replace(/:manabp:/g, `<img src="images/mana/manabp.png" width="${width}" alt="Black Phyrexian mana" loading="lazy">`);
         text = text.replace(/:manarp:/g, `<img src="images/mana/manarp.png" width="${width}" alt="Red Phyrexian mana" loading="lazy">`);
         text = text.replace(/:managp:/g, `<img src="images/mana/managp.png" width="${width}" alt="Green Phyrexian mana" loading="lazy">`);
+
         return text;
     }
 
