@@ -4,13 +4,9 @@
     window.addEventListener("load", fetchDataFromGoogleSheets);
 
     // API Request
-
     function fetchDataFromGoogleSheets() {
         // Google Sheets Live JSON
         let url = "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
-
-        // GitHub Backup JSON
-        // let url = "https://raw.githubusercontent.com/ArtSabintsev/CommanderSpellbook/master/js/api-backup.json";
 
         // Fetch Combos Data
         $.getJSON(url, function (data) {
