@@ -109,9 +109,9 @@
       placeholder="Loading combos may take up to 10 seconds..." onkeyup="filterCombos()">
 
     <!-- Color Identity Selector -->
-    <div id="colorIdentitySelector">
-      <div class="align-self-center" id="filter-by-color">
-        Filter
+    <div id="colorIdentityFilter">
+      <div class="align-self-center" id="filter-text">
+        Filter by Identity
       </div>
       <div class="img-responsive" id="manaC">
         <div class="image-checkbox"><img src="images/mana/manac.png" width="40" alt="colorless combos"></div>
@@ -131,6 +131,13 @@
       <div class="img-responsive" id="manaG">
         <div class="image-checkbox"><img src="images/mana/manag.png" width="40" alt="green combos"></div>
       </div>
+    </div>
+
+    <div class="cardNumberFilter">
+      <div class="align-self-center" id="filter-text">
+        Filter by Number of Cards
+      </div>
+      <div id="filter-range"><input type="range" id="cardNumberSlider" min="2" max="6" step="1" value="6"></div>
     </div>
 
     <!-- Load metrics.js -->
@@ -179,7 +186,8 @@
         <div class="modal-body">
           At this time, combo submissions (and updates) are only being accepted via <a target="_blank"
             href="https://discord.gg/KDnvP5f">Discord</a>, as we've learned from experience that
-          many of them require a discussion. If your combo isn't listed here, or if you've found a bug with one of our combos, please join us on Discord to
+          many of them require a discussion. If your combo isn't listed here, or if you've found a bug with one of our
+          combos, please join us on Discord to
           contribute to the catalog.
         </div>
         <div class="modal-footer">
@@ -424,21 +432,20 @@
       checkbox.classList.add('checked');
       checkbox.addEventListener('click', function (e) {
         e.currentTarget.classList.toggle('checked');
-
         filterCombos();
       });
     });
 
-    // Filter by Search Input
-    function filterCombos() {
-      console.log(document.querySelector('#manaW > .image-checkbox').classList.contains('checked'));
-      filter = $("#card-input").val().toLowerCase();
-      $("#combos tr").filter(function () {
-        let matchedText = $(this).text().toLowerCase().indexOf(filter)
-        $(this).toggle(matchedText > -1 && inIdentity($(this)));
-      });
-      tableStriping();
-    };
+    // Filter by Number of Cards
+    var slider = document.getElementById("cardNumberSlider");
+    slider.oninput = function () {
+      filterCombos();
+    }
+
+    function numberOfCards(context) {
+      // If 6, show all combos. Otherwise, show combos with numbers of cards equal to slider.value
+      return (slider.value == 6) ? true : context[0].getAttribute("data-cardNumbers").value;
+    }
 
     // Filter by Color Identity
     function inIdentity(context) {
@@ -481,6 +488,17 @@
 
       return true;
     }
+
+    // Filter
+    function filterCombos() {
+      filter = $("#card-input").val().toLowerCase();
+      $("#combos tr").filter(function () {
+        let matchedText = $(this).text().toLowerCase().indexOf(filter);
+        let matchedNumberOfCards = numberOfCards($(this));
+        $(this).toggle(matchedText > -1 && inIdentity($(this)) && matchedNumberOfCards);
+      });
+      tableStriping();
+    };
 
     // Re-apply table striping on search
     function tableStriping() {
