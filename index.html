@@ -431,7 +431,6 @@
 
     // Filter by Search Input
     function filterCombos() {
-      console.log(document.querySelector('#manaW > .image-checkbox').classList.contains('checked'));
       filter = $("#card-input").val().toLowerCase();
       $("#combos tr").filter(function () {
         let matchedText = $(this).text().toLowerCase().indexOf(filter)
