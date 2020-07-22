@@ -10,9 +10,19 @@
         // Fetch Metrics Data
         $.getJSON(url, function (data) {
             let metrics = data.valueRanges[0].values;
+
+            // Update Search Bar
+            updateSearchInputWithComboCount(metrics);
+
+            // Update Metrics Modal
             updateModalWithMetrics(metrics);
         });
     }
+
+    function updateSearchInputWithComboCount(metrics) {
+        const searchInput = document.getElementById('card-input');
+        searchInput.setAttribute('placeholder', `Search ${metrics[0][2]} combos`);
+      }
 
     // Update Metrics Modal
     function updateModalWithMetrics(metrics) {

@@ -1,7 +1,7 @@
 (function () {
     "use strict";
 
-    window.addEventListener("load", fetchDataFromGoogleSheets);
+    // window.addEventListener("load", fetchDataFromGoogleSheets);
 
     // API Request
     function fetchDataFromGoogleSheets() {
