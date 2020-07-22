@@ -492,6 +492,7 @@
         return (ordering[a.colorIdentity] - ordering[b.colorIdentity]);
       });
 
+      console.log("successfully parsed json");
       updateTableWithCombos(comboData);
     }
 
@@ -665,6 +666,9 @@
 
     // Update Combos Tables
     function updateTableWithCombos(combos) {
+
+      console.log("top of update func");
+
       const tableBody = document.getElementById('combos');
 
       combos.map(function (combo) {
@@ -697,7 +701,7 @@
         tr.appendChild(tdResult);
         tr.appendChild(tdComboID);
 
-        console.log("Inside update func");
+        console.log("bottom of update func");
 
         tableBody.appendChild(tr);
       });
