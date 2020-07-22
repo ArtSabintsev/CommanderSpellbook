@@ -1,4 +1,12 @@
-var storedCombos = [];
+const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E';
+
+let cachedCombos = {};
+let cachedSheets = void 0;
+
+$.getJSON(url, function (data) {
+    cachedSheets = data.valueRanges[0].values;
+});
+
 
 /** API Request **/
 function fetchDataFromGoogleSheets() {
@@ -8,18 +16,12 @@ function fetchDataFromGoogleSheets() {
         return;
     }
 
-    if (Array.isArray(storedCombos) && storedCombos.length) {
-        console.log("STORED");
-        updateTableWithCombos(storedCombos, query);
-    } else {
-        let url =
-            "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
-
-        $.getJSON(url, function (data) {
-            console.log("NEW");
-            parseCombos(data.valueRanges[0].values, query);
-        });
+    if (cachedCombos[query]) {
+        updateTableWithCombos(cachedCombos[query]);
+        return;
     }
+
+    parseCombos(cachedSheets, query);
 }
 
 /** Parsing Functions **/
