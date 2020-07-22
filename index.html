@@ -421,17 +421,6 @@
 
   <!-- UI Updating Methods -->
   <script>
-    function performSearch() {
-      var timer = 0;
-      var context = this;
-      var args = arguments;
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        $('#combos').empty();
-        fetchDataFromGoogleSheets();
-      }, 500);
-    }
-
     var checkboxes = document.querySelectorAll('.image-checkbox');
     checkboxes.forEach(function (checkbox) {
       checkbox.classList.add('checked');
@@ -489,6 +478,17 @@
       }
 
       return true;
+    }
+
+    function performSearch() {
+      var timer = 0;
+      var context = this;
+      var args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        $('#combos').empty();
+        fetchDataFromGoogleSheets();
+      }, 500);
     }
   </script>
 
