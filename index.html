@@ -421,6 +421,15 @@
 
   <!-- UI Updating Methods -->
   <script>
+    function performSearch() {
+      var timer = 0;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        $('#combos').empty();
+        fetchDataFromGoogleSheets();
+      }, 500);
+    }
+
     var checkboxes = document.querySelectorAll('.image-checkbox');
     checkboxes.forEach(function (checkbox) {
       checkbox.classList.add('checked');
@@ -430,66 +439,6 @@
         filterCombos();
       });
     });
-
-    // Filter by Search Input
-    function filterCombos() {
-      filter = $("#card-input").val().toLowerCase();
-      $("#combos tr").filter(function () {
-        let matchedText = $(this).text().toLowerCase().indexOf(filter)
-        $(this).toggle(matchedText > -1 && inIdentity($(this)));
-      });
-    };
-
-    // Filter by Color Identity
-    function inIdentity(context) {
-      colorless = document.querySelector('#manaC > .image-checkbox').classList.contains('checked')
-      white = document.querySelector('#manaW > .image-checkbox').classList.contains('checked')
-      blue = document.querySelector('#manaU > .image-checkbox').classList.contains('checked')
-      black = document.querySelector('#manaB > .image-checkbox').classList.contains('checked')
-      red = document.querySelector('#manaR > .image-checkbox').classList.contains('checked')
-      green = document.querySelector('#manaG > .image-checkbox').classList.contains('checked')
-
-      tdColorless = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("colorless") > -1;
-      if (!colorless && tdColorless) {
-        return false;
-      }
-
-      tdWhite = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("white") > -1;
-      if (!white && tdWhite) {
-        return false;
-      }
-
-      tdBlue = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("blue") > -1;
-      if (!blue && tdBlue) {
-        return false;
-      }
-
-      tdBlack = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("black") > -1;
-      if (!black && tdBlack) {
-        return false;
-      }
-
-      tdRed = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("red") > -1;
-      if (!red && tdRed) {
-        return false;
-      }
-
-      tdGreen = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("green") > -1;
-      if (!green && tdGreen) {
-        return false;
-      }
-
-      return true;
-    }
-
-    function performSearch() {
-      var timer = 0;
-      clearTimeout(timer);
-      timer = setTimeout(function () {
-        $('#combos').empty();
-        fetchDataFromGoogleSheets();
-      }, 500);
-    }
   </script>
 
   </div>
