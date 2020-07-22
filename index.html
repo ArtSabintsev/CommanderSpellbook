@@ -433,13 +433,7 @@
       };
     }
 
-    $('#card-input').keyup(delay(function (e) {
-      $('#combos').empty()
-      fetchDataFromGoogleSheets();
-    }, 500));
-
-
-    $('#card-input').on('keyup touchend', delay(function (e) {
+    $('#card-input').on('keyup touched', delay(function (e) {
       $('#combos').empty()
       fetchDataFromGoogleSheets();
     }, 500));
