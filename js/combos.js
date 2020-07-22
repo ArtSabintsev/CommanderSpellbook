@@ -12,6 +12,9 @@ $.getJSON(url, function (data) {
 function evaluateSearchQuery() {
     let query = document.getElementById("card-input").value;
 
+    // Fixes Auto-Capitalization issue that return empty arrays when doing comparisons (only visible on mobile)
+    query = query.toLowerCase();
+
     if (query.length < 3) {
         return;
     }
@@ -30,9 +33,6 @@ function parseCombos(combos, query) {
     var comboData = [];
     for (let c in combos) {
         const combo = [];
-
-        // Fixes Auto-Capitalization issue that return empty arrays when doing comparisons (only visible on mobile)
-        query = query.toLowerCase();
 
         // Filter out Card Names that are empty
         var names = combos[c].slice(0, 10).filter(function (e) {
