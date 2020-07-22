@@ -8,14 +8,14 @@ function fetchDataFromGoogleSheets() {
         return;
     }
 
-    if (storedCombos.length > 0) {
+    if (Array.isArray(storedCombos) && storedCombos.length) {
         parseCombos(storedCombos, query);
     } else {
         let url =
             "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
         $.getJSON(url, function (data) {
-            parseCombos(data.valueRanges[0].values, query);
+            storedCombos = parseCombos(data.valueRanges[0].values, query);
         });
     }
 }
@@ -49,9 +49,7 @@ function parseCombos(combos, query) {
         combo.result = splitText(combos[c][13]);
         combo.id = combos[c][14];
 
-        // if !(comboData.some(c => c.id === combo.id)) {
-            comboData.push(combo);
-        // }
+        comboData.push(combo);
     }
 
     var sortOrder = [
