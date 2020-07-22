@@ -9,14 +9,15 @@ function fetchDataFromGoogleSheets() {
     }
 
     if (Array.isArray(storedCombos) && storedCombos.length) {
-        let combos = storedCombos;
-        updateTableWithCombos(combos, query);
+        console.log("STORED");
+        updateTableWithCombos(storedCombos, query);
     } else {
         let url =
             "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
         $.getJSON(url, function (data) {
-           parseCombos(data.valueRanges[0].values, query);
+            console.log("NEW");
+            parseCombos(data.valueRanges[0].values, query);
         });
     }
 }
@@ -65,8 +66,7 @@ function parseCombos(combos, query) {
         return (ordering[a.colorIdentity] - ordering[b.colorIdentity]);
     });
 
-    storedCombos = comboData;
-    updateTableWithCombos(comboData);
+    return updateTableWithCombos(comboData);
 }
 
 function replaceCardNamesWithLinks(names) {
