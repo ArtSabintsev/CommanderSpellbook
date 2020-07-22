@@ -427,7 +427,7 @@
       clearTimeout(searchTimeout);
       searchTimeout = setTimeout(function () {
         $('#combos').empty();
-        fetchDataFromGoogleSheets();
+        evaluateSearchQuery();
       }, 500);
     }
 

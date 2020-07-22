@@ -1,3 +1,4 @@
+/** API Request **/
 const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E';
 
 let cachedCombos = {};
@@ -8,8 +9,7 @@ $.getJSON(url, function (data) {
 });
 
 
-/** API Request **/
-function fetchDataFromGoogleSheets() {
+function evaluateSearchQuery() {
     let query = document.getElementById("card-input").value;
 
     if (query.length < 3) {
@@ -68,7 +68,8 @@ function parseCombos(combos, query) {
         return (ordering[a.colorIdentity] - ordering[b.colorIdentity]);
     });
 
-    return updateTableWithCombos(comboData);
+    updateTableWithCombos(comboData);
+    cachedCombos[query] = comboData;
 }
 
 function replaceCardNamesWithLinks(names) {
