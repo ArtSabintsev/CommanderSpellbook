@@ -235,6 +235,8 @@ function updateTableWithCombos(combos) {
 
         tableBody.appendChild(tr);
     });
+
+    filterCombos();
 }
 
 // Filter by Search Input
