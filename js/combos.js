@@ -4,19 +4,20 @@ var storedCombos = [];
 function fetchDataFromGoogleSheets() {
     let query = document.getElementById("card-input").value;
 
-    if (query.length < 3) { return; }
+    if (query.length < 3) {
+        return;
+    }
 
-    // Google Sheets Live JSON
-    let url =
-        "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
-
-    // Fetch Combos Data
-    $.getJSON(url, function (data) {
-        if (storedCombos.length == 0) {
-            storedCombos = data.valueRanges[0].values;
-        }
+    if (storedCombos.length > 0) {
         parseCombos(storedCombos, query);
-    });
+    } else {
+        let url =
+            "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
+
+        $.getJSON(url, function (data) {
+            parseCombos(data.valueRanges[0].values, query);
+        });
+    }
 }
 
 /** Parsing Functions **/
@@ -28,6 +29,7 @@ function parseCombos(combos, query) {
 
         query = query.toLowerCase();
 
+        // Filter out Card Names that are
         var names = combos[c].slice(0, 10).filter(function (e) {
             return e != "";
         });
@@ -37,7 +39,7 @@ function parseCombos(combos, query) {
             continue;
         }
 
-        combo.cardLinks = replaceCardNamesWithLinks(combos[c].slice(0, 10));
+        combo.cardLinks = replaceCardNamesWithLinks(names);
         combo.colorIdentity = combos[c][10];
         combo.colorIdentityName = replaceColorIdentityWithName(combos[c][10]);
         combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][10]);
@@ -45,6 +47,7 @@ function parseCombos(combos, query) {
         combo.steps = splitText(combos[c][12]);
         combo.result = splitText(combos[c][13]);
         combo.id = combos[c][14];
+
         comboData.push(combo);
     }
 
@@ -63,11 +66,7 @@ function parseCombos(combos, query) {
     updateTableWithCombos(comboData);
 }
 
-function replaceCardNamesWithLinks(cardNames) {
-    var names = cardNames.filter(function (e) {
-        return e != "";
-    });
-
+function replaceCardNamesWithLinks(names) {
     return names.map(function (e) {
         return `<a href="https://deckbox.org/mtg/${e}">${e}</a>`;
     });
