@@ -433,9 +433,12 @@
 
     // Filter by Search Input
     function filterCombos() {
-      $("#combos tr").filter(function () {
-        inIdentity($(this));
-      });
+      filter = $("#card-input").val().toLowerCase();		
+       $("#combos tr").filter(function () {		       
+         $("#combos tr").filter(function () {
+         let matchedText = $(this).text().toLowerCase().indexOf(filter)		         
+         $(this).toggle(matchedText > -1 && inIdentity($(this)));		
+       });
     };
 
     // Filter by Color Identity
