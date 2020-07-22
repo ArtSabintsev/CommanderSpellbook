@@ -196,7 +196,8 @@ function replaceTextWithManaImages(text) {
 // Update Combos Tables
 function updateTableWithCombos(combos) {
     const tableBody = document.getElementById('combos');
-    combos.map(function (combo) {
+    for (i=0; i<combos.length; i++) {
+        const combo = combos[i];
         const tr = document.createElement('tr');
         const tdCardLinks = document.createElement('td');
         const tdColorIdentity = document.createElement('td');
@@ -227,5 +228,5 @@ function updateTableWithCombos(combos) {
         tr.appendChild(tdComboID);
 
         tableBody.appendChild(tr);
-    });
+    };
 }
