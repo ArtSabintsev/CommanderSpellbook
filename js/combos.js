@@ -9,10 +9,9 @@ function fetchDataFromGoogleSheets() {
     }
 
     if (Array.isArray(storedCombos) && storedCombos.length) {
-        console.log("YAY");
-        updateTableWithCombos(storedCombos, query);
+        let combos = storedCombos
+        updateTableWithCombos(combos, query);
     } else {
-        console.log("BOO");
         let url =
             "https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E";
 
