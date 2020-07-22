@@ -9,7 +9,7 @@ function fetchDataFromGoogleSheets() {
     }
 
     if (Array.isArray(storedCombos) && storedCombos.length) {
-        let combos = storedCombos
+        let combos = storedCombos;
         updateTableWithCombos(combos, query);
     } else {
         let url =
