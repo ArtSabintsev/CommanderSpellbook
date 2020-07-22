@@ -32,8 +32,8 @@ function parseCombos(combos, query) {
             return e != "";
         });
 
-        if (!(names.join().toLowerCase().indexOf(query) > -1) && !(combos[c][12].toLowerCase().indexOf(query) > -1) &&
-            !(combos[c][13].toLowerCase().indexOf(query) > -1) && !(combos[c][14].toLowerCase().indexOf(query) > -1)) {
+        if ((names.join().toLowerCase().indexOf(query) == -1) && (combos[c][12].toLowerCase().indexOf(query) == -1) &&
+            (combos[c][13].toLowerCase().indexOf(query) == -1) && (combos[c][14].toLowerCase().indexOf(query) == -1)) {
             continue;
         }
 
@@ -243,19 +243,19 @@ function updateTableWithCombos(combos) {
 function filterCombos() {
     filter = $("#card-input").val().toLowerCase();
     $("#combos tr").filter(function () {
-        let matchedText = $(this).text().toLowerCase().indexOf(filter)
+        let matchedText = $(this).text().toLowerCase().indexOf(filter);
         $(this).toggle(matchedText > -1 && inIdentity($(this)));
     });
-};
+}
 
 // Filter by Color Identity
 function inIdentity(context) {
-    colorless = document.querySelector('#manaC > .image-checkbox').classList.contains('checked')
-    white = document.querySelector('#manaW > .image-checkbox').classList.contains('checked')
-    blue = document.querySelector('#manaU > .image-checkbox').classList.contains('checked')
-    black = document.querySelector('#manaB > .image-checkbox').classList.contains('checked')
-    red = document.querySelector('#manaR > .image-checkbox').classList.contains('checked')
-    green = document.querySelector('#manaG > .image-checkbox').classList.contains('checked')
+    colorless = document.querySelector('#manaC > .image-checkbox').classList.contains('checked');
+    white = document.querySelector('#manaW > .image-checkbox').classList.contains('checked');
+    blue = document.querySelector('#manaU > .image-checkbox').classList.contains('checked');
+    black = document.querySelector('#manaB > .image-checkbox').classList.contains('checked');
+    red = document.querySelector('#manaR > .image-checkbox').classList.contains('checked');
+    green = document.querySelector('#manaG > .image-checkbox').classList.contains('checked');
 
     tdColorless = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("colorless") > -1;
     if (!colorless && tdColorless) {
