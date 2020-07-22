@@ -27,6 +27,7 @@ function parseCombos(combos, query) {
     for (let c in combos) {
         const combo = [];
 
+        // Fixes Auto-Capitalization issue that return empty arrays when doing comparisons (only visible on mobile)
         query = query.toLowerCase();
 
         // Filter out Card Names that are
