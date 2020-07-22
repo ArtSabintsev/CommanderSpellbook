@@ -105,8 +105,8 @@
   <div class="container-fluid" id="global">
 
     <!-- Input Form -->
-    <input class="form-control w-100" id="card-input" ftype="text"
-      placeholder="Loading combos may take up to 10 seconds...">
+    <input class="form-control w-100" id="card-input" type="text"
+      placeholder="Loading combos may take up to 10 seconds..." onkeyup="performSearch()">
 
     <!-- Color Identity Selector -->
     <div id="colorIdentitySelector">
@@ -421,22 +421,16 @@
 
   <!-- Fetching Combos -->
   <script>
-    function delay(callback, ms) {
+    function performSearch() {
       var timer = 0;
-      return function () {
-        var context = this,
-          args = arguments;
-        clearTimeout(timer);
-        timer = setTimeout(function () {
-          callback.apply(context, args);
-        }, ms || 0);
-      };
+      var context = this;
+      var args = arguments;
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        $('#combos').empty();
+        fetchDataFromGoogleSheets();
+      }, 500);
     }
-
-    $('#card-input').on('input', delay(function (e) {
-      $('#combos').empty()
-      fetchDataFromGoogleSheets();
-    }, 500));
 
     // API Request
     function fetchDataFromGoogleSheets() {
@@ -463,7 +457,8 @@
           return e != "";
         });
 
-        if (!(names.join().toLowerCase().indexOf(query) > -1) && !(combos[c][12].toLowerCase().indexOf(query) > -1) && !
+        if (!(names.join().toLowerCase().indexOf(query) > -1) && !(combos[c][12].toLowerCase().indexOf(query) > -1) &&
+          !
           (combos[c][13].toLowerCase().indexOf(query) > -1) && !(
             combos[c][14].toLowerCase().indexOf(query) > -1)) {
           continue;
@@ -623,16 +618,26 @@
         `<img src="images/mana/manawu.png" width="${width}" alt="azorius mana" loading="lazy">`);
       text = text.replace(/:manas:/g,
         `<img src="images/mana/manas.png" width="${width}" alt="snow mana" loading="lazy">`);
-      text = text.replace(/:mana0:/g, `<img src="images/mana/mana0.png" width="${width}" alt="0 mana" loading="lazy">`);
-      text = text.replace(/:mana1:/g, `<img src="images/mana/mana1.png" width="${width}" alt="1 mana" loading="lazy">`);
-      text = text.replace(/:mana2:/g, `<img src="images/mana/mana2.png" width="${width}" alt="2 mana" loading="lazy">`);
-      text = text.replace(/:mana3:/g, `<img src="images/mana/mana3.png" width="${width}" alt="3 mana" loading="lazy">`);
-      text = text.replace(/:mana4:/g, `<img src="images/mana/mana4.png" width="${width}" alt="4 mana" loading="lazy">`);
-      text = text.replace(/:mana5:/g, `<img src="images/mana/mana5.png" width="${width}" alt="5 mana" loading="lazy">`);
-      text = text.replace(/:mana6:/g, `<img src="images/mana/mana6.png" width="${width}" alt="6 mana" loading="lazy">`);
-      text = text.replace(/:mana7:/g, `<img src="images/mana/mana7.png" width="${width}" alt="7 mana" loading="lazy">`);
-      text = text.replace(/:mana8:/g, `<img src="images/mana/mana8.png" width="${width}" alt="8 mana" loading="lazy">`);
-      text = text.replace(/:mana9:/g, `<img src="images/mana/mana9.png" width="${width}" alt="9 mana" loading="lazy">`);
+      text = text.replace(/:mana0:/g,
+        `<img src="images/mana/mana0.png" width="${width}" alt="0 mana" loading="lazy">`);
+      text = text.replace(/:mana1:/g,
+        `<img src="images/mana/mana1.png" width="${width}" alt="1 mana" loading="lazy">`);
+      text = text.replace(/:mana2:/g,
+        `<img src="images/mana/mana2.png" width="${width}" alt="2 mana" loading="lazy">`);
+      text = text.replace(/:mana3:/g,
+        `<img src="images/mana/mana3.png" width="${width}" alt="3 mana" loading="lazy">`);
+      text = text.replace(/:mana4:/g,
+        `<img src="images/mana/mana4.png" width="${width}" alt="4 mana" loading="lazy">`);
+      text = text.replace(/:mana5:/g,
+        `<img src="images/mana/mana5.png" width="${width}" alt="5 mana" loading="lazy">`);
+      text = text.replace(/:mana6:/g,
+        `<img src="images/mana/mana6.png" width="${width}" alt="6 mana" loading="lazy">`);
+      text = text.replace(/:mana7:/g,
+        `<img src="images/mana/mana7.png" width="${width}" alt="7 mana" loading="lazy">`);
+      text = text.replace(/:mana8:/g,
+        `<img src="images/mana/mana8.png" width="${width}" alt="8 mana" loading="lazy">`);
+      text = text.replace(/:mana9:/g,
+        `<img src="images/mana/mana9.png" width="${width}" alt="9 mana" loading="lazy">`);
       text = text.replace(/:mana10:/g,
         `<img src="images/mana/mana10.png" width="${width}" alt="10 mana" loading="lazy">`);
       text = text.replace(/:mana11:/g,
@@ -667,9 +672,7 @@
     function updateTableWithCombos(combos) {
       const tableBody = document.getElementById('combos');
 
-      console.log("outside combos map");
       combos.map(function (combo) {
-      console.log("inside combos map");
         const tr = document.createElement('tr');
         const tdCardLinks = document.createElement('td');
         const tdColorIdentity = document.createElement('td');
@@ -678,16 +681,12 @@
         const tdResult = document.createElement('td');
         const tdComboID = document.createElement('td');
 
-        console.log("after td declations");
-
         tdCardLinks.id = "tdCardLinks";
         tdColorIdentity.id = "tdColorIdentity";
         tdPrerequisites.id = "tdPrerequisites";
         tdDescription.id = "tdDescription";
         tdResult.id = "tdResult";
         tdComboID.id = "tdComboID";
-
-        console.log("after td id declaration");
 
         tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
         tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
@@ -696,16 +695,12 @@
         tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
         tdComboID.innerHTML = `<center>${combo.id}</center>`;
 
-        console.log("after td innerHTML declaration");
-
         tr.appendChild(tdCardLinks);
         tr.appendChild(tdColorIdentity);
         tr.appendChild(tdPrerequisites);
         tr.appendChild(tdDescription);
         tr.appendChild(tdResult);
         tr.appendChild(tdComboID);
-
-        console.log("bottom of update func");
 
         tableBody.appendChild(tr);
       });
