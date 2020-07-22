@@ -492,9 +492,6 @@
         return (ordering[a.colorIdentity] - ordering[b.colorIdentity]);
       });
 
-
-      console.log(query);
-
       updateTableWithCombos(comboData);
     }
 
@@ -699,6 +696,8 @@
         tr.appendChild(tdDescription);
         tr.appendChild(tdResult);
         tr.appendChild(tdComboID);
+
+        console.log("Inside update func");
 
         tableBody.appendChild(tr);
       });
