@@ -492,7 +492,6 @@
         return (ordering[a.colorIdentity] - ordering[b.colorIdentity]);
       });
 
-      console.log("successfully parsed json");
       updateTableWithCombos(comboData);
     }
 
@@ -667,11 +666,10 @@
     // Update Combos Tables
     function updateTableWithCombos(combos) {
 
-      console.log("top of update func");
-
       const tableBody = document.getElementById('combos');
 
       combos.map(function (combo) {
+      console.log("inside combos map");
         const tr = document.createElement('tr');
         const tdCardLinks = document.createElement('td');
         const tdColorIdentity = document.createElement('td');
@@ -680,6 +678,8 @@
         const tdResult = document.createElement('td');
         const tdComboID = document.createElement('td');
 
+        console.log("after td declations");
+
         tdCardLinks.id = "tdCardLinks";
         tdColorIdentity.id = "tdColorIdentity";
         tdPrerequisites.id = "tdPrerequisites";
@@ -687,12 +687,16 @@
         tdResult.id = "tdResult";
         tdComboID.id = "tdComboID";
 
+        console.log("after td id declaration");
+
         tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
         tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
         tdPrerequisites.innerHTML = `<ul>${combo.prerequisites.map(e => `<li>${e}</li>`).join('')}<ul>`;
         tdDescription.innerHTML = `<ol>${combo.steps.map(e => `<li>${e}</li>`).join('')}<ol>`;
         tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
         tdComboID.innerHTML = `<center>${combo.id}</center>`;
+
+        console.log("after td innerHTML declaration");
 
         tr.appendChild(tdCardLinks);
         tr.appendChild(tdColorIdentity);
