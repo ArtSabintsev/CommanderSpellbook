@@ -30,13 +30,13 @@ function parseCombos(combos, query) {
         // Fixes Auto-Capitalization issue that return empty arrays when doing comparisons (only visible on mobile)
         query = query.toLowerCase();
 
-        // Filter out Card Names that are
+        // Filter out Card Names that are empty
         var names = combos[c].slice(0, 10).filter(function (e) {
             return e != "";
         });
 
-        if ((names.join().toLowerCase().indexOf(query) == -1) && (combos[c][12].toLowerCase().indexOf(query) == -1) &&
-            (combos[c][13].toLowerCase().indexOf(query) == -1) && (combos[c][14].toLowerCase().indexOf(query) == -1)) {
+        if ((names.join().toLowerCase().indexOf(query) === -1) && (combos[c][12].toLowerCase().indexOf(query) === -1) &&
+            (combos[c][13].toLowerCase().indexOf(query) === -1) && (combos[c][14].toLowerCase().indexOf(query) === -1)) {
             continue;
         }
 
@@ -49,7 +49,9 @@ function parseCombos(combos, query) {
         combo.result = splitText(combos[c][13]);
         combo.id = combos[c][14];
 
-        comboData.push(combo);
+        // if !(comboData.some(c => c.id === combo.id)) {
+            comboData.push(combo);
+        // }
     }
 
     var sortOrder = [
