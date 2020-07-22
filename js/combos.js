@@ -19,14 +19,14 @@ function parseCombos(combos, query) {
     for (let c in combos) {
         const combo = [];
 
+        query = query.toLowerCase();
+
         var names = combos[c].slice(0, 10).filter(function (e) {
             return e != "";
         });
 
         if (!(names.join().toLowerCase().indexOf(query) > -1) && !(combos[c][12].toLowerCase().indexOf(query) > -1) &&
-            !
-            (combos[c][13].toLowerCase().indexOf(query) > -1) && !(
-                combos[c][14].toLowerCase().indexOf(query) > -1)) {
+            !(combos[c][13].toLowerCase().indexOf(query) > -1) && !(combos[c][14].toLowerCase().indexOf(query) > -1)) {
             continue;
         }
 
@@ -196,9 +196,7 @@ function replaceTextWithManaImages(text) {
 // Update Combos Tables
 function updateTableWithCombos(combos) {
     const tableBody = document.getElementById('combos');
-    // combos.map(function (combo) {
-    for (i = 0; i < combos.length; i++) {
-        const combo = combos[i];
+    combos.map(function (combo) {
         const tr = document.createElement('tr');
         const tdCardLinks = document.createElement('td');
         const tdColorIdentity = document.createElement('td');
@@ -229,6 +227,5 @@ function updateTableWithCombos(combos) {
         tr.appendChild(tdComboID);
 
         tableBody.appendChild(tr);
-    }
-    // });
+    });
 }
