@@ -438,6 +438,12 @@
       fetchDataFromGoogleSheets();
     }, 500));
 
+
+    $('#card-input').on('keyup touchend', delay(function (e) {
+      $('#combos').empty()
+      fetchDataFromGoogleSheets();
+    }, 500));
+
     // API Request
     function fetchDataFromGoogleSheets() {
       let query = document.getElementById("card-input").value;
