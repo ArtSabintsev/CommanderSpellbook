@@ -113,9 +113,9 @@ footer {
 
 /* Mobile Friendly Table Changes */
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 650px) {
     #card-input {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     /* Force table to not be like tables anymore */
@@ -195,7 +195,7 @@ footer {
     }
 }
 
-@media screen and (min-width: 951px) {
+@media screen and (min-width: 651px) {
     #card-input {
         font-size: 20px;
     }

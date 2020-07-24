@@ -21,7 +21,7 @@
 
     function updateSearchInputWithComboCount(metrics) {
         const searchInput = document.getElementById('card-input');
-        searchInput.setAttribute('placeholder', `Search ${metrics[0][2]} combos`);
+        searchInput.setAttribute('placeholder', `Type at least 3 letters to search ${metrics[0][2]} combos`);
       }
 
     // Update Metrics Modal
