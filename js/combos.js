@@ -1,5 +1,5 @@
 /** API Request **/
-const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E';
+const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos2!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E';
 
 let cachedCombos = {};
 let cachedSheets = void 0;
@@ -35,23 +35,23 @@ function parseCombos(combos, query) {
         const combo = [];
 
         // Filter out Card Names that are empty
-        var names = combos[c].slice(0, 10).filter(function (e) {
+        var names = combos[c].slice(1, 11).filter(function (e) {
             return e != "";
         });
 
-        if ((names.join().toLowerCase().indexOf(query) === -1) && (combos[c][12].toLowerCase().indexOf(query) === -1) &&
-            (combos[c][13].toLowerCase().indexOf(query) === -1) && (combos[c][14].toLowerCase().indexOf(query) === -1)) {
+        if ((names.join().toLowerCase().indexOf(query) === -1) && (combos[c][13].toLowerCase().indexOf(query) === -1) &&
+            (combos[c][14].toLowerCase().indexOf(query) === -1) && (combos[c][0].toLowerCase().indexOf(query) === -1)) {
             continue;
         }
 
         combo.cardLinks = replaceCardNamesWithLinks(names);
-        combo.colorIdentity = combos[c][10];
-        combo.colorIdentityName = replaceColorIdentityWithName(combos[c][10]);
-        combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][10]);
-        combo.prerequisites = splitText(combos[c][11]);
-        combo.steps = splitText(combos[c][12]);
-        combo.result = splitText(combos[c][13]);
-        combo.id = combos[c][14];
+        combo.colorIdentity = combos[c][11];
+        combo.colorIdentityName = replaceColorIdentityWithName(combos[c][11]);
+        combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][11]);
+        combo.prerequisites = splitText(combos[c][12]);
+        combo.steps = splitText(combos[c][13]);
+        combo.result = splitText(combos[c][14]);
+        combo.id = combos[c][0];
 
         comboData.push(combo);
     }
