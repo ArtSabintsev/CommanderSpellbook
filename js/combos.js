@@ -1,5 +1,5 @@
 /** API Request **/
-const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos2!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E';
+const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E';
 
 let cachedCombos = {};
 let cachedSheets = void 0;
