@@ -46,11 +46,11 @@ function parseCombos(combos, query) {
 
         combo.cardLinks = replaceCardNamesWithLinks(names);
         combo.colorIdentity = combos[c][11];
-        combo.colorIdentityName = replaceColorIdentityWithName(combos[c][11]);
         combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][11]);
         combo.prerequisites = splitText(combos[c][12]);
         combo.steps = splitText(combos[c][13]);
         combo.result = splitText(combos[c][14]);
+        combo.cardsInCombo = names.length;
         combo.id = combos[c][0];
 
         comboData.push(combo);
@@ -223,6 +223,7 @@ function updateTableWithCombos(combos) {
         tdDescription.id = "tdDescription";
         tdResult.id = "tdResult";
         tdComboID.id = "tdComboID";
+        tdComboID.setAttribute('data-cardsInCombo', combo.cardsInCombo);
 
         tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
         tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
@@ -249,8 +250,10 @@ function filterCombos() {
     filter = $("#card-input").val().toLowerCase();
     $("#combos tr").filter(function () {
         let matchedText = $(this).text().toLowerCase().indexOf(filter);
-        $(this).toggle(matchedText > -1 && inIdentity($(this)));
+        $(this).toggle(matchedText > -1 && inIdentity($(this)) && numberOfCards($(this)));
     });
+
+    tableStriping();
 }
 
 // Filter by Color Identity
@@ -262,7 +265,7 @@ function inIdentity(context) {
     red = document.querySelector('#manaR > .image-checkbox').classList.contains('checked');
     green = document.querySelector('#manaG > .image-checkbox').classList.contains('checked');
 
-    tdColorless = context.children("#tdColorIdentity").children().prop("outerHTML").indexOf("colorless") > -1;
+    tdColorless = context.children("#tdComboID").children().get > -1;
     if (!colorless && tdColorless) {
         return false;
     }
@@ -294,3 +297,48 @@ function inIdentity(context) {
 
     return true;
 }
+
+// Filter by Number of Cards in a Combo
+function numberOfCards(context) {
+    card2 = document.querySelector('#mana2 > .image-checkbox').classList.contains('checked');
+    card3 = document.querySelector('#mana3 > .image-checkbox').classList.contains('checked');
+    card4 = document.querySelector('#mana4 > .image-checkbox').classList.contains('checked');
+    card5 = document.querySelector('#mana5 > .image-checkbox').classList.contains('checked');
+    card6 = document.querySelector('#mana6 > .image-checkbox').classList.contains('checked');
+    card7 = document.querySelector('#mana7p > .image-checkbox').classList.contains('checked');
+
+    cardsInCombo = context.children("#tdComboID")[0].getAttribute("data-cardsInCombo");
+
+    if (!card2 && cardsInCombo == 2) {
+        return false;
+    }
+
+    if (!card3 && cardsInCombo == 3) {
+        return false;
+    }
+
+    if (!card4 && cardsInCombo == 4) {
+        return false;
+    }
+
+    if (!card5 && cardsInCombo == 5) {
+        return false;
+    }
+
+    if (!card6 && cardsInCombo == 6) {
+        return false;
+    }
+
+    if (!card7 && cardsInCombo >= 7) {
+        return false;
+    }
+
+    return true;
+}
+
+// Re-apply table striping on search
+function tableStriping() {
+    $("tr:visible").each(function (index) {
+      $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
+    });
+  }

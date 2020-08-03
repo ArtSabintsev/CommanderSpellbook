@@ -62,7 +62,7 @@ a:not([href]):hover {
 }
 
 /* Color Identity Selector & Image Checkbox Styling */
-#colorIdentitySelector {
+#colorIdentitySelector, #cardNumberSelector {
     background-color: #EEEEEE;
     border-radius: 25px;
     display: flex;
@@ -71,7 +71,7 @@ a:not([href]):hover {
     width: 50%;
 }
 
-#filter-by-color {
+#filter-by-color, #filter-by-card {
     font-family: OpenSans-Bold;
     font-size: 16px;
 }
@@ -189,7 +189,7 @@ footer {
         content: "COMBO ID";
     }
 
-    #colorIdentitySelector {
+    #colorIdentitySelector, #cardNumberSelector {
         width: 100%;
     }
 }
@@ -199,7 +199,7 @@ footer {
         font-size: 20px;
     }
 
-    #colorIdentitySelector {
+    #colorIdentitySelector, #cardNumberSelector {
         width: 50%;
     }
 }
