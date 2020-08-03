@@ -200,6 +200,6 @@ footer {
     }
 
     #colorIdentitySelector, #cardNumberSelector {
-        width: 50%;
+        width: 100%;
     }
 }
