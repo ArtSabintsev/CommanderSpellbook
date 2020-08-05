@@ -15,7 +15,11 @@ function evaluateSearchQuery(withQueryParam) {
     // Fixes Auto-Capitalization issue that return empty arrays when doing comparisons (only visible on mobile)
     query = query.toLowerCase();
 
-    if (withQueryParam == false && query.length < 3) {
+    // withQueryParam: used to check if deeplink was used
+    // !Number.isInteger(query): Checks to see if query is a number, which bypasses the 3-character length limit
+    // query.length: Sets a minimum limit of characters to 3 before searching, to make sure live filtering isn't laggy
+    console.log(query, withQueryParam == false, !isNaN(query), query.length);
+    if (withQueryParam == false && !Number.isInteger(query) && query.length < 3) {
         return;
     }
 
@@ -24,7 +28,7 @@ function evaluateSearchQuery(withQueryParam) {
         return;
     }
 
-    parseCombos(cachedSheets, query);
+    parseCombos(cachedSheets, query, withQueryParam);
 }
 
 function linkToCombo() {
@@ -41,7 +45,8 @@ function linkToCombo() {
         return b;
     })(window.location.search.substr(1).split('&'));
 
-
+    // If the query paramater string doesn't have any values, skip this step, 
+    // as it means the user did not load the code with any direct combo link or set link.
     if (qs.id !== undefined) {
         const searchInput = document.getElementById('card-input');
         searchInput.setAttribute('value', qs.id);
@@ -51,7 +56,7 @@ function linkToCombo() {
 
 /** Parsing Functions **/
 
-function parseCombos(combos, query) {
+function parseCombos(combos, query, withQueryParam) {
     var comboData = [];
     for (let c in combos) {
         const combo = [];
@@ -75,6 +80,10 @@ function parseCombos(combos, query) {
         combo.cardsInCombo = names.length;
         combo.id = combos[c][0];
         combo.edhLegality = parseLegality(combos[c][15], "EDH/Commander");
+
+        if (withQueryParam === true && combo.id != query) {
+            continue;
+        }
 
         comboData.push(combo);
     }
