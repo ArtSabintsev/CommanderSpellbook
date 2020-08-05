@@ -18,7 +18,6 @@ function evaluateSearchQuery(withQueryParam) {
     // withQueryParam: used to check if deeplink was used
     // !Number.isInteger(query): Checks to see if query is a number, which bypasses the 3-character length limit
     // query.length: Sets a minimum limit of characters to 3 before searching, to make sure live filtering isn't laggy
-    console.log(withQueryParam == false, !Number.isInteger(+query), query.length < 3)
     if (withQueryParam == false && !Number.isInteger(+query) && query.length < 3) {
         return;
     }
