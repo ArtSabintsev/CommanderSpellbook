@@ -6,16 +6,16 @@ let cachedSheets = void 0;
 
 $.getJSON(url, function (data) {
     cachedSheets = data.valueRanges[0].values;
+    linkToCombo();
 });
 
-
-function evaluateSearchQuery() {
+function evaluateSearchQuery(withQueryParam) {
     let query = document.getElementById("card-input").value;
 
     // Fixes Auto-Capitalization issue that return empty arrays when doing comparisons (only visible on mobile)
     query = query.toLowerCase();
 
-    if (query.length < 3) {
+    if (withQueryParam == false && query.length < 3) {
         return;
     }
 
@@ -25,6 +25,28 @@ function evaluateSearchQuery() {
     }
 
     parseCombos(cachedSheets, query);
+}
+
+function linkToCombo() {
+    var qs = (function (a) {
+        if (a == "") return {};
+        var b = {};
+        for (var i = 0; i < a.length; ++i) {
+            var p = a[i].split('=', 2);
+            if (p.length == 1)
+                b[p[0]] = "";
+            else
+                b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+        }
+        return b;
+    })(window.location.search.substr(1).split('&'));
+
+
+    if (qs.id !== undefined) {
+        const searchInput = document.getElementById('card-input');
+        searchInput.setAttribute('value', qs.id);
+        evaluateSearchQuery(true);
+    }
 }
 
 /** Parsing Functions **/

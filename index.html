@@ -50,8 +50,8 @@
   <script src="https://deckbox.org/assets/external/tooltip.js" defer></script>
 
   <!-- Internal JS -->
-  <script src="js/metrics.js"></script>
   <script src="js/combos.js"></script>
+  <script src="js/metrics.js"></script>
 </head>
 
 <body>
@@ -410,7 +410,7 @@
       clearTimeout(searchTimeout);
       searchTimeout = setTimeout(function () {
         $('#combos').empty();
-        evaluateSearchQuery();
+        evaluateSearchQuery(false);
       }, 500);
     }
 
