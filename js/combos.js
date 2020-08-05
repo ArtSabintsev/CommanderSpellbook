@@ -1,5 +1,5 @@
 /** API Request **/
-const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:O&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E';
+const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E';
 
 let cachedCombos = {};
 let cachedSheets = void 0;
@@ -52,6 +52,7 @@ function parseCombos(combos, query) {
         combo.result = splitText(combos[c][14]);
         combo.cardsInCombo = names.length;
         combo.id = combos[c][0];
+        combo.edhLegality = parseLegality(combos[c][15], "EDH/Commander");
 
         comboData.push(combo);
     }
@@ -205,6 +206,14 @@ function replaceTextWithManaImages(text) {
     return text;
 }
 
+function parseLegality(legal, format) {
+    if (legal === "FALSE") {
+        return null;
+    } else {
+        return `Banned in ${format}`;
+    }
+}
+
 // Update Combos Tables
 function updateTableWithCombos(combos) {
     const tableBody = document.getElementById('combos');
@@ -215,29 +224,32 @@ function updateTableWithCombos(combos) {
         const tdPrerequisites = document.createElement('td');
         const tdDescription = document.createElement('td');
         const tdResult = document.createElement('td');
-        const tdComboID = document.createElement('td');
+        const tdMeta = document.createElement('td');
 
         tdCardLinks.id = "tdCardLinks";
         tdColorIdentity.id = "tdColorIdentity";
         tdPrerequisites.id = "tdPrerequisites";
         tdDescription.id = "tdDescription";
         tdResult.id = "tdResult";
-        tdComboID.id = "tdComboID";
-        tdComboID.setAttribute('data-cardsInCombo', combo.cardsInCombo);
+        tdMeta.id = "tdComboID";
+        tdMeta.setAttribute('data-cardsInCombo', combo.cardsInCombo);
 
         tdCardLinks.innerHTML = `<ol>${combo.cardLinks.map(e => `<li>${e}</li>`).join('')}<ol>`;
         tdColorIdentity.innerHTML = `<center>${combo.colorIdentityImages.join('')}</center>`;
         tdPrerequisites.innerHTML = `<ul>${combo.prerequisites.map(e => `<li>${e}</li>`).join('')}<ul>`;
         tdDescription.innerHTML = `<ol>${combo.steps.map(e => `<li>${e}</li>`).join('')}<ol>`;
         tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
-        tdComboID.innerHTML = `<center>${combo.id}</center>`;
+        tdMeta.innerHTML = `<ul>
+            <li>Combo ID: ${combo.id}</li> 
+                ${combo.edhLegality === null ? '' : '<li><strong><font color="red">'+combo.edhLegality+'<font></strong></li>'}
+            </ul>`;
 
         tr.appendChild(tdCardLinks);
         tr.appendChild(tdColorIdentity);
         tr.appendChild(tdPrerequisites);
         tr.appendChild(tdDescription);
         tr.appendChild(tdResult);
-        tr.appendChild(tdComboID);
+        tr.appendChild(tdMeta);
 
         tableBody.appendChild(tr);
     });
@@ -339,6 +351,6 @@ function numberOfCards(context) {
 // Re-apply table striping on search
 function tableStriping() {
     $("tr:visible").each(function (index) {
-      $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
+        $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
     });
-  }
+}
