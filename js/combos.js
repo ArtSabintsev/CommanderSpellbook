@@ -9,16 +9,15 @@ $.getJSON(url, function (data) {
     linkToCombo();
 });
 
-function evaluateSearchQuery(withQueryParam) {
+function evaluateSearchQuery() {
     let query = document.getElementById("card-input").value;
 
     // Fixes Auto-Capitalization issue that return empty arrays when doing comparisons (only visible on mobile)
     query = query.toLowerCase();
 
-    // withQueryParam: used to check if deeplink was used
     // !Number.isInteger(query): Checks to see if query is a number, which bypasses the 3-character length limit
     // query.length: Sets a minimum limit of characters to 3 before searching, to make sure live filtering isn't laggy
-    if (withQueryParam == false && !Number.isInteger(+query) && query.length < 3) {
+    if (!Number.isInteger(+query) && query.length < 3) {
         return;
     }
 
@@ -27,7 +26,7 @@ function evaluateSearchQuery(withQueryParam) {
         return;
     }
 
-    parseCombos(cachedSheets, query, withQueryParam);
+    parseCombos(cachedSheets, query);
 }
 
 function linkToCombo() {
@@ -55,7 +54,7 @@ function linkToCombo() {
 
 /** Parsing Functions **/
 
-function parseCombos(combos, query, withQueryParam) {
+function parseCombos(combos, query) {
     var comboData = [];
     for (let c in combos) {
         const combo = [];
@@ -80,8 +79,10 @@ function parseCombos(combos, query, withQueryParam) {
         combo.id = combos[c][0];
         combo.edhLegality = parseLegality(combos[c][15], "EDH/Commander");
 
-        if (withQueryParam === true && combo.id != query) {
-            continue;
+        if (Number.isInteger(+query)) {
+            if (combo.id != query) {
+                continue;
+            }
         }
 
         comboData.push(combo);
