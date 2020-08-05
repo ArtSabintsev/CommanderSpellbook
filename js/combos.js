@@ -45,7 +45,7 @@ function linkToCombo() {
 
     // If the query paramater string doesn't have any values, skip this step, 
     // as it means the user did not load the code with any direct combo link or set link.
-    if (qs.id !== undefined) {
+    if (qs.id !== undefined && Number.isInteger(+qs.id)) {
         const searchInput = document.getElementById('card-input');
         searchInput.setAttribute('value', qs.id);
         evaluateSearchQuery(true);
