@@ -64,12 +64,8 @@ function parseCombos(combos, query) {
             return e != "";
         });
 
-        // if ((names.join().toLowerCase().indexOf(query) === -1) && (combos[c][13].toLowerCase().indexOf(query) === -1) &&
-        //     (combos[c][14].toLowerCase().indexOf(query) === -1) && (combos[c][0].toLowerCase().indexOf(query) === -1)) {
-        //     continue;
-        // }
-
-        if ((names.join().toLowerCase().indexOf(query) === -1) && (combos[c][0].toLowerCase().indexOf(query) === -1)) {
+        if ((names.join().toLowerCase().indexOf(query) === -1) && (combos[c][13].toLowerCase().indexOf(query) === -1) &&
+            (combos[c][14].toLowerCase().indexOf(query) === -1) && (combos[c][0].toLowerCase().indexOf(query) === -1)) {
             continue;
         }
 
