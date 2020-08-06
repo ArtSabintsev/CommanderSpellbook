@@ -295,6 +295,7 @@ function copyComboID(id) {
         let linkToCopy = `https://CommanderSpellbook.com/?id=${id}`;
         $temp.val((linkToCopy.toString())).select();
         document.execCommand("copy");
+        $temp.blur();
         $temp.remove();
 }
 
