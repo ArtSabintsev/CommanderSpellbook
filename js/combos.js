@@ -387,18 +387,12 @@ function tableStriping() {
     });
 }
 
+
 function copyComboID(id) {
     var $temp = $("<input>");
     $("body").append($temp);
     let linkToCopy = `https://CommanderSpellbook.com/?id=${id}`;
     $temp.val((linkToCopy.toString())).select();
     document.execCommand("copy");
-    $temp.blur();
     $temp.remove();
-
-    var x = document.getElementById("snackbar");
-    x.className = "show";
-    setTimeout(function () {
-        x.className = x.className.replace("show", "");
-    }, 3000);
 }
