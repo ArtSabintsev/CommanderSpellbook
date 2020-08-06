@@ -274,7 +274,7 @@ function updateTableWithCombos(combos) {
             <li>Combo ID: ${combo.id}</li> 
                 ${combo.edhLegality === null ? '' : '<li><strong><font color="red">'+combo.edhLegality+'<font></strong></li>'}
             </ul>
-            <p><center><button type="button" class="btn btn-outline-info" onclick="copyComboID(${combo.id})">Copy Combo Link</button></center></p>`;
+            <p><center><button type="button" class="btn btn-outline-info" id="copyButton" onclick="copyComboID(${combo.id})">Copy Combo Link</button></center></p>`;
 
         tr.appendChild(tdCardLinks);
         tr.appendChild(tdColorIdentity);
@@ -401,4 +401,9 @@ function copyComboID(id) {
     setTimeout(function () {
         x.className = x.className.replace("show", "");
     }, 3000);
+
+    window.requestAnimationFrame(function () {
+        const button = document.getElementById('copyButton');
+        button.blur();
+    });
 }
