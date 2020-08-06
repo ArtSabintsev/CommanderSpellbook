@@ -395,4 +395,10 @@ function copyComboID(id) {
     $temp.val((linkToCopy.toString())).select();
     document.execCommand("copy");
     $temp.remove();
+
+    var x = document.getElementById("snackbar");		
+     x.className = "show";		
+     setTimeout(function () {		
+         x.className = x.className.replace("show", "");		
+     }, 3000);
 }
