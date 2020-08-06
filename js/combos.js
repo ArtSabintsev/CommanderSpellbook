@@ -65,7 +65,7 @@ function parseCombos(combos, query) {
         });
 
         if ((names.join().toLowerCase().indexOf(query) === -1) && (combos[c][13].toLowerCase().indexOf(query) === -1) &&
-            (combos[c][14].toLowerCase().indexOf(query) === -1) && (combos[c][0].toLowerCase().indexOf(query) === -1)) {
+            (combos[c][14].toLowerCase().indexOf(query) === -1) && (combos[c][0].toLowerCase().indexOf(query) === -1) && (combos[c][15].toLowerCase().indexOf(query) === -1)) {
             continue;
         }
 
@@ -233,6 +233,9 @@ function replaceTextWithManaImages(text) {
     text = text.replace(/:manabp:/g, `<img src="images/mana/manabp.png" width="${width}" alt="Black Phyrexian mana" loading="lazy">`);
     text = text.replace(/:manarp:/g, `<img src="images/mana/manarp.png" width="${width}" alt="Red Phyrexian mana" loading="lazy">`);
     text = text.replace(/:managp:/g, `<img src="images/mana/managp.png" width="${width}" alt="Green Phyrexian mana" loading="lazy">`);
+    text = text.replace(/:manat:/g, `<img src="images/mana/manat.png" width="${width}" alt="Tap symbol" loading="lazy">`);
+    text = text.replace(/:manaq:/g, `<img src="images/mana/manaq.png" width="${width}" alt="Untap symbol" loading="lazy">`);
+
 
     return text;
 }
