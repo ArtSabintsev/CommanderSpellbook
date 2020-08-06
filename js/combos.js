@@ -273,7 +273,8 @@ function updateTableWithCombos(combos) {
         tdMeta.innerHTML = `<ul>
             <li>Combo ID: ${combo.id}</li> 
                 ${combo.edhLegality === null ? '' : '<li><strong><font color="red">'+combo.edhLegality+'<font></strong></li>'}
-            </ul>`;
+            </ul>
+            <p><center><button type="button" class="btn btn-outline-info" onclick="copyComboID(${combo.id})">Copy Combo Link</button></center></p>`;
 
         tr.appendChild(tdCardLinks);
         tr.appendChild(tdColorIdentity);
@@ -286,6 +287,15 @@ function updateTableWithCombos(combos) {
     });
 
     filterCombos();
+}
+
+function copyComboID(id) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        let linkToCopy = `https://CommanderSpellbook.com/?id=${id}`;
+        $temp.val((linkToCopy.toString())).select();
+        document.execCommand("copy");
+        $temp.remove();
 }
 
 // Filter by Search Input
