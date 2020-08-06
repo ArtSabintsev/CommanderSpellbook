@@ -289,16 +289,6 @@ function updateTableWithCombos(combos) {
     filterCombos();
 }
 
-function copyComboID(id) {
-        var $temp = $("<input>");
-        $("body").append($temp);
-        let linkToCopy = `https://CommanderSpellbook.com/?id=${id}`;
-        $temp.val((linkToCopy.toString())).select();
-        document.execCommand("copy");
-        $temp.blur();
-        $temp.remove();
-}
-
 // Filter by Search Input
 function filterCombos() {
     filter = $("#card-input").val().toLowerCase();
@@ -395,4 +385,20 @@ function tableStriping() {
     $("tr:visible").each(function (index) {
         $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
     });
+}
+
+function copyComboID(id) {
+    var $temp = $("<input>");
+    $("body").append($temp);
+    let linkToCopy = `https://CommanderSpellbook.com/?id=${id}`;
+    $temp.val((linkToCopy.toString())).select();
+    document.execCommand("copy");
+    $temp.blur();
+    $temp.remove();
+
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function () {
+        x.className = x.className.replace("show", "");
+    }, 3000);
 }
