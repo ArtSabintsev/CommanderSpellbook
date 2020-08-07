@@ -312,7 +312,7 @@ function inIdentity(context) {
     red = document.querySelector('#manaR > .image-checkbox').classList.contains('checked');
     green = document.querySelector('#manaG > .image-checkbox').classList.contains('checked');
 
-    tdColorless = context.children("#tdComboID").children().get > -1;
+    tdColorless = context.children("#tdColorIdentity").children().get > -1;
     if (!colorless && tdColorless) {
         return false;
     }
