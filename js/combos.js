@@ -304,8 +304,8 @@ function updateTableWithCombos(combos) {
         tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
         tdMeta.innerHTML = `<ul>
             <li>Combo ID: ${combo.id}</li> 
-                ${combo.edhLegality === null ? '' : '<font color="red"><li><strong>'+combo.edhLegality+'</strong></li><font>'}
-                ${combo.newSpoiledCard === null ? '' : '<strong><font color="blue"><li>'+combo.newSpoiledCard+'</strong></li><font>'}
+                ${combo.edhLegality === null ? '' : '<font color="#A30202"><li><strong>'+combo.edhLegality+'</strong></li><font>'}
+                ${combo.newSpoiledCard === null ? '' : '<strong><font color="#02a363"><li>'+combo.newSpoiledCard+'</strong></li><font>'}
             </ul>
             <p><center><button type="button" class="btn btn-outline-info" id="copyButton" onclick="copyComboID(${combo.id})">Copy Combo Link</button></center></p>`;
 
