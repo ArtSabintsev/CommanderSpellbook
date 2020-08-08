@@ -1,11 +1,18 @@
 /** API Request **/
-const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E';
+const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:Q&ranges=utilities!C2&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E';
 
 let cachedCombos = {};
 let cachedSheets = void 0;
+let cachedNewSet = void 0;
 
 $.getJSON(url, function (data) {
+    // Reference all Combos
     cachedSheets = data.valueRanges[0].values;
+
+    // Refernece Latest Set
+    cachedNewSet = data.valueRanges[1].values[0][0];
+
+    // Fake a Deeplinked/Permalinked Combo
     linkToCombo();
 });
 
@@ -64,13 +71,6 @@ function parseCombos(combos, query) {
             return e != "";
         });
 
-        if ((names.join().toLowerCase().indexOf(query) === -1) && // Checks to see if query matches the name of a card
-            (combos[c][0].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches a Combo ID
-            (combos[c][13].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches Combo Steps
-            (combos[c][14].toLowerCase().indexOf(query) === -1)) { // Checks to see if query matches Combo Results
-            continue;
-        }
-
         combo.cardLinks = replaceCardNamesWithLinks(names);
         combo.colorIdentity = combos[c][11];
         combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][11]);
@@ -80,11 +80,24 @@ function parseCombos(combos, query) {
         combo.cardsInCombo = names.length;
         combo.id = combos[c][0];
         combo.edhLegality = parseLegality(combos[c][15], "EDH/Commander");
+        combo.newSpoiledCard = parseNewSpoiledCard(combos[c][16]);
 
+        // If number is an integer, skip all combos that do not exactly match the integer.
+        // e.g. if ID is 21, match 21, but skip 211, 212, 121, 321, etc.
         if (Number.isInteger(+query)) {
             if (combo.id != query) {
                 continue;
             }
+        }
+
+        if (query === "banned" && combo.edhLegality !== null) {} 
+        else if (query === "spoilers" && combo.newSpoiledCard !== null) {} 
+        else if (
+            (names.join().toLowerCase().indexOf(query) === -1) && // Checks to see if query matches the name of a card
+            (combos[c][0].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches a Combo ID
+            (combos[c][14].toLowerCase().indexOf(query) === -1) // Checks to see if query matches Combo Results
+            ) { 
+                continue;
         }
 
         comboData.push(combo);
@@ -250,6 +263,14 @@ function parseLegality(legal, format) {
     }
 }
 
+function parseNewSpoiledCard(spoiled) {
+    if (spoiled === "FALSE") {
+        return null;
+    } else {
+        return `New in ${cachedNewSet}`;
+    }
+}
+
 // Update Combos Tables
 function updateTableWithCombos(combos) {
     const tableBody = document.getElementById('combos');
@@ -278,6 +299,7 @@ function updateTableWithCombos(combos) {
         tdMeta.innerHTML = `<ul>
             <li>Combo ID: ${combo.id}</li> 
                 ${combo.edhLegality === null ? '' : '<li><strong><font color="red">'+combo.edhLegality+'<font></strong></li>'}
+                ${combo.newSpoiledCard === null ? '' : '<li><strong><font color="blue">'+combo.newSpoiledCard+'<font></strong></li>'}
             </ul>
             <p><center><button type="button" class="btn btn-outline-info" id="copyButton" onclick="copyComboID(${combo.id})">Copy Combo Link</button></center></p>`;
 
