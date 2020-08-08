@@ -26,7 +26,7 @@ function evaluateSearchQuery() {
         'event_category': 'Search Category',
         'event_label': 'Search Event',
         'value': query
-      });
+    });
 
     // !Number.isInteger(query): Checks to see if query is a number, which bypasses the 3-character length limit
     // query.length: Sets a minimum limit of characters to 3 before searching, to make sure live filtering isn't laggy
@@ -77,6 +77,24 @@ function parseCombos(combos, query) {
             return e != "";
         });
 
+        // If number is an integer, skip all combos that do not exactly match the integer.
+        // e.g. if ID is 21, match 21, but skip 211, 212, 121, 321, etc.
+        if (Number.isInteger(+query)) {
+            if (combos[c][0] != query) {
+                continue;
+            }
+        }
+
+        if (query === "banned" && combos[c][15] !== "FALSE") {} 
+        else if (query === "spoiled" && combos[c][16] !== "FALSE") {} 
+        else if ((names.join().toLowerCase().indexOf(query) === -1) && // Checks to see if query matches the name of a card
+            (combos[c][0].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches a Combo ID
+            (combos[c][13].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches Combo Steps
+            (combos[c][14].toLowerCase().indexOf(query) === -1) // Checks to see if query matches Combo Results
+        ) {
+            continue;
+        }
+
         combo.cardLinks = replaceCardNamesWithLinks(names);
         combo.colorIdentity = combos[c][11];
         combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][11]);
@@ -87,24 +105,6 @@ function parseCombos(combos, query) {
         combo.id = combos[c][0];
         combo.edhLegality = parseLegality(combos[c][15], "EDH/Commander");
         combo.newSpoiledCard = parseNewSpoiledCard(combos[c][16]);
-
-        // If number is an integer, skip all combos that do not exactly match the integer.
-        // e.g. if ID is 21, match 21, but skip 211, 212, 121, 321, etc.
-        if (Number.isInteger(+query)) {
-            if (combo.id != query) {
-                continue;
-            }
-        }
-
-        if (query === "banned" && combo.edhLegality !== null) {} 
-        else if (query === "spoiled" && combo.newSpoiledCard !== null) {} 
-        else if (
-            (names.join().toLowerCase().indexOf(query) === -1) && // Checks to see if query matches the name of a card
-            (combos[c][0].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches a Combo ID
-            (combos[c][14].toLowerCase().indexOf(query) === -1) // Checks to see if query matches Combo Results
-            ) { 
-                continue;
-        }
 
         comboData.push(combo);
     }
