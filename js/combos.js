@@ -91,7 +91,7 @@ function parseCombos(combos, query) {
         }
 
         if (query === "banned" && combo.edhLegality !== null) {} 
-        else if (query === "spoilers" && combo.newSpoiledCard !== null) {} 
+        else if (query === "spoiled" && combo.newSpoiledCard !== null) {} 
         else if (
             (names.join().toLowerCase().indexOf(query) === -1) && // Checks to see if query matches the name of a card
             (combos[c][0].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches a Combo ID
@@ -267,7 +267,7 @@ function parseNewSpoiledCard(spoiled) {
     if (spoiled === "FALSE") {
         return null;
     } else {
-        return `New in ${cachedNewSet}`;
+        return `Spoiled in ${cachedNewSet}`;
     }
 }
 
@@ -298,8 +298,8 @@ function updateTableWithCombos(combos) {
         tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
         tdMeta.innerHTML = `<ul>
             <li>Combo ID: ${combo.id}</li> 
-                ${combo.edhLegality === null ? '' : '<li><strong><font color="red">'+combo.edhLegality+'<font></strong></li>'}
-                ${combo.newSpoiledCard === null ? '' : '<li><strong><font color="blue">'+combo.newSpoiledCard+'<font></strong></li>'}
+                ${combo.edhLegality === null ? '' : '<font color="red"><li><strong>'+combo.edhLegality+'</strong></li><font>'}
+                ${combo.newSpoiledCard === null ? '' : '<strong><font color="blue"><li>'+combo.newSpoiledCard+'</strong></li><font>'}
             </ul>
             <p><center><button type="button" class="btn btn-outline-info" id="copyButton" onclick="copyComboID(${combo.id})">Copy Combo Link</button></center></p>`;
 
