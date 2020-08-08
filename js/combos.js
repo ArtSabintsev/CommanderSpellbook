@@ -22,6 +22,12 @@ function evaluateSearchQuery() {
     // Fixes Auto-Capitalization issue that return empty arrays when doing comparisons (only visible on mobile)
     query = query.toLowerCase();
 
+    gtag('event', 'User Performed Search', {
+        'event_category': 'Search Category',
+        'event_label': 'Search Event',
+        'value': query
+      });
+
     // !Number.isInteger(query): Checks to see if query is a number, which bypasses the 3-character length limit
     // query.length: Sets a minimum limit of characters to 3 before searching, to make sure live filtering isn't laggy
     if (!Number.isInteger(+query) && query.length < 3) {
