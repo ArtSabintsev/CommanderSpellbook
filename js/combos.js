@@ -86,7 +86,8 @@ function parseCombos(combos, query) {
         }
 
         if (query === "banned" && combos[c][15] !== "FALSE") {} 
-        else if (query === "spoiled" && combos[c][16] !== "FALSE") {} 
+        else if (query === "spoiled" && combos[c][16] !== "FALSE") {}
+        else if (query === replaceColorIdentityWithName(combos[c][11]).toLowerCase()) {}
         else if ((names.join().toLowerCase().indexOf(query) === -1) && // Checks to see if query matches the name of a card
             (combos[c][0].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches a Combo ID
             (combos[c][13].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches Combo Steps
@@ -97,6 +98,7 @@ function parseCombos(combos, query) {
 
         combo.cardLinks = replaceCardNamesWithLinks(names);
         combo.colorIdentity = combos[c][11];
+        combo.colorIdentityName = replaceColorIdentityWithName(combos[c][11]);
         combo.colorIdentityImages = replaceColorIdentityWithImageSources(combos[c][11]);
         combo.prerequisites = splitText(combos[c][12]);
         combo.steps = splitText(combos[c][13]);
@@ -133,41 +135,41 @@ function replaceCardNamesWithLinks(names) {
 
 function replaceColorIdentityWithName(identity) {
     if (isBlank(identity)) {
-        return identity;
+        return "Unknown";
     } else {
         const colorMapper = {
-            'w': 'white',
-            'u': 'blue',
-            'b': 'black',
-            'r': 'red',
-            'g': 'green',
-            'c': 'colorless',
-            'w,u': 'azorius',
-            'w,b': 'orzhov',
-            'w,r': 'boros',
-            'w,g': 'selesnya',
-            'u,b': 'dimir',
-            'u,r': 'izzet',
-            'u,g': 'simic',
-            'b,r': 'rakdos',
-            'b,g': 'golgari',
-            'r,g': 'gruul',
-            'w,u,b': 'esper',
-            'w,u,r': 'jeskai',
-            'w,u,g': 'bant',
-            'w,b,r': 'mardu',
-            'w,b,g': 'abzan',
-            'w,r,g': 'naya',
-            'u,b,r': 'grixis',
-            'u,b,g': 'sultai',
-            'u,r,g': 'temur',
-            'b,r,g': 'jund',
-            'w,u,b,r': 'sans-green',
-            'w,u,b,g': 'sans-red',
-            'w,b,r,g': 'sans-blue',
-            'w,u,r,g': 'sans-black',
-            'u,r,b,g': 'sans-white',
-            'w,u,b,r,g': "wubrg"
+            'w': 'Mono-White',
+            'u': 'Mono-Blue',
+            'b': 'Mono-Black',
+            'r': 'Mono-Red',
+            'g': 'Mono-Green',
+            'c': 'Colorless',
+            'w,u': 'Azorius',
+            'w,b': 'Orzhov',
+            'w,r': 'Boros',
+            'w,g': 'Selesnya',
+            'u,b': 'Dimir',
+            'u,r': 'Izzet',
+            'u,g': 'Simic',
+            'b,r': 'Rakdos',
+            'b,g': 'Golgari',
+            'r,g': 'Gruul',
+            'w,u,b': 'Esper',
+            'w,u,r': 'Jeskai',
+            'w,u,g': 'Bant',
+            'w,b,r': 'Mardu',
+            'w,b,g': 'Abzan',
+            'w,r,g': 'Naya',
+            'u,b,r': 'Grixis',
+            'u,b,g': 'Sultai',
+            'u,r,g': 'Temur',
+            'b,r,g': 'Jund',
+            'u,b,r,g': 'Sans-White',
+            'w,b,r,g': 'Sans-Blue',
+            'w,u,r,g': 'Sans-Black',
+            'w,u,b,g': 'Sans-Red',
+            'w,u,b,r': 'Sans-Green',
+            'w,u,b,r,g': "WUBRG"
         };
 
         return colorMapper[identity];
@@ -304,6 +306,7 @@ function updateTableWithCombos(combos) {
         tdResult.innerHTML = `<ul>${combo.result.map(e => `<li>${e}</li>`).join('')}<ul>`;
         tdMeta.innerHTML = `<ul>
             <li>Combo ID: ${combo.id}</li> 
+            <li>Color Identity: ${combo.colorIdentityName}</li> 
                 ${combo.edhLegality === null ? '' : '<font color="#A30202"><li><strong>'+combo.edhLegality+'</strong></li><font>'}
                 ${combo.newSpoiledCard === null ? '' : '<strong><font color="#02a363"><li>'+combo.newSpoiledCard+'</strong></li><font>'}
             </ul>
