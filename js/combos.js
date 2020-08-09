@@ -429,11 +429,11 @@ function copyComboID(id) {
     document.execCommand("copy");
     $temp.remove();
 
-    var x = document.getElementById("snackbar");
-    x.className = "show";
+    var snackbar = document.getElementById("snackbar");
+    snackbar.className = "show";
     setTimeout(function () {
-        x.className = x.className.replace("show", "");
-    }, 3000);
+        snackbar.className = snackbar.className.replace("show", "");
+    }, 2000);
 
     window.requestAnimationFrame(function () {
         const button = document.getElementById('copyButton');
