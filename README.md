@@ -1,7 +1,7 @@
 # Commander Spellbook
 
 ## Background 
-The Commander Spellbook website was created to catalog and centralize all reasonable [Magic: the Gathering combos](https://magic.wizards.com/en) for singleton formats. For this reason, the [Official Commander Banlist](https://mtgcommander.net/index.php/banned-list/) is ignored.
+The Commander Spellbook project exists to catalog all reasonable Commander/EDH combos and to make them easily available across all modern digital platforms.
 
 The idea to catalog combos started off as a [Discord Server](https://discord.gg/DkAyVJG) in February 2020. Once the Discord reached ~5000 members and ~1000 combos in May 2020, I began working on a website.
 
@@ -11,7 +11,7 @@ The idea to catalog combos started off as a [Discord Server](https://discord.gg/
 Many individuals have tried to build a combo database over the last decade, but they've all failed due to the headache involved in finding those combos and keeping them updated in a Forum Post or Blog up to date. Many of the issues revolved around a single individual being the gatekeeper. Therefore, I've opted to solve for that problem by enlisting the community to catalog combos via Discord (which is how we obtained over a thousand of combos in a matter of months). I also opted to host the website and the database for free, forever, so people can take over this project by cloning this repository, or the Google Sheet, respectively, if I ever step away. This mindset allowed me to find other individuals passionate about working on this project in their free time.
 
 ## Website
-First and foremost, I am an iOS developer, and _not_ a web developer. I am also not going to pretend to be a web developer, so therefore, a good chunk of the site's code is fairly ugly, due to me _frankensteining_ this website together via Bootstrap tutorials and code snippets I've found online. While I enjoy architecture patterns and implementing best practices, I did very little to none of that here, as my goal was to move the combos from out of Discord and into a better long-term solution -- the [Commander Spellbook](https://commanderspellbook.com) website hosted on GitHub Pages.
+First and foremost, I am an iOS developer, and _not_ a web developer. I am also not going to pretend to be a web developer, so therefore, a good chunk of the site's code is fairly ugly, due to me _frankensteining_ this website together via Bootstrap tutorials and code snippets I've found online. While I enjoy architecture patterns and implementing best practices, I did very little to none of that here, as my goal was to move the combos from out of Discord and onto a better long-term solution -- the [Commander Spellbook](https://CommanderSpellbook.com) website, which is now hosted on GitHub Pages.
 
 ## Costs
 I also decided that I wanted to make the financial upkeep for this project as cheap as possible. At the moment, here is what I pay for with respect to this project:
@@ -29,4 +29,4 @@ I also decided that I wanted to make the financial upkeep for this project as ch
 - The Google Sheets API for all the combos can be found [here](https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:P&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E). 
 
 ## Special Thanks
-Massive thanks to [@harryfino](https://github.com/harryfino), creator of the [Moxfield](https://www.moxfield.com) project, for helping me solve my CSS headaches.
+Massive thanks to [@harryfino](https://github.com/harryfino), creator of the [Moxfield](https://www.moxfield.com) project, for helping me solve many of my JS and CSS headaches.
