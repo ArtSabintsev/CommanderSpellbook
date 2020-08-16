@@ -85,7 +85,10 @@ function parseCombos(combos, query) {
             }
         }
 
-        if (query === "banned" && combos[c][15] !== "FALSE") {} 
+        if (query === "mana") {
+            continue;
+        }
+        else if (query === "banned" && combos[c][15] !== "FALSE") {} 
         else if (query === "spoiled" && combos[c][16] !== "FALSE") {}
         else if (query === replaceColorIdentityWithName(combos[c][11]).toLowerCase()) {}
         else if ((names.join().toLowerCase().indexOf(query) === -1) && // Checks to see if query matches the name of a card
@@ -327,10 +330,8 @@ function updateTableWithCombos(combos) {
 
 // Filter by Search Input
 function filterCombos() {
-    filter = $("#card-input").val().toLowerCase();
     $("#combos tr").filter(function () {
-        let matchedText = $(this).text().toLowerCase().indexOf(filter);
-        $(this).toggle(matchedText > -1 && inIdentity($(this)) && numberOfCards($(this)));
+        $(this).toggle(inIdentity($(this)) && numberOfCards($(this)));
     });
 
     tableStriping();
