@@ -3,14 +3,10 @@ const url = 'https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlO
 
 let cachedCombos = {};
 let cachedSheets = void 0;
-let cachedNewSet = void 0;
 
 $.getJSON(url, function (data) {
     // Reference all Combos
     cachedSheets = data.valueRanges[0].values;
-
-    // Refernece Latest Set
-    cachedNewSet = data.valueRanges[1].values[0][0];
 
     // Fake a Deeplinked/Permalinked Combo
     linkToCombo();
@@ -109,7 +105,6 @@ function parseCombos(combos, query) {
         combo.cardsInCombo = names.length;
         combo.id = combos[c][0];
         combo.edhLegality = parseLegality(combos[c][15], "EDH/Commander");
-        combo.newSpoiledCard = parseNewSpoiledCard(combos[c][16]);
 
         comboData.push(combo);
     }
@@ -278,7 +273,7 @@ function parseNewSpoiledCard(spoiled) {
     if (spoiled === "FALSE") {
         return null;
     } else {
-        return `Spoiled in ${cachedNewSet}`;
+        return `Spoiled in forthcoming set.`;
     }
 }
 
