@@ -105,6 +105,7 @@ function parseCombos(combos, query) {
         combo.cardsInCombo = names.length;
         combo.id = combos[c][0];
         combo.edhLegality = parseLegality(combos[c][15], "EDH/Commander");
+        combo.newSpoiledCard = parseNewSpoiledCard(combos[c][16]);
 
         comboData.push(combo);
     }
