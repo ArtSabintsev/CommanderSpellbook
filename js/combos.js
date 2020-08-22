@@ -38,6 +38,7 @@ function evaluateSearchQuery() {
     parseCombos(cachedSheets, query);
 }
 
+// Generate Permalink
 function linkToCombo() {
     var qs = (function (a) {
         if (a == "") return {};
@@ -68,6 +69,27 @@ function parseCombos(combos, query) {
     for (let c in combos) {
         const combo = [];
 
+        // Validate that required rows have data
+        if (combos[c][0] == null) {
+            continue;
+        } else if (combos[c][1] == null) {
+            continue;
+        } else if (combos[c][2] == null) {
+            continue;
+        } else if (combos[c][11] == null) {
+            continue;
+        } else if (combos[c][12] == null) {
+            continue;
+        } else if (combos[c][13] == null) {
+            continue;
+        } else if (combos[c][14] == null) {
+            continue;
+        } else if (combos[c][15] == null) {
+            continue;
+        } else if (combos[c][16] == null) {
+            continue;
+        }
+
         // Filter out Card Names that are empty
         var names = combos[c].slice(1, 11).filter(function (e) {
             return e != "";
@@ -81,13 +103,11 @@ function parseCombos(combos, query) {
             }
         }
 
+        // Filter all combos based on query
         if (query === "mana") {
+            // Skip over any search that searches for mana, since the color identity rows use :manax: text to render the image and return all combos.
             continue;
-        }
-        else if (query === "banned" && combos[c][15] !== "FALSE") {} 
-        else if (query === "spoiled" && combos[c][16] !== "FALSE") {}
-        else if (query === replaceColorIdentityWithName(combos[c][11]).toLowerCase()) {}
-        else if ((names.join().toLowerCase().indexOf(query) === -1) && // Checks to see if query matches the name of a card
+        } else if (query === "banned" && combos[c][15] !== "FALSE") {} else if (query === "spoiled" && combos[c][16] !== "FALSE") {} else if (query === replaceColorIdentityWithName(combos[c][11]).toLowerCase()) {} else if ((names.join().toLowerCase().indexOf(query) === -1) && // Checks to see if query matches the name of a card
             (combos[c][0].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches a Combo ID
             (combos[c][13].toLowerCase().indexOf(query) === -1) && // Checks to see if query matches Combo Steps
             (combos[c][14].toLowerCase().indexOf(query) === -1) // Checks to see if query matches Combo Results
