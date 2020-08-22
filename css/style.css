@@ -229,7 +229,7 @@ footer {
     }
 
     #tdComboID:nth-of-type(6):before {
-        content: "COMBO ID";
+        content: "META";
     }
 
     #colorIdentitySelector, #cardNumberSelector {
