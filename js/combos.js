@@ -157,6 +157,7 @@ function parseCombos(combos, query) {
 function replaceCardNamesWithLinks(names) {
     return names.map(function (e) {
         return `<auto-card name="${e}">${e}</auto-card>`;
+        // return `<auto-card-image>${e}</auto-card-image>`;
     });
 }
 
