@@ -59,6 +59,14 @@ function linkToCombo() {
         const searchInput = document.getElementById('card-input');
         searchInput.setAttribute('value', qs.id);
         evaluateSearchQuery(true);
+    } else if (qs.status !== undefined && qs.status.toLowerCase() === "spoiled") {
+        const searchInput = document.getElementById('card-input');
+        searchInput.setAttribute('value', "spoiled");
+        evaluateSearchQuery(true);
+    } else if (qs.status !== undefined && qs.status.toLowerCase() === "banned") {
+        const searchInput = document.getElementById('card-input');
+        searchInput.setAttribute('value', "banned");
+        evaluateSearchQuery(true);
     }
 }
 
