@@ -8,6 +8,9 @@ $.getJSON(url, function (data) {
     // Reference all Combos
     cachedSheets = data.valueRanges[0].values;
 
+    // Filter out empty rows (using color-identity as a check here)
+    cachedSheets = cachedSheets.filter(el => el[11] !== "");
+
     // Fake a Deeplinked/Permalinked Combo
     linkToCombo();
 });
