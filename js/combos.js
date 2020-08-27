@@ -270,6 +270,7 @@ function replaceTextWithManaImages(text) {
     text = text.replace(/:mana15:/g, `<img src="images/mana/mana15.png" width="${width}" alt="15 mana" loading="lazy">`);
     text = text.replace(/:mana16:/g, `<img src="images/mana/mana16.png" width="${width}" alt="16 mana" loading="lazy">`);
     text = text.replace(/:mana20:/g, `<img src="images/mana/mana20.png" width="${width}" alt="20 mana" loading="lazy">`);
+    text = text.replace(/:manaq:/g, `<img src="images/mana/manax.png" width="${width}" alt="X mana" loading="lazy">`);
     text = text.replace(/:manawp:/g, `<img src="images/mana/manawp.png" width="${width}" alt="White Phyrexian mana" loading="lazy">`);
     text = text.replace(/:manaup:/g, `<img src="images/mana/manaup.png" width="${width}" alt="Blue Phyrexian manaa" loading="lazy">`);
     text = text.replace(/:manabp:/g, `<img src="images/mana/manabp.png" width="${width}" alt="Black Phyrexian mana" loading="lazy">`);
@@ -277,7 +278,6 @@ function replaceTextWithManaImages(text) {
     text = text.replace(/:managp:/g, `<img src="images/mana/managp.png" width="${width}" alt="Green Phyrexian mana" loading="lazy">`);
     text = text.replace(/:manat:/g, `<img src="images/mana/manat.png" width="${width}" alt="Tap symbol" loading="lazy">`);
     text = text.replace(/:manaq:/g, `<img src="images/mana/manaq.png" width="${width}" alt="Untap symbol" loading="lazy">`);
-
 
     return text;
 }
