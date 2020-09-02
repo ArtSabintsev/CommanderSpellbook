@@ -159,8 +159,9 @@ function parseCombos(combos, query) {
 
 function replaceCardNamesWithLinks(names) {
     return names.map(function (e) {
-        return `<auto-card name="${e}">${e}</auto-card>`;
+        // return `<auto-card name="${e}">${e}</auto-card>`;
         // return `<auto-card-image>${e}</auto-card-image>`;
+        return `<a href="https://deckbox.org/mtg/${e}">${e}</a>`;
     });
 }
 

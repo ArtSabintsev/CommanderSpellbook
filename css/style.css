@@ -162,7 +162,7 @@ footer {
 
 @media only screen and (max-width: 750px) {
     #card-input {
-        font-size: 11px;
+        font-size: 14px;
     }
 
     /* Force table to not be like tables anymore */
