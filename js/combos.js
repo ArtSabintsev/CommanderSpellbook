@@ -159,9 +159,17 @@ function parseCombos(combos, query) {
 
 function replaceCardNamesWithLinks(names) {
     return names.map(function (e) {
+        // MTGIFY Links
         // return `<auto-card name="${e}">${e}</auto-card>`;
+        
+        // MTGIFY Images
         // return `<auto-card-image>${e}</auto-card-image>`;
-        return `<a href="https://deckbox.org/mtg/${e}">${e}</a>`;
+        
+        // Deckbox Links and Images
+        // return `<a href="https://deckbox.org/mtg/${e}">${e}</a>`;
+
+        // Deckbox Images. Scryfall Links. See js/tooltips.js
+        return `<a href="https://www.scryfall.com/search?q=${e}" id="https://deckbox.org/mtg/${e}">${e}</a>`;
     });
 }
 
