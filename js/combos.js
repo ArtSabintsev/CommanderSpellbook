@@ -161,10 +161,10 @@ function replaceCardNamesWithLinks(names) {
     return names.map(function (e) {
         // MTGIFY Links
         // return `<auto-card name="${e}">${e}</auto-card>`;
-        
+
         // MTGIFY Images
         // return `<auto-card-image>${e}</auto-card-image>`;
-        
+
         // Deckbox Links and Images
         // return `<a href="https://deckbox.org/mtg/${e}">${e}</a>`;
 
@@ -362,14 +362,16 @@ function updateTableWithCombos(combos) {
         tableBody.appendChild(tr);
     });
 
-    filterCombos();
+    filterCombos(combos.length);
 }
 
 // Filter by Search Input
-function filterCombos() {
+function filterCombos(comboCount) {
     $("#combos tr").filter(function () {
         $(this).toggle(inIdentity($(this)) && numberOfCards($(this)));
     });
+
+    document.getElementById('card-input-results').innerHTML = `${comboCount} Results`;
 
     tableStriping();
 }

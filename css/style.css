@@ -58,7 +58,6 @@ a:not([href]):hover {
     margin-bottom: 2px;
     font-family: OpenSans-Regular;
     height: 60px;
-    width: 100%;
 }
 
 /* Color Identity Selector & Image Checkbox Styling */
@@ -202,6 +201,7 @@ footer {
 @media only screen and (max-width: 750px) {
     #card-input {
         font-size: 14px;
+        width: 50%;
     }
 
     /* Force table to not be like tables anymore */
@@ -284,6 +284,7 @@ footer {
 @media screen and (min-width: 751px) {
     #card-input {
         font-size: 20px;
+        width: 80%;
     }
 
     #colorIdentitySelector, #cardNumberSelector {
