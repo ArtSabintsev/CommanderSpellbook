@@ -1,4 +1,5 @@
 // This is Deckbox's Tooltip code.
+// Original Source: https://deckbox.org/help/tooltips
 // I modified it to work with Scryfall's links.
 
 if (typeof Deckbox == "undefined") Deckbox = {};
