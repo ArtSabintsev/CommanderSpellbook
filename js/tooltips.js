@@ -148,21 +148,6 @@ Deckbox._ = {
         }
     },
 
-    loadJS: function(url) {
-        var s = document.createElement('s' + 'cript');
-        s.setAttribute("type", "text/javascript");
-        s.setAttribute("src", url);
-        document.getElementsByTagName("head")[0].appendChild(s);
-    },
-
-    loadCSS: function(url) {
-        var s = document.createElement("link");
-        s.type = "text/css";
-        s.rel = "stylesheet";
-        s.href = url;
-        document.getElementsByTagName("head")[0].appendChild(s);
-    },
-
     needsTooltip: function(el) {
         if (el.getAttribute && el.getAttribute('data-tt')) return true;
 
@@ -266,5 +251,4 @@ Deckbox._ = {
     Deckbox._.addEvent(document, 'mousemove', onmousemove);
     Deckbox._.addEvent(document, 'mouseout', onmouseout);
     Deckbox._.addEvent(document, 'click', click);
-    Deckbox._.loadCSS('https://deckbox.org/assets/external/deckbox_tooltip.css');
 })();

@@ -158,6 +158,45 @@ footer {
     font-size: 12px;
 }
 
+/* 
+    Deckbox Tooltip CSS 
+    https://deckbox.org/assets/external/deckbox_tooltip.css
+*/
+
+.deckbox_i_tooltip {
+    position: absolute;
+    z-index: 200;
+    border: 1px solid #ccc;
+    background-color: #F7F7F7;
+    padding: 10px;
+  }
+  
+  .deckbox_i_tooltip img {
+    max-height: 310px !important;
+    max-width: 310px !important;
+  }
+  
+  .deckbox_t_tooltip {
+    position: absolute;
+    z-index: 200;
+    border: 1px solid #517CA1;
+    background-color: #F2F7FC;
+    padding: 3px 4px;
+    font-size: 12px;
+  }
+  
+  .deckbox_t_tooltip.text {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background-color: white;
+    font-style: italic;
+    color: grey;
+    max-width: 300px;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+
 /* Mobile Friendly Table Changes */
 
 @media only screen and (max-width: 750px) {
