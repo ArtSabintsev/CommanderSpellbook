@@ -15,17 +15,6 @@ Deckbox.ui = Deckbox.ui || {};
 };
 
 Deckbox.ui.Tooltip.prototype = {
-    _padContent: function(content) {
-        return "<table><tr><td>" + content + "</td><th style='background-position: right top;'></th></tr><tr>" +
-            "<th style='background-position: left bottom;'/><th style='background-position: right bottom;'/></tr></table>";
-    },
-
-    showText: function(posX, posY, text) {
-        this.el.innerHTML = text;
-        this.el.style.display = '';
-        this.move(posX, posY);
-    },
-
     showImage: function(posX, posY, image) {
         this.el._shown = true;
         if (image.complete) {
@@ -66,31 +55,13 @@ Deckbox.ui.Tooltip.prototype = {
         this.el.style.left = pos[0] + "px";
     },
 };
+
 Deckbox.ui.Tooltip.hide = function() {
     Deckbox._.tooltip('image').hide();
     Deckbox._.tooltip('text').hide();
 };
 
-
 Deckbox._ = {
-
-    onDocumentLoad: function(callback) {
-        if (window.addEventListener) {
-            window.addEventListener("load", callback, false);
-        } else {
-            window.attachEvent && window.attachEvent("onload", callback);
-        }
-    },
-
-    preloadImg: function(link) {
-        var img = document.createElement('img');
-        img.style.display = "none";
-        img.style.width = "1px";
-        img.style.height = "1px";
-        img.src = link.id + '/tooltip';
-        return img;
-    },
-
     pointerX: function(event) {
         var docElement = document.documentElement,
             body = document.body || { scrollLeft: 0 };
@@ -111,15 +82,6 @@ Deckbox._ = {
              (docElement.clientTop || 0));
     },
 
-    middle: function(el) {
-        let left = document.documentElement.scrollLeft,
-            top = document.documentElement.scrollTop;
-        return [
-            Math.max((left + (document.viewport.getWidth() - el.offsetWidth) / 2), 0),
-            Math.max((top + (document.viewport.getHeight() - el.offsetHeight) / 2), 5)
-        ]
-    },
-
     scrollOffsets: function() {
         return [
             window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft,
@@ -138,9 +100,9 @@ Deckbox._ = {
         }
 
         // IE8 in quirks mode returns 0 for these sizes
-        const size = [rootElement['clientWidth'], rootElement['clientHeight']];
+        const size = [rootElement.clientWidth, rootElement.clientHeight];
         if (size[1] === 0) {
-            return [document.body['clientWidth'], document.body['clientHeight']];
+            return [document.body.clientWidth, document.body.clientHeight];
         } else {
             return size;
         }
@@ -149,11 +111,7 @@ Deckbox._ = {
     fitToScreen: function(posX, posY, el) {
         const scroll = Deckbox._.scrollOffsets(), viewport = Deckbox._.viewportSize();
 
-        /* decide if wee need to switch sides for the tooltip */
-        /* too big for X */
-        if ((el.offsetWidth + posX) >= (viewport[0] - 15) ) {
-            posX = posX - el.offsetWidth - 20;
-        }
+        posX = posX - 5;
 
         /* If it's too high, we move it down. */
         if (posY - scroll[1] < 0) {
@@ -228,7 +186,6 @@ Deckbox._ = {
 
 // Bind the listeners
 (function() {
-
     function ontouchstart(event) {
         const el = Deckbox._.target(event);
         if (!Deckbox._.needsTooltip(el)) return;
@@ -239,16 +196,12 @@ Deckbox._ = {
         const el = Deckbox._.target(event);
         if (!Deckbox._.needsTooltip(el)) return;
 
-        if (el._touch) return; // if touchscreen, this is a fake mouseover
         el._mo = true;
 
-        let url,
-            posX = Deckbox._.pointerX(event),
-            posY = Deckbox._.pointerY(event);
+        let posX = Deckbox._.pointerX(event);
+        let posY = Deckbox._.pointerY(event);
 
-        if (url = el.getAttribute('data-tt')) {
-            showImage(el, url, posX, posY);
-        } else if (el.id.match('/(mtg)/')) {
+        if (el.id.match('/(mtg)/')) {
             showImage(el, el.id + '/tooltip', posX, posY);
         }
     }
@@ -258,19 +211,16 @@ Deckbox._ = {
         if (Deckbox._.needsTooltip(el)) {
             if (!el._touch) return; // on touch devices click shows tooltip
 
-            let url,
-                posX = Deckbox._.pointerX(event),
-                posY = Deckbox._.pointerY(event);
+            let posX = Deckbox._.pointerX(event);
+            let posY = Deckbox._.pointerY(event);
 
-            if (url = el.getAttribute('data-tt')) {
-                showImage(el, url, posX, posY);
-            } else if (el.id.match('/(mtg)/')) {
+            if (el.id.match('/(mtg)/')) {
                 let a = document.createElement("a");
                 a.className = "no_tt";
                 a.href = el.href;
                 a.target = "_blank";
                 a.innerHTML = "More Details";
-                showImage(el, el.id + '/tooltip', posX, posY, a);
+                showImage(el, el.id + '/tooltip', posX, posY);
             }
 
             event.preventDefault();
@@ -280,7 +230,7 @@ Deckbox._ = {
             setTimeout(function() {
                 Deckbox._.tooltip('image').hide();
                 Deckbox._.tooltip('text').hide();
-            }, 10)
+            }, 200);
         }
     }
 
@@ -292,7 +242,7 @@ Deckbox._ = {
         // wait 100 ms, if we didn't already mouseout of this element, we show the mouseover tooltip
         setTimeout(function() {
             if (el._mo) Deckbox._.tooltip('image').showImage(posX, posY, img);
-        }, 10)
+        }, 200);
     }
 
     function onmousemove(event) {
