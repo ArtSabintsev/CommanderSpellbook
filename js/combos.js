@@ -299,7 +299,12 @@ function replaceTextWithManaImages(text) {
     text = text.replace(/:managp:/g, `<img src="images/mana/managp.png" width="${width}" alt="Green Phyrexian mana" loading="lazy">`);
     text = text.replace(/:manat:/g, `<img src="images/mana/manat.png" width="${width}" alt="Tap symbol" loading="lazy">`);
     text = text.replace(/:manaq:/g, `<img src="images/mana/manaq.png" width="${width}" alt="Untap symbol" loading="lazy">`);
-
+    text = text.replace(/:mana2w:/g, `<img src="images/mana/mana2w.png" width="${width}" alt="2/W mana" loading="lazy">`);
+    text = text.replace(/:mana2u:/g, `<img src="images/mana/mana2u.png" width="${width}" alt="2/U mana" loading="lazy">`);
+    text = text.replace(/:mana2b:/g, `<img src="images/mana/mana2b.png" width="${width}" alt="2/B mana" loading="lazy">`);
+    text = text.replace(/:mana2r:/g, `<img src="images/mana/mana2r.png" width="${width}" alt="2/R mana" loading="lazy">`);
+    text = text.replace(/:mana2g:/g, `<img src="images/mana/mana2g.png" width="${width}" alt="2/G mana" loading="lazy">`);
+    
     return text;
 }
 
