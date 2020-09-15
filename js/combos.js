@@ -470,6 +470,12 @@ function tableStriping() {
 
 
 function copyComboID(id) {
+    gtag('event', 'User Copied Combo Link', {
+        'event_category': 'Copy Category',
+        'event_label': 'Copy Event',
+        'value': id
+    });
+
     var $temp = $("<input>");
     $("body").append($temp);
     let linkToCopy = `https://CommanderSpellbook.com/?id=${id}`;
