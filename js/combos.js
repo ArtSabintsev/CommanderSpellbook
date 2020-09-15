@@ -304,7 +304,7 @@ function replaceTextWithManaImages(text) {
     text = text.replace(/:mana2b:/g, `<img src="images/mana/mana2b.png" width="${width}" alt="2/B mana" loading="lazy">`);
     text = text.replace(/:mana2r:/g, `<img src="images/mana/mana2r.png" width="${width}" alt="2/R mana" loading="lazy">`);
     text = text.replace(/:mana2g:/g, `<img src="images/mana/mana2g.png" width="${width}" alt="2/G mana" loading="lazy">`);
-    
+
     return text;
 }
 
