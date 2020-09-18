@@ -82,30 +82,6 @@
     at least one card from this set.
   </div>
 
-  <!-- Banner Ad -->
-  <div id="gh-main"></div>
-
-  <script type="text/javascript">
-    window['nitroAds'].createAd('gh-main', {
-      "refreshLimit": 10,
-      "refreshTime": 30,
-      "renderVisibleOnly": true,
-      "refreshVisibleOnly": true,
-      "sizes": [
-        [
-          "728",
-          "90"
-        ]
-      ],
-      "report": {
-        "enabled": true,
-        "wording": "Report Ad",
-        "position": "bottom-right"
-      },
-      "mediaQuery": "(min-width: 1025px), (min-width: 768px) and (max-width: 1024px), (min-width: 320px) and (max-width: 767px)"
-    });
-  </script>
-
   <!--Nav Bar-->
   <nav class="navbar navbar-expand-xl navbar-light bg-light">
     <a class="navbar-brand" href="#">Commander Spellbook</a>
@@ -239,6 +215,30 @@
     </table>
   </div>
   </div>
+
+  <!-- Banner Ad Web -->
+  <div id="gh-main-web"></div>
+
+  <script type="text/javascript">
+  window['nitroAds'].createAd('gh-main-web', {
+    "refreshLimit": 10,
+    "refreshTime": 30,
+    "renderVisibleOnly": true,
+    "refreshVisibleOnly": true,
+    "sizes": [
+      [
+        "728",
+        "90"
+      ]
+    ],
+    "report": {
+      "enabled": true,
+      "wording": "Report Ad",
+      "position": "bottom-right"
+    },
+    "mediaQuery": "(min-width: 1025px)"
+  });
+  </script>
 
   <!-- Submit Combo Modal -->
   <div class="modal fade" id="submitComboModal" tabindex="-1" role="dialog" aria-labelledby="submitComboModalLabel"
@@ -552,6 +552,7 @@
       <li>Use the Card Filter bar to search for combos with a specific amount of cards.</li>
       <li><strong>You can view all combos for a specific color by typing in their colloquial color identity name (e.g.,
           Mono-Blue, Dimir, Esper, Sans-Red, WUBRG, etc.)</strong></li>
+      <span data-ccpa-link="1"></span>
     </ul>
   </div>
 </footer>
