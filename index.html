@@ -67,11 +67,35 @@
 
 <body>
   <!-- Alert -->
-  <div class="alert alert-info alert-dismissible my-3" role="alert" align="center">
+  <!-- <div class="alert alert-info alert-dismissible my-3" role="alert" align="center">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     Zendikar Rising (ZNR) Spoiler Season is now live! Type in <strong>Spoiled</strong> to view all combos that contain
     at least one card from this set.
-  </div>
+  </div> -->
+
+  <!-- Ads -->
+  <div id="gh-main"></div> -->
+
+  <!-- <script type="text/javascript">
+    window['nitroAds'].createAd('gh-main', {
+      "refreshLimit": 10,
+      "refreshTime": 30,
+      "renderVisibleOnly": true,
+      "refreshVisibleOnly": true,
+      "sizes": [
+        [
+          "728",
+          "90"
+        ]
+      ],
+      "report": {
+        "enabled": true,
+        "wording": "Report Ad",
+        "position": "bottom-right"
+      },
+      "mediaQuery": "(min-width: 1025px), (min-width: 768px) and (max-width: 1024px), (min-width: 320px) and (max-width: 767px)"
+    });
+  </script>
 
   <!--Nav Bar-->
   <nav class="navbar navbar-expand-xl navbar-light bg-light">
@@ -122,8 +146,7 @@
 
     <!-- Input Form -->
     <div class="input-group mb-3">
-      <input class="form-control" id="card-input" type="text"
-        placeholder="Loading combos may take up to 10 seconds..." onkeyup="performSearch()">
+      <input class="form-control" id="card-input" type="text" placeholder="Loading combos..." onkeyup="performSearch()">
       <div class="input-group-append">
         <span class="input-group-text" id="card-input-results">0 Results</span>
       </div>
