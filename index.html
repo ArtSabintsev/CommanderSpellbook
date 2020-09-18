@@ -536,6 +536,84 @@
     </div>
   </div>
 
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="privacyLabel">Privacy Policy</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          We consider the privacy of our visitors to be extremely important. This privacy
+          policy document describes in detail the types of personal information is collected and recorded by
+          Commander Spellbook and how we use it. 
+
+          <p>
+            <p><strong>Log Files</strong></p>
+          </p>
+          Like many other websites, we makes use of log files. These files merely logs
+          visitors to the site - usually a standard procedure for hosting companies and a part of hosting services's
+          analytics. The information inside the log files includes internet protocol (IP) addresses, browser type,
+          Internet Service Provider (ISP), date/time stamp, referring/exit pages, and possibly the number of clicks.
+          This information is used to analyze trends, administer the site, track user's movement around the site, and
+          gather demographic information. IP addresses, and other such information are not linked to any information
+          that is personally identifiable.
+
+          <p>
+            <p><strong>Cookies and Web Beacon</strong></p>
+          </p>
+          We use cookies to store information about visitors' preferences, to record user-specific information
+          on which
+          pages the site visitor accesses or visits, and to personalize or customize our web page content based upon
+          visitors' browser type or other information that the visitor sends via their browser.
+
+          <p>
+            <p><strong>Third Party Privacy Policies</strong></p>
+          </p>
+          You should consult the respective privacy policies of these third-party ad servers for more detailed
+          information on their practices as well as for instructions about how to opt-out of certain practices.
+          Our privacy policy does not apply to, and we cannot control the activities of, such
+          other advertisers or web sites. You may find a comprehensive listing of these privacy policies and their
+          links
+          here: <a href="https://www.privacypolicyonline.com/privacy-policy-links/" target="_blank">Privacy Policy
+            Links</a>
+
+          <p>
+            <p><strong>Children's Information</strong></p>
+          </p>
+          We believe it is important to provide added protection for children online. We encourage parents and
+          guardians
+          to spend time online with their children to observe, participate in and/or monitor and guide their online
+          activity. We do not knowingly collect any personally identifiable information from
+          children under the age of 13. If a parent or guardian believes that has in its
+          database the personally-identifiable information of a child under the age of 13, please contact us immediately
+          (using the contact in the first paragraph) and we will use our best efforts to promptly remove such
+          information from our records.
+
+          <p>
+            <p><strong>Online Privacy Policy Only</strong></p>
+          </p>
+          This privacy policy applies only to our online activities and is valid for visitors to our website and
+          regarding information shared and/or collected there. This policy does not apply to any information collected
+          offline or via channels other than this website.
+
+          <p>
+            <p><strong>Consent</strong></p>
+          </p>
+          By using our website, you hereby consent to our privacy policy and agree to its terms.
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- UI Updating Methods -->
   <script>
     let searchTimeout = void 0;
@@ -566,18 +644,12 @@
 </body>
 <footer>
   <div class="container" width="50%">
-    <hr>
-    <strong>
-      <center>Search Tips</center>
-    </strong>
-    <ul>
-      <li>Type in the name of a single card, a Combo ID, or a Combo Result to search the database.</li>
-      <li>Use the Color Filter bar to search for combos within a specific color combination.</li>
-      <li>Use the Card Filter bar to search for combos with a specific amount of cards.</li>
-      <li><strong>You can view all combos for a specific color by typing in their colloquial color identity name (e.g.,
-          Mono-Blue, Dimir, Esper, Sans-Red, WUBRG, etc.)</strong></li>
-      <span data-ccpa-link="1"></span>
-    </ul>
+    <center>
+      <button type="button" class="btn btn-link text-info" data-toggle="modal" data-target="#searchTipsModal">Search Tips</button>
+      |
+      <button type="button" class="btn btn-link text-info" data-toggle="modal" data-target="#privacyModal">Privacy
+        Policy</button>
+    </center>
   </div>
 </footer>
 
