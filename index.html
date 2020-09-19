@@ -577,10 +577,30 @@
           <br>- Chris "Wolfe"
           <br>- Andrew "Burger" Eden
           <hr>
-          <p>Commander Spellbook may use the trademarks and other intellectual property of
-            Wizards of the Coast LLC, which is permitted under Wizards' Fan Site Policy. For more information, please
-            visit their
-            website at <a href="https://company.wizards.com/">https://company.wizards.com/</a>.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wizard Fan Site Modal -->
+  <div class="modal fade" id="fanSiteModal" tabindex="-1" role="dialog" aria-labelledby="fansiteLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="fansiteLabel">Wizard Fan Site Policy</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Commander Spellbook may use the trademarks and other intellectual property of
+          Wizards of the Coast LLC, which is permitted under Wizards' Fan Site Policy. For more information, please
+          visit their
+          website at <a href="https://company.wizards.com/">https://company.wizards.com/</a>.
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -914,11 +934,23 @@
 </body>
 <footer>
   <div class="container" width="50%">
+    <strong>
+      <center>Search Tips</center>
+    </strong>
+    <ul>
+      <li>Type in the name of a single card, a Combo ID, or a Combo Result to search the database.</li>
+      <li>Use the Color Filter bar to search for combos within a specific color combination.</li>
+      <li>Use the Card Filter bar to search for combos with a specific amount of cards.</li>
+      <li><strong>You can view all combos for a specific color by typing in their colloquial color identity name (e.g.,
+          Mono-Blue, Dimir, Esper, Sans-Red, WUBRG, etc.)</strong></li>
+    </ul>
     <center>
-      <button type="button" class="btn btn-link text-info" data-toggle="modal" data-target="#searchTipsModal">Search
-        Tips</button>
-      |
+      <a class="btn btn-link text-info" target="_blank"
+        href="https://discord.com/invite/DkAyVJG" target="_blank">Join us on Discord</a> |
       <button type="button" class="btn btn-link text-info" data-toggle="modal" data-target="#privacyModal">Privacy
+        Policy</button> |
+      <button type="button" class="btn btn-link text-info" data-toggle="modal" data-target="#fanSiteModal">Wizard Fan
+        Site
         Policy</button>
     </center>
   </div>
