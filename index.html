@@ -222,6 +222,30 @@
   <script type="text/javascript">
     window['nitroAds'].createAd('gh-main-web', {
       "refreshLimit": 10,
+      "refreshTime": 45,
+      "renderVisibleOnly": true,
+      "refreshVisibleOnly": true,
+      "sizes": [
+        [
+          "728",
+          "90"
+        ],
+        [
+          "970",
+          "90"
+        ],
+        [
+          "970",
+          "250"
+        ]
+      ],
+      "mediaQuery": "(min-width: 1025px)"
+    });
+  </script>
+
+  <script type="text/javascript">
+    window['nitroAds'].createAd('gh-main-web', {
+      "refreshLimit": 10,
       "refreshTime": 30,
       "renderVisibleOnly": true,
       "refreshVisibleOnly": true,
@@ -231,36 +255,65 @@
           "90"
         ]
       ],
-      "report": {
-        "enabled": true,
-        "wording": "Report Ad",
-        "position": "top-right"
-      },
       "mediaQuery": "(min-width: 1025px)"
     });
   </script>
 
-  <div id="gh-main-mobile"></div>
+  <!-- Banner Ad Tablet -->
+  <div id="gh-main-tablet"></div>
 
-  <!-- Banner Ad Mobile -->
   <script type="text/javascript">
-    window['nitroAds'].createAd('gh-main-mobile', {
+    window['nitroAds'].createAd('gh-main-tablet', {
       "refreshLimit": 10,
-      "refreshTime": 30,
+      "refreshTime": 45,
+      "renderVisibleOnly": true,
+      "refreshVisibleOnly": true,
+      "sizes": [
+        [
+          "728",
+          "90"
+        ],
+        [
+          "970",
+          "90"
+        ],
+        [
+          "970",
+          "250"
+        ],
+        [
+          "300",
+          "250"
+        ],
+        [
+          "320",
+          "50"
+        ]
+      ],
+      "mediaQuery": "(min-width: 768px) and (max-width: 1024px)"
+    });
+  </script>
+
+  <!-- Banner Ad Phone -->
+  <div id="gh-main-phone"></div>
+
+  <script type="text/javascript">
+    window['nitroAds'].createAd('gh-main-phone', {
+      "refreshLimit": 10,
+      "refreshTime": 45,
       "renderVisibleOnly": true,
       "refreshVisibleOnly": true,
       "sizes": [
         [
           "320",
           "50"
+        ],
+        [
+          "300",
+          "250"
         ]
       ],
-      "report": {
-        "enabled": true,
-        "wording": "Report Ad",
-        "position": "top-right"
-      },
-      "mediaQuery": "(min-width: 768px) and (max-width: 1024px), (min-width: 320px) and (max-width: 767px)"
+      "mediaQuery": "(min-width: 320px) and (max-width: 767px)"
     });
   </script>
 
@@ -603,7 +656,9 @@
 
 
           <div class="ccpa">
-            <p><h3>For California Residents: CCPA Information</h3></p>
+            <p>
+              <h3>For California Residents: CCPA Information</h3>
+            </p>
             <p><span data-ccpa-link="1"></span></p>
             <p>This Privacy Notice for California Residents supplements the information contained elsewhere in this
               Privacy Notice and applies solely to all visitors, users, and others who reside in the State of
