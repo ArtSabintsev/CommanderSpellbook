@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <!--Meta-->
+  <title>Commander Spellbook - Combo Database for Commander (EDH)</title>
+  <meta name="description"
+    content="The Premier Magic: the Gathering Combo Database for the Commander / Elder Dragon Highlander (EDH) Format.">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="search" type="application/opensearchdescription+xml" title="Commander Spellbook"
+    href="https://commanderspellbook.com/favicon/opensearch.xml" />
+
+  <!--Favicon-->
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LPW4VGE0F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-0LPW4VGE0F');
+  </script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous" defer>
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+  <script type="text/javascript">
+    window['nitroAds'] = window['nitroAds'] || {
+      createAd: function () {
+        window.nitroAds.queue.push(["createAd", arguments])
+      },
+      queue: []
+    };
+  </script>
+  <script async src="https://s.nitropay.com/ads-548.js"></script>
+
+  <!-- MTGIFY Tooltips -->
+  <!-- <script>
+    MTGIFY_CONFIG = {
+      linkSource: "scryfall",
+      imgSource: "scryfall",
+    }
+  </script>
+  <link rel="stylesheet" href="https://mtgify.org/dist/autocard.css" />
+  <script src="https://mtgify.org/dist/autocard.js"></script> -->
+
+  <!-- Deckbox Tooltips-->
+  <!-- <script src="https://deckbox.org/assets/external/tooltip.js" defer></script> -->
+
+  <!-- Internal JS -->
+  <script src="js/combos.js"></script>
+  <script src="js/metrics.js"></script>
+  <script src="js/tooltips.js"></script>
+</head>
+
+<body>
+  <!-- Alert -->
+  <div class="alert alert-info alert-dismissible my-3" role="alert" align="center">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    Zendikar Rising (ZNR) Spoiler Season is now live! Type in <strong>Spoiled</strong> to view all combos that contain
+    at least one card from this set.
+  </div>
+
+  <!--Nav Bar-->
+  <nav class="navbar navbar-expand-xl navbar-light bg-light">
+    <a class="navbar-brand" href="#">Commander Spellbook</a>
+    <span class="navbar-text">
+      Combo Database for EDH
+    </span>
+    <button class="navbar-toggler navbar-right" type="button" data-toggle="collapse" data-target="#navbar"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right ml-auto">
+        <li class="nav-item">
+          <button class="btn btn-success d-none d-lg-inline-block" data-toggle="modal"
+            data-target="#submitComboModal">Submit</button>
+          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#submitComboModal">Submit a
+            Combo</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
+            data-target="#metricsModal">Metrics</button>
+          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#metricsModal">Combo Metrics</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
+            data-target="#searchTipsModal">Search Tips</button>
+          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#searchTipsModal">Search
+            Tips</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
+            href="https://discord.com/invite/DkAyVJG">Discord</a>
+          <a class="d-inline d-lg-none" role="button" target="_blank"
+            href="https://discord.com/invite/DkAyVJG">Discord</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
+            data-target="#aboutModal">About</button>
+          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#aboutModal">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!--Main Div-->
+  <div class="container-fluid" id="global">
+
+    <!-- Input Form -->
+    <div class="input-group mb-3">
+      <input class="form-control" id="card-input" type="text" placeholder="Loading combos..." onkeyup="performSearch()">
+      <div class="input-group-append">
+        <span class="input-group-text" id="card-input-results">0 Results</span>
+      </div>
+    </div>
+
+    <!-- Color Identity Selector -->
+    <div id="colorIdentitySelector">
+      <div class="align-self-center" id="filter-by-color">
+        Color Filter
+      </div>
+      <div class="img-responsive" id="manaC">
+        <div class="image-checkbox"><img src="images/mana/manac.png" width="40" alt="colorless combos"></div>
+      </div>
+      <div class="img-responsive" id="manaW">
+        <div class="image-checkbox"><img src="images/mana/manaw.png" width="40" alt="white combos"></div>
+      </div>
+      <div class="img-responsive" id="manaU">
+        <div class="image-checkbox"><img src="images/mana/manau.png" width="40" alt="blue combos"></div>
+      </div>
+      <div class="img-responsive" id="manaB">
+        <div class="image-checkbox"><img src="images/mana/manab.png" width="40" alt="black combos"></div>
+      </div>
+      <div class="img-responsive" id="manaR">
+        <div class="image-checkbox"><img src="images/mana/manar.png" width="40" alt="red combos"></div>
+      </div>
+      <div class="img-responsive" id="manaG">
+        <div class="image-checkbox"><img src="images/mana/manag.png" width="40" alt="green combos"></div>
+      </div>
+    </div>
+
+    <!-- Color Identity Selector -->
+    <div id="cardNumberSelector">
+      <div class="align-self-center" id="filter-by-card">
+        Card Filter
+      </div>
+      <div class="img-responsive" id="mana2">
+        <div class="image-checkbox"><img src="images/mana/mana2.png" width="40" alt="2 card combos"></div>
+      </div>
+      <div class="img-responsive" id="mana3">
+        <div class="image-checkbox"><img src="images/mana/mana3.png" width="40" alt="3 card combos"></div>
+      </div>
+      <div class="img-responsive" id="mana4">
+        <div class="image-checkbox"><img src="images/mana/mana4.png" width="40" alt="4 card combos"></div>
+      </div>
+      <div class="img-responsive" id="mana5">
+        <div class="image-checkbox"><img src="images/mana/mana5.png" width="40" alt="5 card combos"></div>
+      </div>
+      <div class="img-responsive" id="mana6">
+        <div class="image-checkbox"><img src="images/mana/mana6.png" width="40" alt="6 card combos"></div>
+      </div>
+      <div class="img-responsive" id="mana7p">
+        <div class="image-checkbox"><img src="images/mana/mana7p.png" width="40" alt="7+ card combos"></div>
+      </div>
+    </div>
+
+    <!-- Combos Table -->
+    <table class="table" id="no-more-tables">
+      <thead>
+        <tr>
+          <th width="13%">
+            <center>CARDS</center>
+          </th>
+          <th width="15%">
+            <center>IDENTITY</center>
+          </th>
+          <th width="18%">
+            <center>PREREQUISITES</center>
+          </th>
+          <th width="25%">
+            <center>STEPS</center>
+          </th>
+          <th width="15%">
+            <center>RESULT</center>
+          </th>
+          <th width="14%">
+            <center>META</center>
+          </th>
+        </tr>
+      </thead>
+      <tbody id="combos"></tbody>
+    </table>
+  </div>
+  </div>
+
+  <!-- Banner Ad Web -->
+  <div id="gh-main-web"></div>
+
+  <script type="text/javascript">
+    window['nitroAds'].createAd('gh-main-web', {
+      "refreshLimit": 10,
+      "refreshTime": 45,
+      "renderVisibleOnly": true,
+      "refreshVisibleOnly": true,
+      "sizes": [
+        [
+          "728",
+          "90"
+        ],
+        [
+          "970",
+          "90"
+        ],
+        [
+          "970",
+          "250"
+        ]
+      ],
+      "mediaQuery": "(min-width: 1025px)"
+    });
+  </script>
+
+  <script type="text/javascript">
+    window['nitroAds'].createAd('gh-main-web', {
+      "refreshLimit": 10,
+      "refreshTime": 30,
+      "renderVisibleOnly": true,
+      "refreshVisibleOnly": true,
+      "sizes": [
+        [
+          "728",
+          "90"
+        ]
+      ],
+      "mediaQuery": "(min-width: 1025px)"
+    });
+  </script>
+
+  <script type="text/javascript">
+    window['nitroAds'].createAd('gh-left-web', {
+      "refreshLimit": 10,
+      "refreshTime": 45,
+      "format": "rail",
+      "rail": "left",
+      "railOffsetTop": 0,
+      "railOffsetBottom": 0,
+      "railCollisionWhitelist": [],
+      "sizes": [
+        [
+          "300",
+          "250"
+        ],
+        [
+          "160",
+          "600"
+        ],
+        [
+          "300",
+          "600"
+        ]
+      ],
+      "mediaQuery": "(min-width: 1025px), (min-width: 768px) and (max-width: 1024px)"
+    });
+  </script>
+
+  <script type="text/javascript">
+    window['nitroAds'].createAd('gh-left-web', {
+      "refreshLimit": 10,
+      "refreshTime": 45,
+      "format": "rail",
+      "rail": "left",
+      "railOffsetTop": 0,
+      "railOffsetBottom": 0,
+      "railCollisionWhitelist": [],
+      "sizes": [
+        [
+          "300",
+          "250"
+        ],
+        [
+          "160",
+          "600"
+        ],
+        [
+          "300",
+          "600"
+        ]
+      ],
+      "mediaQuery": "(min-width: 1025px), (min-width: 768px) and (max-width: 1024px)"
+    });
+  </script>
+
+
+  <!-- Banner Ad Tablet -->
+  <div id="gh-main-tablet"></div>
+
+  <script type="text/javascript">
+    window['nitroAds'].createAd('gh-main-tablet', {
+      "refreshLimit": 10,
+      "refreshTime": 45,
+      "renderVisibleOnly": true,
+      "refreshVisibleOnly": true,
+      "sizes": [
+        [
+          "728",
+          "90"
+        ],
+        [
+          "970",
+          "90"
+        ],
+        [
+          "970",
+          "250"
+        ],
+        [
+          "300",
+          "250"
+        ],
+        [
+          "320",
+          "50"
+        ]
+      ],
+      "mediaQuery": "(min-width: 768px) and (max-width: 1024px)"
+    });
+  </script>
+
+  <!-- Banner Ad Phone -->
+  <div id="gh-main-phone"></div>
+
+  <script type="text/javascript">
+    window['nitroAds'].createAd('gh-main-phone', {
+      "refreshLimit": 10,
+      "refreshTime": 45,
+      "renderVisibleOnly": true,
+      "refreshVisibleOnly": true,
+      "sizes": [
+        [
+          "320",
+          "50"
+        ],
+        [
+          "300",
+          "250"
+        ]
+      ],
+      "mediaQuery": "(min-width: 320px) and (max-width: 767px)"
+    });
+  </script>
+
+  <!-- Submit Combo Modal -->
+  <div class="modal fade" id="submitComboModal" tabindex="-1" role="dialog" aria-labelledby="submitComboModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="submitComboModalLabel">Want to Submit a Combo?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          At this time, combo submissions (and updates) are only being accepted via <a target="_blank"
+            href="https://discord.gg/KDnvP5f">Discord</a>, as we've learned from experience that
+          many of them require a discussion. If your combo isn't listed here, or if you've found a bug with one of our
+          combos, please join us on Discord to
+          contribute to the catalog.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a role="button" class="btn btn-success" target="_blank" href="https://discord.gg/KDnvP5f">Join us on
+            Discord</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Metrics Modal -->
+  <div class="modal fade" id="metricsModal" tabindex="-1" role="dialog" aria-labelledby="metricsLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="metricsLabel">Combo Metrics</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="38%">
+                  <center>METRIC</center>
+                </th>
+                <th width="57%">
+                  <center>IDENTITY</center>
+                </th>
+                <th width="5%">
+                  <center>COUNT</center>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="metrics"></tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Tips Modal -->
+  <div class="modal fade" id="searchTipsModal" tabindex="-1" role="dialog" aria-labelledby="searchTipsLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchTipsLabel">Search Tips</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>Type in the name of a single card, a Combo ID, or a Combo Result (see table below) to search the
+              database.</li>
+            <li>Use the <em>Color Filter</em> bar to search for combos within in a specific color combination.</li>
+            <li>Use the <em>Card Filter</em> bar to search for combos with a specific amount of cards.</li>
+            <li><b>You can view all combos for a specific color by typing in its colloquial color identity name (e.g.,
+                Mono-Blue, Dimir, Esper, Sans-Red, WUBRG, etc.)</b></li>
+          </ul>
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="40%">
+                  <center>Special Syntax</center>
+                </th>
+                <th width="60%">
+                  <center>What does it do?</center>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Banned</td>
+                <td>Returns combos that contain at least one card that is banned in Commander/EDH.</td>
+              </tr>
+              <tr>
+                <td>Spoiled</td>
+                <td>Returns combos that contain at least one card from the an upcoming non-reprint set.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table">
+            <thead>
+              <tr>
+                <th width="40%">
+                  <center>Combo Results</center>
+                </th>
+                <th width="60%">
+                  <center>Definition</center>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Draw the game</td>
+                <td>Combo results in the game ending in a draw.</td>
+              </tr>
+              <tr>
+                <td>Exile all opponents' libraries</td>
+                <td>Combo results in exiling all the cards in all of your opponents libraries.</td>
+              </tr>
+              <tr>
+                <td>Infinite black mana</td>
+                <td>Combo has the potential of producing infinite black mana.</td>
+              </tr>
+              <tr>
+                <td>Infinite blue mana</td>
+                <td>Combo has the potential of producing infinite blue mana.</td>
+              </tr>
+              <tr>
+                <td>Infinite card draw</td>
+                <td>Combo allows a player to draw their entire deck</td>
+              </tr>
+              <tr>
+                <td>Infinite colored mana</td>
+                <td>Combo has the potential of producing infinite mana of all colors.</td>
+              </tr>
+              <tr>
+                <td>Infinite colorless mana</td>
+                <td>Combo produces infinite colorless mana.</td>
+              </tr>
+              <tr>
+                <td>Infinite copies</td>
+                <td>Combo produces infinite copies of a spell.</td>
+              </tr>
+              <tr>
+                <td>Infinite damage</td>
+                <td>Combo results in dealing infinite damage to creatures and/or players.</td>
+              </tr>
+              <tr>
+                <td>Infinite death triggers</td>
+                <td>Combo results in an infinite amount of death triggers on the stack.</td>
+              </tr>
+              <tr>
+                <td>Infinite ETB</td>
+                <td>Combo results in an infinite amount of Enter the Battleground triggers on the stack.</td>
+              </tr>
+              <tr>
+                <td>Infinite green mana</td>
+                <td>Combo has the potential of producing infinite green mana.</td>
+              </tr>
+              <tr>
+                <td>Infinite lifegain</td>
+                <td>Combo results in a player gaining infinite life.</td>
+              </tr>
+              <tr>
+                <td>Infinite life loss</td>
+                <td>Combo results in a player losing all of their life due to non-damage effects.</td>
+              </tr>
+              <tr>
+                <td>Infinite loot</td>
+                <td>Combo results in an infinite amount of draw and discard effects.</td>
+              </tr>
+              <tr>
+                <td>Infinite LTB</td>
+                <td>Combo results in an infinite amount of Leave the Battleground triggers on the stack.</td>
+              </tr>
+              <tr>
+                <td>Infinite mill</td>
+                <td>Combo causes a player to place all of the cards in their librarary into their graveyard.</td>
+              </tr>
+              <tr>
+                <td>Infinite red mana</td>
+                <td>Combo has the potential of producing infinite red mana.</td>
+              </tr>
+              <tr>
+                <td>Infinite sacrifice triggers</td>
+                <td>Combo results in an infinite amount of sacrifice triggers on the stack.</td>
+              </tr>
+              <tr>
+                <td>Infinite scry</td>
+                <td>Combo results in an infinite amount of scry triggers on the stack.</td>
+              </tr>
+              <tr>
+                <td>Infinite storm count</td>
+                <td>Combo results in a player casting an infinite amount of spells in a given turn.</td>
+              </tr>
+              <tr>
+                <td>Infinite turns</td>
+                <td>Combo results in infinite turns for the player.</td>
+              </tr>
+              <tr>
+                <td>Infinite white mana</td>
+                <td>Combo has the potential of producing infinite white mana.</td>
+              </tr>
+              <tr>
+                <td>Win the game</td>
+                <td>Combo results in you instantly winning the game due to an alternate win condition.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Modal -->
+  <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="aboutLabel">About</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          The Commander Spellbook project exists to catalog all reasonable Commander/EDH combos and to make them easily
+          available across all modern digital platforms. This community driven project is used to power <a
+            href="https://edhrec.com/combos" target="_blank">EDHREC's Combo Feauture</a>.
+          <p>
+            <p>The database and the source code for the website are <a href="https://opensource.org/licenses/MIT"
+                target="_blank">completely free and open
+                source under the MIT License</a>. We encourage you to copy this data so that it lives on!</p>
+          </p>
+          <ul>
+            <li><a target="_blank" href="https://github.com/ArtSabintsev/CommanderSpellbook">Website Source Code on
+                GitHub</a></li>
+            <li><a target="_blank"
+                href="https://docs.google.com/spreadsheets/d/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/">Combo
+                Database Backend on Google Sheets</a></li>
+            <li><a target="_blank"
+                href="https://sheets.googleapis.com/v4/spreadsheets/1JJo8MzkpuhfvsaKVFVlOoNymscCt-Aw-1sob2IhpwXY/values:batchGet?ranges=combos!A2:R&key=AIzaSyDzQ0jCf3teHnUK17ubaLaV6rcWf9ZjG5E">Combo
+                Database GET API on Google Sheets</a></li>
+          </ul>
+          <strong>Sincerely, the Community Admins,</strong>
+          <br>- <a href="https://github.com/ArtSabintsev/" target="_blank">Arthur "Senior Edificer" Sabintsev</a>
+          <br>- Eitan "Goldshot20" Ramati
+          <br>- Michael "AppleSaws" Horwitz
+          <br>- Chris "Wolfe"
+          <br>- Lapper
+          <br>- Andrew "Burger" Eden
+          <hr>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wizard Fan Site Modal -->
+  <div class="modal fade" id="fanSiteModal" tabindex="-1" role="dialog" aria-labelledby="fansiteLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="fansiteLabel">Wizard Fan Site Policy</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Commander Spellbook may use the trademarks and other intellectual property of
+          Wizards of the Coast LLC, which is permitted under Wizards' Fan Site Policy. For more information, please
+          visit their
+          website at <a href="https://company.wizards.com/">https://company.wizards.com/</a>.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="privacyLabel">Privacy Policy</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          We consider the privacy of our visitors to be extremely important. This privacy
+          policy document describes in detail the types of personal information is collected and recorded by
+          Commander Spellbook and how we use it. 
+
+          <p>
+            <p><strong>Log Files</strong></p>
+          </p>
+          Like many other websites, we makes use of log files. These files merely logs
+          visitors to the site - usually a standard procedure for hosting companies and a part of hosting services's
+          analytics. The information inside the log files includes internet protocol (IP) addresses, browser type,
+          Internet Service Provider (ISP), date/time stamp, referring/exit pages, and possibly the number of clicks.
+          This information is used to analyze trends, administer the site, track user's movement around the site, and
+          gather demographic information. IP addresses, and other such information are not linked to any information
+          that is personally identifiable.
+
+          <p>
+            <p><strong>Cookies and Web Beacon</strong></p>
+          </p>
+          We use cookies to store information about visitors' preferences, to record user-specific information
+          on which
+          pages the site visitor accesses or visits, and to personalize or customize our web page content based upon
+          visitors' browser type or other information that the visitor sends via their browser.
+
+          <p>
+            <p><strong>Third Party Privacy Policies</strong></p>
+          </p>
+          You should consult the respective privacy policies of these third-party ad servers for more detailed
+          information on their practices as well as for instructions about how to opt-out of certain practices.
+          Our privacy policy does not apply to, and we cannot control the activities of, such
+          other advertisers or web sites. You may find a comprehensive listing of these privacy policies and their
+          links
+          here: <a href="https://www.privacypolicyonline.com/privacy-policy-links/" target="_blank">Privacy Policy
+            Links</a>
+
+          <p>
+            <p><strong>Children's Information</strong></p>
+          </p>
+          We believe it is important to provide added protection for children online. We encourage parents and
+          guardians
+          to spend time online with their children to observe, participate in and/or monitor and guide their online
+          activity. We do not knowingly collect any personally identifiable information from
+          children under the age of 13. If a parent or guardian believes that has in its
+          database the personally-identifiable information of a child under the age of 13, please contact us immediately
+          (using the contact in the first paragraph) and we will use our best efforts to promptly remove such
+          information from our records.
+
+          <p>
+            <p><strong>Online Privacy Policy Only</strong></p>
+          </p>
+          This privacy policy applies only to our online activities and is valid for visitors to our website and
+          regarding information shared and/or collected there. This policy does not apply to any information collected
+          offline or via channels other than this website.
+
+
+          <div class="ccpa">
+            <p>
+              <h3>For California Residents: CCPA Information</h3>
+            </p>
+            <p><span data-ccpa-link="1"></span></p>
+            <p>This Privacy Notice for California Residents supplements the information contained elsewhere in this
+              Privacy Notice and applies solely to all visitors, users, and others who reside in the State of
+              California (“consumers” or “you”). We adopt this notice to comply with the California Consumer
+              Privacy Act of 2018 (CCPA) and any terms defined in the CCPA have the same meaning when used in this
+              notice.</p>
+            <h3>Rights and Choices</h3>
+            <p>The CCPA provides consumers located in the state of California with certain rights regarding their
+              personal information and data. The following section describes those rights and explains how to
+              exercise them:</p>
+            <h3>Access to Specific Information and Data Portability Rights</h3>
+            <p>You have the right to request that the company disclose certain information to you about our
+              collection and use of your personal information over the past 12 months. Once we receive and confirm
+              your verifiable consumer request (as described in the section “Exercising Access, Data Portability,
+              and Deletion Rights”), we will disclose to you:</p>
+            <ul>
+              <li>The categories of personal information we collected about you.</li>
+              <li>The categories of sources for the personal information we collected about you.</li>
+              <li>Our business or commercial purpose for collecting or selling that personal information.</li>
+              <li>The categories of third parties with whom we share that personal information.</li>
+              <li>The specific pieces of personal information we collected about you (also called data portability
+                request)</li>
+              <li>If we sold or disclose your personal information for a business purpose, two separate lists
+                disclosing:<ul>
+                  <li>Sales, identifying the personal information categories that each category of recipient
+                    purchased, and</li>
+                  <li>Disclosures for a business purpose, identifying the personal information categories that
+                    each category of recipient obtained</li>
+                </ul>
+              </li>
+            </ul>
+            <h3>Non-Discrimination</h3>
+            <p>We will not discriminate against you for exercising any of your CCPA rights. Unless permitted by the
+              CCPA, we will not:</p>
+            <ul>
+              <li>Deny you goods or services.</li>
+              <li>Charge you different prices or rates for goods or services, including through granting discounts
+                or imposing penalties.</li>
+              <li>Provide you a different level or quality of goods or services.</li>
+              <li>Suggest that you may receive a different price or rate for goods or services or a different
+                level of quality of goods or services.</li>
+            </ul>
+            <p>Any CCPA-permitted financial incentive we offer will reasonably relate to your value and contain
+              written terms that describe the program’s material aspects.</p>
+            <h3>Exercising Access, Data Portability, and Deletion Rights</h3>
+            <p>To exercise the access, data portability, and deletion rights described above, please submit a
+              verifiable consumer request to us by <a href="mailto:arthur@iOSConsultant.com">contacting us</a>.</p>
+            <p>Only you, or a person registered with the California Secretary of State that you authorize to act on
+              your behalf, may make a verifiable consumer request related to your personal information. You may
+              also make a verifiable consumer request on behalf of your minor child.</p>
+            <p>You may only make a verifiable consumer request for access of data portability twice within a
+              12-month period. The verifiable consumer request must:</p>
+            <ul>
+              <li>Provide sufficient information that allows us to reasonably verify you are the person about whom
+                we collected personal information or an authorized representative.</li>
+              <li>Describe your request with sufficient detail that allows us to properly understand, evaluate,
+                and respond to it.</li>
+            </ul>
+            <p>We cannot respond to your request or provide you with personal information if we cannot verify your
+              identity or authority to make the request and confirm the personal information relates to you.</p>
+            <p>Making a verifiable consumer request does not require you to create an account with us. We will only
+              use personal information provided in a verifiable consumer request to verify the requestor’s
+              identity or authority to make the request.</p>
+            <h3>Information We Collect</h3>
+            <p>Our websites, emails (with your consent, where required by law), and other products, services and
+              platforms collect information that identifies, relates to, describes, references, is capable of
+              being associated with, or could reasonably be linked, directly or indirectly, with a particular
+              consumer or device (“personal information”). In particular, our websites, apps, emails, and other
+              products, services and platforms may have collected the following categories of personal information
+              from its consumers within the last twelve (12) months:</p>
+            <table>
+              <tr>
+                <th>Category</th>
+                <th>Collected</th>
+              </tr>
+              <tr>
+                <td>A. Identifiers</td>
+                <td>YES</td>
+              </tr>
+              <tr>
+                <td>B. Personal information categories listed in the California Customer Records statute (Cal.
+                  Civ. Code § 1798.80(e))</td>
+                <td>YES</td>
+              </tr>
+              <tr>
+                <td>C. Protected classification characteristics under California or federal law</td>
+                <td>NO</td>
+              </tr>
+              <tr>
+                <td>D. Commercial information.</td>
+                <td>YES</td>
+              </tr>
+              <tr>
+                <td>E. Biometric information.</td>
+                <td>NO</td>
+              </tr>
+              <tr>
+                <td>F. Internet or other similar network activity.</td>
+                <td>YES</td>
+              </tr>
+              <tr>
+                <td>G. Geolocation data.</td>
+                <td>YES</td>
+              </tr>
+              <tr>
+                <td>H. Sensory data.</td>
+                <td>NO</td>
+              </tr>
+              <tr>
+                <td>I. Professional or employment-related information.</td>
+                <td>NO</td>
+              </tr>
+              <tr>
+                <td>J. Inferences drawn from other personal information.</td>
+                <td>YES</td>
+              </tr>
+            </table>
+            <p>Personal information does not include:</p>
+            <ul>
+              <li>Publicly available information from government records.</li>
+              <li>Deidentified or aggregated consumer information.</li>
+              <li>Information excluded from the CCPA’s scope, like:<ul>
+                  <li>health or medical information covered by the Health Insurance Portability and
+                    Accountability Act of 1996 (HIPAA) and the California Confidentiality of Medical
+                    Information Act (CMIA) or clinical trial data;</li>
+                  <li>personal information covered by certain sector-specific privacy laws, including the Fair
+                    Credit Reporting Act (FRCA), the Gramm-Leach-Bliley Act (GLBA) or California Financial
+                    Information Privacy Act (FIPA), and the Driver’s Privacy.</li>
+                </ul>
+              </li>
+            </ul>
+            <h3>Use of Personal Information</h3>
+            <p>We may use or disclose the personal information we collect for one or more of the following business
+              purposes:</p>
+            <ul>
+              <li>To fulfill or meet the reason you provided the information. For example, if you share your name
+                and contact information to request a newsletter or ask a question about our products or
+                services, we will use that personal information to respond to your inquiry. If you provide your
+                personal information to purchase a product or service, we or our third-party service providers
+                will use that information to process your payment and facilitate delivery. We may also save your
+                information to facilitate new product or service orders and requests.</li>
+              <li>To provide, support, personalize, and develop our websites, emails, and other products, services
+                and platforms.</li>
+              <li>To create, maintain, customize, and secure your account with us.</li>
+              <li>To process your requests, purchases, transactions, and payments and prevent transactional fraud.
+              </li>
+              <li>To provide you with support and to respond to your inquiries, including investigating and
+                addressing your concerns and monitoring and improving our responses.</li>
+              <li>To personalize your website, apps, emails, or other product, service or platform experience and
+                to deliver content and product and service offerings relevant to your interests, including
+                targeted offers and ads through our websites, apps, emails, and other products, services and
+                platforms.</li>
+              <li>To help maintain the safety, security, and integrity of our websites, apps, emails, and other
+                products, services and platforms, databases and other technology assets, and business.</li>
+              <li>For testing, research, analysis, and product development, including to develop and improve our
+                websites, apps, emails, and other products, services and platforms.</li>
+              <li>To respond to law enforcement requests and as required by applicable law, court order, or
+                governmental regulations.</li>
+              <li>As described to you when collecting your personal information or as otherwise set forth in the
+                CCPA.</li>
+              <li>To evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or
+                other sale or transfer of some or all of the Company’s assets, whether as a going concern or as
+                part of bankruptcy, liquidation, or similar proceeding, in which personal information held by
+                the Company about our Website users is among the assets transferred.</li>
+            </ul>
+            <p>The Company will not collect additional categories of personal information or use the personal
+              information we collected for materially different, unrelated, or incompatible purposes without
+              providing you notice.</p>
+            <h3>Sharing Personal Information</h3>
+            <p>The Company may disclose your personal information to a third-party for a business purpose or sell
+              your personal information, subject to your right to opt-out of those sales (see ‘Sales of Personal
+              Information’ below). When we disclose personal information for a business purpose, we enter a
+              contract that describes the purpose and requires the recipient to both keep that personal
+              information confidential and not use it for any purpose except performing the contract. The CCPA
+              prohibits third parties who purchase the personal information we hold from reselling it unless you
+              have received explicit notice and an opportunity to opt-out of further sales (see ‘Sales of Personal
+              Information’ below).</p>
+            <p>We may share your personal information with the following categories of third parties:</p>
+            <ul>
+              <li>Subsidiaries and affiliates.</li>
+              <li>Contractors and service providers.</li>
+              <li>Data aggregators.</li>
+              <li>Third parties with whom we partner to offer products and services to you.</li>
+            </ul>
+            <h3>Disclosures of Personal Information for a Business Purpose</h3>
+            <p>In the preceding twelve (12) months, the Company has disclosed the following categories of personal
+              information for a business purpose:</p>
+            <ul>
+              <li>[Category A: Identifiers.]</li>
+              <li>[Category B: California Customer Records personal information categories.]</li>
+              <li>[Category F: Internet or other similar network activity.]</li>
+              <li>[Category G: Geolocation Data.]</li>
+              <li>[Category K: Inferences drawn from other personal information.]</li>
+            </ul>
+            <h3>Sales of Personal Information</h3>
+            <p>In the preceding twelve (12) months, the company has sold the following categories of personal
+              information collected through our ad-supported services:</p>
+            <ul>
+              <li>[Category A: Identifiers.]</li>
+              <li>[Category F: Internet or other similar network activity.]</li>
+              <li>[Category G: Geolocation Data.]</li>
+              <li>[Category K: Inferences drawn from other personal information.]</li>
+            </ul>
+            <p>The company and our advertising partners collect the personal information identified above (such as
+              the cookies stored on your browser, the advertising identifier on your mobile device, or the IP
+              address of your device) when you visit our websites, apps, and other products, services and
+              platforms, or open our emails. We, and our partners, use this information to tailor and deliver ads
+              to you on our websites, apps, emails, and other products, services and platforms, or to help tailor
+              ads to you when you visit others’ sites (or use others’ apps). To tailor ads that may be more
+              relevant to you, we and/or our partners may share the information we collect with third parties.</p>
+          </div>
+
+          <p>
+            <p><strong>Consent</strong></p>
+          </p>
+          By using our website, you hereby consent to our privacy policy and agree to its terms.
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- UI Updating Methods -->
+  <script>
+    let searchTimeout = void 0;
+
+    function performSearch() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(function () {
+        $('#combos').empty();
+        evaluateSearchQuery();
+      }, 500);
+    }
+
+    var checkboxes = document.querySelectorAll('.image-checkbox');
+    checkboxes.forEach(function (checkbox) {
+      checkbox.classList.add('checked');
+      checkbox.addEventListener('click', function (e) {
+        e.currentTarget.classList.toggle('checked');
+
+        filterCombos();
+      });
+    });
+  </script>
+  </div>
+
+  <!-- Combo Links -->
+  <div id="snackbar">Combo link copied to your clipboard!</div>
+
+</body>
+<footer>
+  <div class="container" width="75%">
+    <strong>
+      <center>Search Tips</center>
+    </strong>
+    <ul>
+      <li>Type in the name of a single card, a Combo ID, or a Combo Result to search the database.</li>
+      <li>Use the Color Filter bar to search for combos within a specific color combination.</li>
+      <li>Use the Card Filter bar to search for combos with a specific amount of cards.</li>
+      <li><strong>You can view all combos for a specific color by typing in their colloquial color identity name (e.g.,
+          Mono-Blue, Dimir, Esper, Sans-Red, WUBRG, etc.)</strong></li>
+    </ul>
+    <center>
+      <button type="button" class="btn btn-link text-info" data-toggle="modal" data-target="#privacyModal">Privacy
+        Policy</button>|<button type="button" class="btn btn-link text-info" data-toggle="modal"
+        data-target="#fanSiteModal">Fan Site
+        Policy</button>
+    </center>
+  </div>
+</footer>
+
+</html>
