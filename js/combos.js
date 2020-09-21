@@ -70,6 +70,10 @@ function linkToCombo() {
         const searchInput = document.getElementById('card-input');
         searchInput.setAttribute('value', "banned");
         evaluateSearchQuery(true);
+    } else if (qs.q !== undefined) {
+        const searchInput = document.getElementById('card-input');
+        searchInput.setAttribute('value', qs.q);
+        evaluateSearchQuery(true);
     }
 }
 
