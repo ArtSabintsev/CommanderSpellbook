@@ -69,62 +69,60 @@
 <body>
   <div class="container" id="global">
 
-    <div id="gh-main-left"></div>
-
     <script type="text/javascript">
-    window['nitroAds'].createAd('gh-main-left', {
-      "refreshLimit": 10,
-      "refreshTime": 45,
-      "format": "sticky-stack",
-      "stickyStackLimit": 15,
-      "stickyStackSpace": 2.5,
-      "stickyStackOffset": 25,
-      "sizes": [
-        [
-          "300",
-          "250"
+      window['nitroAds'].createAd('gh-main-left', {
+        "refreshLimit": 10,
+        "refreshTime": 45,
+        "format": "rail",
+        "rail": "left",
+        "railOffsetTop": 0,
+        "railOffsetBottom": 0,
+        "railCollisionWhitelist": [],
+        "sizes": [
+          [
+            "300",
+            "250"
+          ],
+          [
+            "160",
+            "600"
+          ],
+          [
+            "300",
+            "600"
+          ]
         ],
-        [
-          "160",
-          "600"
-        ],
-        [
-          "300",
-          "600"
-        ]
-      ],
-      "mediaQuery": "(min-width: 1025px)"
-    });
+        "mediaQuery": "(min-width: 1025px)"
+      });
     </script>
 
-<div id="gh-main-right"></div>
+    <script type="text/javascript">
+      window['nitroAds'].createAd('gh-main-right', {
+        "refreshLimit": 10,
+        "refreshTime": 45,
+        "format": "rail",
+        "rail": "left",
+        "railOffsetTop": 0,
+        "railOffsetBottom": 0,
+        "railCollisionWhitelist": [],
+        "sizes": [
+          [
+            "300",
+            "250"
+          ],
+          [
+            "160",
+            "600"
+          ],
+          [
+            "300",
+            "600"
+          ]
+        ],
+        "mediaQuery": "(min-width: 1025px)"
+      });
+    </script>
 
-<script type="text/javascript">
-window['nitroAds'].createAd('gh-main-right', {
-  "refreshLimit": 10,
-  "refreshTime": 45,
-  "format": "sticky-stack",
-  "stickyStackLimit": 15,
-  "stickyStackSpace": 2.5,
-  "stickyStackOffset": 25,
-  "sizes": [
-    [
-      "300",
-      "250"
-    ],
-    [
-      "160",
-      "600"
-    ],
-    [
-      "300",
-      "600"
-    ]
-  ],
-  "mediaQuery": "(min-width: 1025px)"
-});
-</script>
-      
 
     <!-- Alert -->
     <!-- <div class="alert alert-info alert-dismissible my-3" role="alert" align="center">
