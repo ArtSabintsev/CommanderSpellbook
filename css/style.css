@@ -83,11 +83,6 @@ a:not([href]):hover {
     opacity: 1.0;
 }
 
-auto-card-image img {
-    width: 75%;
-    height: 75%;
-}
-
 /* Snackbar */
 #snackbar {
   visibility: hidden;

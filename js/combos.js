@@ -163,12 +163,6 @@ function parseCombos(combos, query) {
 
 function replaceCardNamesWithLinks(names) {
     return names.map(function (e) {
-        // MTGIFY Links
-        // return `<auto-card name="${e}">${e}</auto-card>`;
-
-        // MTGIFY Images
-        // return `<auto-card-image>${e}</auto-card-image>`;
-
         // Deckbox Links and Images
         // return `<a href="https://deckbox.org/mtg/${e}">${e}</a>`;
 
