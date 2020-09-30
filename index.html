@@ -67,67 +67,9 @@
 </head>
 
 <body>
-  <!-- Alert -->
-  <!-- <div class="alert alert-info alert-dismissible my-3" role="alert" align="center">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    Zendikar Rising (ZNR) Spoiler Season is now live! Type in <strong>Spoiled</strong> to view all combos that contain
-    at least one card from this set.
-  </div> -->
+  <div class="container" id="global">
 
-  <div class="alert alert-warning alert-dismissible my-3" role="alert" align="center">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    Looking to purchase new MTG product? Consider supporting my LGS, <a href="http://gamehavenmd.tcgplayerpro.com"
-      target="_blank">The Game Haven of Maryland,</a> with your next purchase!
-  </div>
-
-  <!--Nav Bar-->
-  <nav class="navbar navbar-expand-xl navbar-light bg-light">
-    <a class="navbar-brand" href="#">Commander Spellbook</a>
-    <span class="navbar-text">
-      Combo Database for EDH
-    </span>
-    <button class="navbar-toggler navbar-right" type="button" data-toggle="collapse" data-target="#navbar"
-      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="nav navbar-nav navbar-right ml-auto">
-        <li class="nav-item">
-          <button class="btn btn-success d-none d-lg-inline-block" data-toggle="modal"
-            data-target="#submitComboModal">Submit</button>
-          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#submitComboModal">Submit a
-            Combo</a>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
-            data-target="#metricsModal">Metrics</button>
-          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#metricsModal">Combo Metrics</a>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
-            data-target="#searchTipsModal">Search Tips</button>
-          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#searchTipsModal">Search
-            Tips</a>
-        </li>
-        <li class="nav-item">
-          <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
-            href="https://discord.com/invite/DkAyVJG">Discord</a>
-          <a class="d-inline d-lg-none" role="button" target="_blank"
-            href="https://discord.com/invite/DkAyVJG">Discord</a>
-        </li>
-        <li class="nav-item">
-          <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
-            data-target="#aboutModal">About</button>
-          <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#aboutModal">About</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <!--Main Div-->
-  <div class="container-fluid" id="global">
-
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       window['nitroAds'].createAd('gh-main-left', {
         "refreshLimit": 10,
         "refreshTime": 45,
@@ -144,7 +86,65 @@
         ],
         "mediaQuery": "(min-width: 1025px)"
       });
-      </script> -->
+      </script>
+
+    <!-- Alert -->
+    <!-- <div class="alert alert-info alert-dismissible my-3" role="alert" align="center">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    Zendikar Rising (ZNR) Spoiler Season is now live! Type in <strong>Spoiled</strong> to view all combos that contain
+    at least one card from this set.
+  </div> -->
+
+    <div class="alert alert-warning alert-dismissible my-3" role="alert" align="center">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      Looking to purchase new MTG product? Consider supporting my LGS, <a href="http://gamehavenmd.tcgplayerpro.com"
+        target="_blank">The Game Haven of Maryland,</a> with your next purchase!
+    </div>
+
+    <!--Nav Bar-->
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+      <a class="navbar-brand" href="#">Commander Spellbook</a>
+      <span class="navbar-text">
+        Combo Database for EDH
+      </span>
+      <button class="navbar-toggler navbar-right" type="button" data-toggle="collapse" data-target="#navbar"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav navbar-right ml-auto">
+          <li class="nav-item">
+            <button class="btn btn-success d-none d-lg-inline-block" data-toggle="modal"
+              data-target="#submitComboModal">Submit</button>
+            <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#submitComboModal">Submit a
+              Combo</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
+              data-target="#metricsModal">Metrics</button>
+            <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#metricsModal">Combo
+              Metrics</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
+              data-target="#searchTipsModal">Search Tips</button>
+            <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#searchTipsModal">Search
+              Tips</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-dark d-none d-lg-inline-block" role="button" target="_blank"
+              href="https://discord.com/invite/DkAyVJG">Discord</a>
+            <a class="d-inline d-lg-none" role="button" target="_blank"
+              href="https://discord.com/invite/DkAyVJG">Discord</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-dark d-none d-lg-inline-block" data-toggle="modal"
+              data-target="#aboutModal">About</button>
+            <a class="d-inline d-lg-none" role="button" data-toggle="modal" data-target="#aboutModal">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <!-- Input Form -->
     <div class="input-group mb-3">
