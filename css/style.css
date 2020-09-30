@@ -11,7 +11,7 @@
 
 body {
     background-color: #FAFAFA;
-    width: 65%;
+    width: 100%;
     margin: auto;
 }
 
@@ -127,6 +127,10 @@ a:not([href]):hover {
 }
 
 /* Web Combo Table */
+
+table {
+    width: 85%
+}
 
 th {
     background-color: #FAFAFA;
