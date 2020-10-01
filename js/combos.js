@@ -370,12 +370,14 @@ function updateTableWithCombos(combos) {
 }
 
 // Filter by Search Input
-function filterCombos(comboCount) {
-    $("#combos tr").filter(function () {
-        $(this).toggle(inIdentity($(this)) && numberOfCards($(this)));
-    });
+function filterCombos() {
+    const results = $("#combos tr").filter(function () {
+        const shouldToggle = inIdentity($(this)) && numberOfCards($(this));
+        $(this).toggle(shouldToggle);
+        return shouldToggle;
+    }).length;
 
-    document.getElementById('card-input-results').innerHTML = `${comboCount} Results`;
+    document.getElementById('card-input-results').innerHTML = `${results} Results`;
 
     tableStriping();
 }
