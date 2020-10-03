@@ -371,15 +371,24 @@ function updateTableWithCombos(combos) {
 
 // Filter by Search Input
 function filterCombos() {
-    const results = $("#combos tr").filter(function () {
-        const shouldToggle = inIdentity($(this)) && numberOfCards($(this));
-        $(this).toggle(shouldToggle);
-        return shouldToggle;
-    }).length;
+    $("#combos").hide();
+    $("#loading-spinner").removeClass('hidden');
 
-    document.getElementById('card-input-results').innerHTML = `${results} Results`;
+    setTimeout(function() {
+        // The setTimeout is needed to give the browser a chance to re-render the page so the spinner shows up
+        const results = $("#combos tr").filter(function () {
+            const shouldToggle = inIdentity($(this)) && numberOfCards($(this));
+            $(this).toggle(shouldToggle);
+            return shouldToggle;
+        }).length;
 
-    tableStriping();
+        $("#combos").show();
+        $("#loading-spinner").addClass('hidden');
+
+        document.getElementById('card-input-results').innerHTML = `${results} Results`;
+
+        tableStriping();
+    }, 0);
 }
 
 // Filter by Color Identity
@@ -464,7 +473,7 @@ function numberOfCards(context) {
 
 // Re-apply table striping on search
 function tableStriping() {
-    $("tr:visible").each(function (index) {
+    $("#combos tr:visible").each(function (index) {
         $(this).css("background-color", !!(index & 1) ? "rgba(0,0,0,.05)" : "rgba(0,0,0,0)");
     });
 }

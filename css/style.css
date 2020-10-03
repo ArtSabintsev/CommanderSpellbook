@@ -144,6 +144,20 @@ tbody tr {
     font-size: 14px;
 }
 
+tfoot {
+    background: #EEEEEE;
+}
+
+tfoot.hidden {
+    display: none;
+}
+
+/* using id to increase specificity of css selector */
+tfoot#loading-spinner tr td {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
 tbody tr:nth-child(odd) {
     background-color: #EEEEEE;
 }
